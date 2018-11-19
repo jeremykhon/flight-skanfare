@@ -19,6 +19,8 @@ gem 'webpacker'
 # my added gems
 gem 'rapidapi', '~> 0.1.3'
 gem 'unirest'
+gem 'devise'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
