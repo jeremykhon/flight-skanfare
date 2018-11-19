@@ -16,6 +16,10 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# my added gems
+gem 'rapidapi', '~> 0.1.3'
+gem 'unirest'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
