@@ -1,0 +1,28 @@
+.index-page-container {
+  width: 1200px;
+  text-align: center;
+  margin: 0 auto;
+
+}
+
+.cities-table {
+  border: 1px solid blue;
+}
+
+.scrolling-third {
+  overflow: scroll;
+  height: calc(85vh - 71.5px);
+}
+
+.picture-table {
+  height: calc(85vh - 71.5px);
+}
+
+.selected-city-image-container {
+  width: 500px;
+  height: 100%;
+  background-image: url("http://www.thaicongenvancouver.org/wp-content/uploads/2017/10/thailand-40160188-1482924456-ImageGalleryLightboxLarge.jpg");
+  background-size: cover !important;
+  background-position: center;
+  background: linear-gradient (-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(0, 36, 61, 0.6) 50%)
+}
