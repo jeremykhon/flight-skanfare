@@ -1,8 +1,8 @@
 class Quote < ApplicationRecord
 
-  def self.get_quotes
-    origin_destination = ["TYOA-sky", "HKG-sky"]
-    partial_date = "2018-12"
+  def self.get_quotes(origin, destination, partial_date)
+    origin_destination = [origin, destination]
+    partial_date = partial_date
 
     (0..1).each do |x|
 
