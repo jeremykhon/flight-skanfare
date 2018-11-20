@@ -4,13 +4,22 @@
 <%#= index + 1 %>
 <ul>
   <li>
-    <%#= quote["MinPrice"] %>
+    <%= quote.depart_date %>
   </li>
   <li>
-    <%#= quote["Direct"] %>
+    <%= quote.origin %>
   </li>
   <li>
-    <%#= quote["OutboundLeg"]["DepartureDate"] %>
+    <%= quote.destination %>
+  </li>
+  <li>
+    <%= quote.min_price %>
+  </li>
+  <li>
+    <%= quote.direct %>
+  </li>
+  <li>
+    <%= quote.unique_flight %>
   </li>
 </ul>
 <%# end %>
