@@ -1,16 +1,54 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% @quotes.each_with_index do |quote, index| %>
-<%= index + 1 %>
-<ul>
-  <li>
-    <%= quote["MinPrice"] %>
-  </li>
-  <li>
-    <%= quote["Direct"] %>
-  </li>
-  <li>
-    <%= quote["OutboundLeg"]["DepartureDate"] %>
-  </li>
-</ul>
-<% end %>
+<div class="fullscreen">
+  <div class="right">
+    <%= image_tag "logo.png", alt: "skanfare", width: "150px", height: "35px" %>
+    <button class="button">See All Deals</button>
+  </div>
+
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="title">
+        <h1>Skanfare</h1>
+      </div>
+    </div>
+  </div>
+
+  <section class="card">
+<!--     <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div>
+    <div class="card--content"></div> -->
+
+    <div class="slick-element" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+      <div><h3>1</h3></div>
+      <div><h3>2</h3></div>
+      <div><h3>3</h3></div>
+      <div><h3>4</h3></div>
+      <div><h3>5</h3></div>
+      <div><h3>6</h3></div>
+    </div>
+
+  </section>
+
+    <%# @quotes.each_with_index do |quote, index| %>
+<!--   <ul>
+    <li> -->
+      <%#= quote["MinPrice"] %>
+ <!--    </li>
+    <li> -->
+      <%#= quote["Direct"] %>
+<!--     </li>
+    <li> -->
+      <%#= quote["OutboundLeg"]["DepartureDate"] %>
+<!--     </li>
+  </ul> -->
+  <%# end %>
+
+  </div>
+</div>
