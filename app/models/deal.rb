@@ -1,8 +1,9 @@
 class Deal < ApplicationRecord
   has_many :historical_deals
 
-  def self.build_deal(origin)
-    quotes = Quote.where(origin: origin)
+  def self.build_deal(origin, airport, date)
+    quotes = Quote.where(origin: origin, destination: airport)
+    puts quotes.count
     quotes.each do |depart_leg|
       (2..14).each do |n|
         puts n
@@ -12,38 +13,47 @@ class Deal < ApplicationRecord
           d.unique_deal = "#{d.depart_date}-#{d.return_date}-#{d.origin}-#{d.destination}"
           found_deal = Deal.find_by(unique_deal: d.unique_deal)
           if found_deal.nil?
+           d.save
+         else
+          found_deal.price = d.price
+          found_deal.save
+          HistoricalDeal.create!(deal: found_deal, price: found_deal.price)
 
-            d.save
-          else
-            found_deal.price = d.price
-            found_deal.save
-            HistoricalDeal.create!(deal: found_deal, price: found_deal.price)
-
-          end
         end
       end
     end
   end
+end
 
-
-  def self.data_fetch
-    DATES.each   do |date|
-      AIRPORTS.each do |airport|
-       puts 'geting quotes'
-       Quote.get_quotes("TYOA-sky", airport, date)
-       puts 'bulding deals'
-       Deal.build_deal("TYOA-sky")
-       "end of data_fetch-#{airport}-#{date}"
-     end
+def self.data_fetch
+ DATES.each  do |date|
+   AIRPORTS.each do |airport|
+     puts 'geting quotes'
+     Quote.get_quotes("TYOA-sky", airport, date)
+     puts 'bulding deals'
+     Deal.build_deal("TYOA-sky", airport, date)
+     "end of data_fetch-#{airport}-#{date}"
+     sleep(2)
    end
  end
+end
 
- AIRPORTS = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SIN-sky']
- DATES = ['2018-12', '2019-01', '2019-02', '2019-03']
+def self.test
+       # Quote.get_quotes("TYOA-sky", 'HKG-sky', '2018-12')
+
+       Deal.build_deal("TYOA-sky",'HKG-sky', '2018-12')
+       "end of data_fetch-#{airport}-#{date}"
+       # sleep(2)
+
+
+     end
 
 
 
+
+
+     AIRPORTS = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SIN-sky']
+     DATES = ['2018-12', '2019-01', '2019-02', '2019-03']
 
 # Deal.data_fetch("HKG-sky", "2018-12")
-
 end
