@@ -5,16 +5,19 @@ class Quote < ApplicationRecord
     partial_date = partial_date
 
     (0..1).each do |x|
-
+      # reversing the direction
       origin_destination.reverse! if x == 1
 
+      # pulling data from skyscanner
       response = Unirest.get "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/HKD/en-US/#{origin_destination[0]}/#{origin_destination[1]}/#{partial_date}/ ",
       headers:{
-      "Accept" => "application/json",
-      "X-Mashape-Key" => ENV["RAPID_API_KEY"],
-      "X-Mashape-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        "Accept" => "application/json",
+        "X-Mashape-Key" => ENV["RAPID_API_KEY"],
+        "X-Mashape-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
       }
       quotes = response.body["Quotes"]
+
+      # building a quote instance from each quote result
       quotes.each do |quote|
         if quote["Direct"] == true
           f = Quote.new(min_price: quote["MinPrice"], origin: origin_destination[0], destination: origin_destination[1], direct: quote["Direct"], depart_date: Date.parse(quote["OutboundLeg"]["DepartureDate"]))
