@@ -48,10 +48,6 @@ class Deal < ApplicationRecord
     return Deal.order(discount_perc: :asc).limit(30)
   end
 
-  def weekday
-    return self.depart_date.wday
-  end
-
   def calc_discount_abs
     historical_deals = HistoricalDeal.where(deal_id: self.id).order(created_at: :desc).limit(30)
     last_30_prices = historical_deals.map { |deal| deal.price }
