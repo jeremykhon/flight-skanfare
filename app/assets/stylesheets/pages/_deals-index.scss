@@ -1,10 +1,10 @@
-.emptyspace {
-  height: 15vh;
-}
+// .emptyspace {
+//   height: 15vh;
+// }
 
-.emptyfooter {
-  height: 15vh;
-}
+// .emptyfooter {
+//   height: 15vh;
+// }
 
 .minibanner {
   position: sticky;
@@ -22,8 +22,14 @@
   }
 }
 
+.menu {
+  display: flex;
+  justify-content: space-around;
+
+}
+
 .index-page-container {
-  width: 1200px;
+  width: 100%;
   text-align: center;
   margin: 0 auto;
 
@@ -35,15 +41,15 @@
 
 .scrolling-third {
   overflow: scroll;
-  height: 70vh;
+  height: 100vh;
 }
 
 .picture-table {
-  height: 70vh;
+  height: 100vh;
 }
 
 .selected-city-image-container {
-  width: 500px;
+  // width: 500px;
   height: 100%;
   background-image: url("http://www.thaicongenvancouver.org/wp-content/uploads/2017/10/thailand-40160188-1482924456-ImageGalleryLightboxLarge.jpg");
   background-size: cover !important;
