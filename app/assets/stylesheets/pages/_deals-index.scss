@@ -1,3 +1,27 @@
+.emptyspace {
+  height: 15vh;
+}
+
+.emptyfooter {
+  height: 15vh;
+}
+
+.minibanner {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  z-index: 5;
+  background-color: white;
+  margin-bottom: 3px;
+
+  h3 {
+    margin-top: 0;
+    font-size: 24px;
+    color: rgb(15, 67, 122);
+  }
+}
+
 .index-page-container {
   width: 1200px;
   text-align: center;
@@ -11,11 +35,11 @@
 
 .scrolling-third {
   overflow: scroll;
-  height: calc(85vh - 71.5px);
+  height: 70vh;
 }
 
 .picture-table {
-  height: calc(85vh - 71.5px);
+  height: 70vh;
 }
 
 .selected-city-image-container {
