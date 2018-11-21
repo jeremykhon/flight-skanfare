@@ -12,6 +12,7 @@ class Deal < ApplicationRecord
           found_deal = Deal.find_by(unique_deal: d.unique_deal)
           if found_deal.nil?
             d.save
+            HistoricalDeal.create!(deal: d, price: d.price)
           else
             found_deal.price = d.price
             found_deal.save
