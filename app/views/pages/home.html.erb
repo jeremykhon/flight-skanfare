@@ -1,17 +1,40 @@
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+<%= area_chart @chart_array %>
 
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <%= area_chart @chart_array %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-     <%= area_chart @chart_array %>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <%= area_chart @chart_array %>
-    </div>
-  </div>
-</div>
-
+<h1>Pages#home</h1>
+<p>number of historical records:
+  <%= @hist_deals_count %>
+</p>
+<p>number of deals:
+  <%= @deals_count %>
+</p>
+<% @best_deals.each_with_index do |deal, index| %>
+<p>
+  <%= index + 1 %>
+</p>
+<li>
+  HKD
+  <%= deal.price %>
+</li>
+<li>
+  <%= deal.origin %>
+</li>
+<li>
+  <%= deal.destination %>
+</li>
+<li>
+  <%= deal.depart_date %>
+</li>
+<li>
+  <%= deal.return_date %>
+</li>
+<li>
+  HKD
+  <%= deal.discount_abs %>
+</li>
+<li>
+  <%= deal.discount_perc %>%
+</li>
+<li>
+  <%= deal.id %>
+</li>
+<% end %>

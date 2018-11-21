@@ -1,9 +1,6 @@
 
 
 class PagesController < ApplicationController
-  def home
-    test_chart
-  end
 
 def test_chart
       @chart_array=[]
@@ -16,6 +13,13 @@ def test_chart
       date = today + (i*6).hours
       @chart_array << [date, x * jump]
      end
+end
+
+def home
+  test_chart
+  @best_deals = Deal.top_deals_by_abs
+  @hist_deals_count = HistoricalDeal.count
+  @deals_count = Deal.count
 end
 
 end
