@@ -12,7 +12,7 @@ $(function() {
   var backgrounds = new Array(
   'url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
   'url("https://images.pexels.com/photos/351774/pexels-photo-351774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")',
-  'url("https://images.pexels.com/photos/113727/pexels-photo-113727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260")'
+  'url("https://images.pexels.com/photos/113727/pexels-photo-113727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")'
   );
   var current = 0;
 
@@ -20,11 +20,10 @@ $(function() {
     body.css(
       'background-image',
       backgrounds[current = ++current % backgrounds.length]);
-    // ).animate({opacity: 0}, 3000)
 
-    setTimeout(nextBackground, 6000);
+    setTimeout(nextBackground, 7000);
   }
 
-  setTimeout(nextBackground, 6000);
+  setTimeout(nextBackground, 7000);
   body.css('background-image', backgrounds[0]);
 });

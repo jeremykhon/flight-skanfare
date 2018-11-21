@@ -1,26 +1,81 @@
-.slick-element {
-  background-color: #fff;
-  width:600px;
-  margin:20px auto;
-  text-align: center;
-  padding:20px;
-  color:white;
+
+.package {
+  margin-top: 18vh;
+  z-index:10;
 }
 
 .promotion {
-  width: 450px;
-  height: 100px;
-  margin: 24px 0;
-  padding: 16px;
+  width: 900px;
+  height: 240px;
+  margin: 0;
+  padding: 20px;
+  box-shadow: 1px 1px 20px -1px #323232;
+  display: flex;
+  // justify-content: space-between;
+}
+
+.promotion h3 {
+  font-weight: 100;
+}
+
+.promotion h5 {
+  font-weight: 90;
+}
+.promotion p {
+  font-weight: 100;
+}
+
+.detail {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  transition-duration: 0.4s;
+  padding: 8px 25px
+}
+
+.detail:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+
+.purple {
+  background-color: #3034AC;
+  color: white;
+}
+
+.orange {
+  background-color: #F99216;
+  color: white;
+}
+
+.pink {
+  background-color: #9F7E77;
+  color: white;
+}
+
+.blue {
+  background-color: #77B0BE;
+  color: white;
+}
+
+.siema {
+  margin: 1rem 0;
 }
 
 .fullscreen {
-  // background-image: url("https://images.pexels.com/photos/351774/pexels-photo-351774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
   height: 100vh;
   width: 100vw;
   position: relative;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-position: center;
+  transition: background 1.6s linear;
 }
 
 .right {
@@ -50,14 +105,48 @@
 }
 
 .title {
-  margin-top: 20vh;
+  margin-top: 15vh;
+  z-index: 5;
+  left: 20%;
 }
 
 .title h1 {
-  font-size: 100px;
+  font-size: 110px;
   color: white;
-  font-weight: 110;
+  font-weight: 180;
 }
 
+.title h5 {
+  font-size: 30px;
+  color: white;
+  font-weight: 300;
+}
 
+.nopadding {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
+.lefttext {
+  // flex-grow: 1;
+  width: 25%;
+}
+
+.middletext {
+  width: 50%;
+  padding-right: 30px;
+}
+.righttext {
+  width: 25%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+// .slick-element {
+//   background-color: #fff;
+//   width:600px;
+//   margin-top:200px auto;
+//   text-align: center;
+//   padding:20px;
+//   color:white;
+// }
