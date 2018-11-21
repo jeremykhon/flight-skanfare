@@ -2,8 +2,9 @@
 
 class PagesController < ApplicationController
   def home
-    # Quote.get_quotes("TYOA-sky", "HKG-sky", "2018-12")
-
+    @best_deals = Deal.top_deals_by_abs
+    @hist_deals_count = HistoricalDeal.count
+    @deals_count = Deal.count
   end
 
 end
