@@ -1,10 +1,11 @@
 $(document).ready(function(){
-  console.log('test')
-  $('.slick-element').slick()
-  $('.center').slick({
+  $('.slick-element').slick({
     centerMode: true,
     centerPadding: '60px',
     slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 768,
@@ -25,14 +26,6 @@ $(document).ready(function(){
         }
       }
     ]
-  });
-
-
-  $('.autoplay').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 4000,
   });
 });
 

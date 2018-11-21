@@ -1,8 +1,17 @@
-.card {
+.slick-element {
   background-color: #fff;
-  min-width: 100%;
-  min-height: 250px;
+  width:600px;
+  margin:20px auto;
+  text-align: center;
+  padding:20px;
+  color:white;
+}
 
+.promotion {
+  width: 450px;
+  height: 100px;
+  margin: 24px 0;
+  padding: 16px;
 }
 
 .fullscreen {
