@@ -1,5 +1,38 @@
 <h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%# @quotes.each_with_index do |quote, index| %>
-<%#= index + 1 %>
-<%# end %>
+<p>number of historical records:
+  <%= @hist_deals_count %>
+</p>
+<p>number of deals:
+  <%= @deals_count %>
+</p>
+<% @best_deals.each_with_index do |deal, index| %>
+<p>
+  <%= index + 1 %>
+</p>
+<li>
+  HKD
+  <%= deal.price %>
+</li>
+<li>
+  <%= deal.origin %>
+</li>
+<li>
+  <%= deal.destination %>
+</li>
+<li>
+  <%= deal.depart_date %>
+</li>
+<li>
+  <%= deal.return_date %>
+</li>
+<li>
+  HKD
+  <%= deal.discount_abs %>
+</li>
+<li>
+  <%= deal.discount_perc %>%
+</li>
+<li>
+  <%= deal.id %>
+</li>
+<% end %>
