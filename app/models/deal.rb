@@ -7,15 +7,20 @@ class Deal < ApplicationRecord
     1.upto(60) do |x|
       depart_leg = Quote.find_by(unique_flight: "#{today + x.days}-#{origin}-#{destination}")
       # find depart_leg
+
       if depart_leg
         1.upto(15).each do |n|
           return_leg = Quote.find_by(unique_flight: "#{today + x.days + n.days}-#{destination}-#{origin}")
-          # find return_leg and check if exists
+          # find return_leg for each trip and check if exists
+
           if return_leg
             d = Deal.new(depart_date: depart_leg.depart_date, return_date: return_leg.depart_date, origin: depart_leg.origin, destination: depart_leg.destination, price: (depart_leg.min_price + return_leg.min_price))
             d.unique_deal = "#{d.depart_date}-#{d.return_date}-#{d.origin}-#{d.destination}"
+            # inserting unique id to identify deal later
             d.wday_duration = "#{d.depart_date.wday}-#{n}"
+            # inserting weekday duration for user preferences
             found_deal = Deal.find_by(unique_deal: d.unique_deal)
+            # inserting weekday duration for user preferences
             if found_deal.nil?
               d.save
               HistoricalDeal.create!(deal: d, price: d.price)
