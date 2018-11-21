@@ -1,31 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%# @quotes.each_with_index do |quote, index| %>
-<%#= index + 1 %>
-<ul>
-  <li>
-    <%= quote.depart_date %>
-  </li>
-  <li>
-    <%= quote.origin %>
-  </li>
-  <li>
-    <%= quote.destination %>
-  </li>
-  <li>
-    <%= quote.min_price %>
-  </li>
-  <li>
-    <%= quote.direct %>
-  </li>
-  <li>
-    <%= quote.unique_flight %>
-  </li>
-  <li>
-    <%= quote.created_at %>
-  </li>
-  <li>
-    <%= quote.updated_at %>
-  </li>
-</ul>
-<%# end %>
+<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= area_chart @chart_array %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+     <%= area_chart @chart_array %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= area_chart @chart_array %>
+    </div>
+  </div>
+</div>
+

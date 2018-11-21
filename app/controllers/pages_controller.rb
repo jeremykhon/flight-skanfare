@@ -2,12 +2,20 @@
 
 class PagesController < ApplicationController
   def home
-
-    # Quote.get_quotes("TYOA-sky", "HKG-sky", "2018-12")
-
-
+    test_chart
   end
 
-
+def test_chart
+      @chart_array=[]
+      today = Date.today
+      x=20
+      1.upto(30) do |i|
+      inc = rand > 0.3 ? 1 : -1
+      x += inc
+      jump = i == 30 ? 0.7 :1
+      date = today + (i*6).hours
+      @chart_array << [date, x * jump]
+     end
+end
 
 end
