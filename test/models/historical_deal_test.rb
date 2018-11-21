@@ -6,7 +6,4 @@ class HistoricalDealTest < ActiveSupport::TestCase
   # end
 
 
-  def fake_data
-
-  end
 end
