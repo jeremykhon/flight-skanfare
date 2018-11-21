@@ -4,12 +4,12 @@ class Deal < ApplicationRecord
 
   def self.build_deal(origin, destination)
     today = Date.today
-    1.upto(60) do |x|
+    1.upto(90) do |x|
       depart_leg = Quote.find_by(unique_flight: "#{today + x.days}-#{origin}-#{destination}")
       # find depart_leg
 
       if depart_leg
-        1.upto(15).each do |n|
+        1.upto(20).each do |n|
           return_leg = Quote.find_by(unique_flight: "#{today + x.days + n.days}-#{destination}-#{origin}")
           # find return_leg for each trip and check if exists
 
@@ -71,8 +71,8 @@ class Deal < ApplicationRecord
 
   def self.crawl
     origin = "TYOA-sky"
-    destinations = ['HKG-sky']
-    dates = ['2018-12', '2019-01', '2019-02']
+    destinations = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SELA-sky']
+    dates = ['2018-12', '2019-01', '2019-02', '2019-03']
     # building quotes
     destinations.each do |destination|
       dates.each do |date|
