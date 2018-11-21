@@ -1,6 +1,5 @@
-
-
 class PagesController < ApplicationController
+
 
 def test_chart
       @chart_array=[]
@@ -23,3 +22,4 @@ def home
 end
 
 end
+

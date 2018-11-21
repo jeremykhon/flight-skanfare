@@ -1,1 +1,152 @@
-// Specific CSS for your home-page
+
+.package {
+  margin-top: 18vh;
+  z-index:10;
+}
+
+.promotion {
+  width: 900px;
+  height: 240px;
+  margin: 0;
+  padding: 20px;
+  box-shadow: 1px 1px 20px -1px #323232;
+  display: flex;
+  // justify-content: space-between;
+}
+
+.promotion h3 {
+  font-weight: 100;
+}
+
+.promotion h5 {
+  font-weight: 90;
+}
+.promotion p {
+  font-weight: 100;
+}
+
+.detail {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 20px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  transition-duration: 0.4s;
+  padding: 8px 25px
+}
+
+.detail:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+}
+
+.purple {
+  background-color: #3034AC;
+  color: white;
+}
+
+.orange {
+  background-color: #F99216;
+  color: white;
+}
+
+.pink {
+  background-color: #9F7E77;
+  color: white;
+}
+
+.blue {
+  background-color: #77B0BE;
+  color: white;
+}
+
+.siema {
+  margin: 1rem 0;
+}
+
+.fullscreen {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background 1.6s linear;
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 20px;
+  cursor: pointer;
+  color: white;
+  border: 2px solid white;
+  background-color: transparent;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #3034AC;
+  color: white;
+  border: 2px solid #3034AC;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.title {
+  margin-top: 15vh;
+  z-index: 5;
+  left: 20%;
+}
+
+.title h1 {
+  font-size: 110px;
+  color: white;
+  font-weight: 180;
+}
+
+.title h5 {
+  font-size: 30px;
+  color: white;
+  font-weight: 300;
+}
+
+.nopadding {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.lefttext {
+  // flex-grow: 1;
+  width: 25%;
+}
+
+.middletext {
+  width: 50%;
+  padding-right: 30px;
+}
+.righttext {
+  width: 25%;
+  text-align: right;
+  padding-right: 10px;
+}
+
+// .slick-element {
+//   background-color: #fff;
+//   width:600px;
+//   margin-top:200px auto;
+//   text-align: center;
+//   padding:20px;
+//   color:white;
+// }
