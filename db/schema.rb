@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_025555) do
+ActiveRecord::Schema.define(version: 2018_11_21_055548) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 2018_11_21_025555) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unique_deal", default: ""
-    t.integer "discount"
+    t.integer "discount_abs"
+    t.integer "discount_perc"
+    t.string "wday_duration"
   end
 
   create_table "historical_deals", force: :cascade do |t|
