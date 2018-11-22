@@ -2,10 +2,10 @@
   <div class="right">
     <%= image_tag "logo.png", alt: "skanfare", width: "180px", height: "45px" %>
     <%= link_to deals_path, method: :get do %>
-    <button class="button">See All Deals</button><% end %>
+    <button class="button">See All Deals</button>
+    <% end %>
   </div>
-
-<!--  <div class="container">
+  <!--  <div class="container">
 
 <div class="row">
     <div class="col-xs-6 col-xs-offset-1">
@@ -13,15 +13,14 @@
     </div>
   </div> -->
   <section style="position:relative">
-      <div class="title" style="position:absolute">
-        <h1>Skanfare</h1>
-        <h5>surprise you with unexpected trip deals</h5>
-      </div>
-
-    <div class="siema" >
+    <div class="title" style="position:absolute">
+      <h1>Skanfare</h1>
+      <h5>surprise you with unexpected trip deals</h5>
+    </div>
+    <div class="siema">
       <div class="package">
-        <div class="photo nopadding" style="align-items: right">
-          <%= image_tag "honululu.jpg", alt: "honululu", width: "400px", height: "270px" %>
+        <div class="photo nopadding">
+          <%= image_tag "honululu.jpg", alt: "honululu", width: "370px", height: "270px" %>
         </div>
         <div class="promotion purple">
           <div class="lefttext">
@@ -41,7 +40,6 @@
           </div>
         </div>
       </div>
-
       <div class="package">
         <div class="photo nopadding">
           <%= image_tag "hk.jpg", alt: "hongkong", width: "400px", height: "270px" %>
@@ -64,10 +62,9 @@
           </div>
         </div>
       </div>
-
       <div class="package">
         <div class="photo nopadding">
-          <%= image_tag "bangkok.jpg", alt: "bangkok", width: "400px", height: "270px" %>
+          <%=image_tag "bangkok.jpg" , alt: "bangkok" , width: "400px" , height: "270px" %>
         </div>
         <div class="promotion pink">
           <div class="lefttext">
@@ -87,10 +84,9 @@
           </div>
         </div>
       </div>
-
       <div class="package">
         <div class="photo nopadding">
-          <%= image_tag "taipei.jpg", alt: "taipei", width: "400px", height: "270px" %>
+          <%=image_tag "taipei.jpg" , alt: "taipei" , width: "400px" , height: "270px" %>
         </div>
         <div class="promotion blue">
           <div class="lefttext">
@@ -111,24 +107,62 @@
         </div>
       </div>
     </div>
-
     <!-- <button class="prev">prev</button>
     <button class="next">next</button> -->
-
   </section>
-
-    <%# @quotes.each_with_index do |quote, index| %>
-<!--   <ul>
+  <%# @quotes.each_with_index do |quote, index| %>
+  <!--   <ul>
     <li> -->
-      <%#= quote["MinPrice"] %>
- <!--    </li>
+  <%#= quote["MinPrice"] %>
+  <!--    </li>
     <li> -->
-      <%#= quote["Direct"] %>
-<!--     </li>
+  <%#= quote["Direct"] %>
+  <!--     </li>
     <li> -->
-      <%#= quote["OutboundLeg"]["DepartureDate"] %>
-<!--     </li>
+  <%#= quote["OutboundLeg"]["DepartureDate"] %>
+  <!--     </li>
   </ul> -->
   <%# end %>
-
-
+  <div>
+    <%= area_chart @chart_array %>
+  </div>
+  <div>
+    <h1>Pages#home</h1>
+    <p>number of historical records:
+      <%= @hist_deals_count %>
+    </p>
+    <p>number of deals:
+      <%= @deals_count %>
+    </p>
+    <% @best_deals.each_with_index do |deal, index| %>
+    <p>
+      <%= index + 1 %>
+    </p>
+    <li>
+      HKD
+      <%= deal.price %>
+    </li>
+    <li>
+      <%= deal.origin %>
+    </li>
+    <li>
+      <%= deal.destination %>
+    </li>
+    <li>
+      <%= deal.depart_date %>
+    </li>
+    <li>
+      <%= deal.return_date %>
+    </li>
+    <li>
+      HKD
+      <%= deal.discount_abs %>
+    </li>
+    <li>
+      <%= deal.discount_perc %>%
+    </li>
+    <li>
+      <%= deal.id %>
+    </li>
+    <% end %>
+  </div>

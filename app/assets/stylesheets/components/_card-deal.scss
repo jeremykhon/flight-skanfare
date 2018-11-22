@@ -1,0 +1,82 @@
+.card-deal {
+  height: 110px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+  background-position: center;
+  background-color: rgb(74, 181, 220);
+  color: white;
+  position: relative;
+  margin-bottom: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card-deal-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.card-deal-price {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#initial-price {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+}
+
+#new-price {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+  font-size: 15px;
+}
+
+#discount {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 20px;
+}
+
+
+.card-deal-description {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.card-deal-description h3 {
+  font-size: 16px;
+}
+
+.card-deal-description p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+
+.card-deal-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+
+.card-deal-link:hover {
+  opacity: 0.1;
+}
