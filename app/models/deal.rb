@@ -50,6 +50,13 @@ class Deal < ApplicationRecord
     return Deal.order(discount_perc: :asc).limit(30)
   end
 
+
+  def self.top_deals_by_perc_by_cities(destination)
+    return Deal.where(destination: destination).order(discount_perc: :asc).limit(30)
+  end
+
+
+
   def calc_discount_abs
     last_30_hash = self.historical.last(30)
     last_30_prices = last_30_hash.map { |hash| hash["price"] }
@@ -65,6 +72,7 @@ class Deal < ApplicationRecord
     discount = (self.price.fdiv(average_price) - 1) * 100
     return discount.round
   end
+
 
   def self.crawl
     origin = "TYOA-sky"
@@ -82,7 +90,22 @@ class Deal < ApplicationRecord
     end
   end
 
-  # dates = ['2018-12', '2019-01', '2019-02']
-  # destinations = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SELA-sky']
+  def self.top_deals_by_cities
+    destinations = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SELA-sky']
+    h= {'HKG-sky'=> 'HONG KONG', 'BKKT-sky'=> 'BANGKOK', 'HNLA-sky'=> 'HONOLULU', 'SELA-sky'=> 'SEOUL' }
+
+    @best_deals_cities=[]
+
+    destinations.each do |destination|
+    d = Deal.where(destination: destination).order(discount_perc: :asc).first
+    city_deal= [d.destination, d.discount_perc]
+    @best_deals_cities << city_deal
+
+    end
+     @best_deals_cities.sort! {|a,b| a[1] <=> b[1]}
+
+    return @best_deals_cities
+    end
+
 
 end
