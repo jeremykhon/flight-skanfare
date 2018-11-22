@@ -5,7 +5,7 @@
 }
 
 .promotion {
-  width: 900px;
+  width: 50vw;
   height: 240px;
   margin: 0;
   padding: 20px;
@@ -31,6 +31,7 @@
   display: inline-block;
   font-size: 14px;
   margin-left: 20px;
+  margin-top: 15px;
   cursor: pointer;
   color: white;
   border: 1px solid white;
@@ -67,6 +68,7 @@
 
 .siema {
   margin: 1rem 0;
+  padding-left: 15vw;
 }
 
 .fullscreen {
@@ -97,6 +99,11 @@
   transition-duration: 0.4s;
 }
 
+
+.button:focus {
+  outline: none;
+}
+
 .button:hover {
   background-color: #3034AC;
   color: white;
@@ -112,14 +119,14 @@
 
 .title h1 {
   font-size: 110px;
-  color: white;
-  font-weight: 180;
+  color: black;
+  font-weight: 300;
 }
 
 .title h5 {
   font-size: 30px;
-  color: white;
-  font-weight: 300;
+  color: black;
+  font-weight: 400;
 }
 
 .nopadding {

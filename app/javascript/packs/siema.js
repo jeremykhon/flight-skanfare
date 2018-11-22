@@ -1,7 +1,7 @@
 import Siema from 'siema';
 const mySiema = new Siema({
   draggable: true,
-  duration: 600,
+  duration: 900,
   loop: true,
   perPage: 2,
 });
