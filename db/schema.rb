@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_022315) do
+ActiveRecord::Schema.define(version: 2018_11_22_075516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,23 @@ ActiveRecord::Schema.define(version: 2018_11_22_022315) do
     t.integer "discount_perc"
     t.string "wday_duration"
     t.jsonb "historical", default: "[]"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.string "destination"
+    t.integer "discount_perc"
+    t.integer "duration"
+    t.boolean "monday", default: true
+    t.boolean "tuesday", default: true
+    t.boolean "wednesday", default: true
+    t.boolean "thursday", default: true
+    t.boolean "friday", default: true
+    t.boolean "saturday", default: true
+    t.boolean "sunday", default: true
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_preferences_on_user_id"
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -54,4 +71,5 @@ ActiveRecord::Schema.define(version: 2018_11_22_022315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "preferences", "users"
 end
