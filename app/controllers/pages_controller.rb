@@ -18,6 +18,7 @@ def home
   test_chart
   @best_deals = Deal.top_deals_by_abs
   @deals_count = Deal.count
+  Deal.top_deals_by_cities
 end
 
 end

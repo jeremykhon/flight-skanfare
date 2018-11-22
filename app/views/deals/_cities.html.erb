@@ -2,6 +2,8 @@
   <h3>Skanfare</h3>
 </div>
 <!-- NAVBAR -->
+
+
 <div class="menu">
   <div class="dropdown">
     <p class="menu-button" data-toggle="dropdown"> Duration</p>
@@ -23,33 +25,21 @@
   </div>
 </div>
 <!-- END NAVABAR -->
+
+
+<div>
+<% @best_city_deals_list.each do |deal| %>
+
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
   <div class="card-description">
-    <h2>Bangkok</h2>
+    <h2><%= deal[0] %></h2>
+    <h2><%= deal[1] %></h2>
+
   </div>
-  <a class="card-link" href="#" ></a>
+  <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
+
+
 </div>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-description">
-    <h2>Bangkok</h2>
-  </div>
-  <a class="card-link" href="#" ></a>
+<% end %>
 </div>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-description">
-    <h2>Bangkok</h2>
-  </div>
-  <a class="card-link" href="#" ></a>
-</div>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-description">
-    <h2>Bangkok</h2>
-  </div>
-  <a class="card-link" href="#" ></a>
-</div>
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
-  <div class="card-description">
-    <h2>Bangkok</h2>
-  </div>
-  <a class="card-link" href="#" ></a>
-</div>
+
