@@ -94,3 +94,68 @@
   </div>
 
 </div>
+
+<%= link_to "Refresh", deal_path(@deal, key: @key) %>
+<% @itineraries.each do |itinerary| %>
+<div style="border: 1px solid rgba(0,0,0,0.5); padding: 30px, border-radius: 10px;">
+  <ul>
+    <li>
+      Outbound departure:
+      <%= @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Departure"]%>
+    </li>
+    <li>
+      Outbound carrier:
+      <% out_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Carriers"][0]%>
+      <%= @carriers.find { |carrier| carrier["Id"] == out_carrier_id }["Name"]%>
+    </li>
+    <li>
+      Inbound departure:
+      <%= @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Departure"] %>
+    </li>
+    <li>
+      Inbound carrier:
+      <% in_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Carriers"][0]%>
+      <%= @carriers.find { |carrier| carrier["Id"] == in_carrier_id }["Name"]%>
+    </li>
+  </ul>
+  <% itinerary["PricingOptions"].first(3).each do |price| %>
+  <ul>
+    <li>
+      <%= price["Price"] %>
+    </li>
+    <li>
+      <a href="<%= price["DeeplinkUrl"] %>" target="_blank">Buy Now</a>
+    </li>
+    <li>
+      <%= @agents.find { |agent| agent["Id"] == price["Agents"][0] }["Name"] %>
+    </li>
+  </ul>
+  <% end %>
+</div>
+<% end %>
+<li>
+  HKD
+  <%= @deal.price %>
+</li>
+<li>
+  <%= @deal.origin %>
+</li>
+<li>
+  <%= @deal.destination %>
+</li>
+<li>
+  <%= @deal.depart_date %>
+</li>
+<li>
+  <%= @deal.return_date %>
+</li>
+<li>
+  HKD
+  <%= @deal.discount_abs %>
+</li>
+<li>
+  <%= @deal.discount_perc %>%
+</li>
+<li>
+  <%= @deal.id %>
+</li>
