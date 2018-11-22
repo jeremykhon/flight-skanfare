@@ -1,6 +1,4 @@
 class Deal < ApplicationRecord
-  has_many :historical_deals
-
 
   def self.build_deal(origin, destination)
     today = Date.today
@@ -22,16 +20,16 @@ class Deal < ApplicationRecord
             found_deal = Deal.find_by(unique_deal: d.unique_deal)
             # inserting weekday duration for user preferences
             if found_deal.nil?
+              d.historical = [{"datetime" => Time.now, "price" => d.price}]
               d.save
-              HistoricalDeal.create!(deal: d, price: d.price)
             else
               found_deal.price = d.price
               # checking and inserting discount
               found_deal.discount_abs = found_deal.calc_discount_abs
               found_deal.discount_perc = found_deal.calc_discount_perc
+              found_deal.historical.push({"datetime" => Time.now, "price" => found_deal.price})
               found_deal.save
               # -----
-              HistoricalDeal.create!(deal: found_deal, price: found_deal.price)
             end
           end
         end
@@ -40,9 +38,8 @@ class Deal < ApplicationRecord
   end
 
   def get_historical
-    historical_deals = HistoricalDeal.where(deal_id: self.id)
-    graph_data_points = historical_deals.map { |deal| [deal.price, created_at] }
-    print graph_data_points
+    graph_points = self.historical.map { |hash| [DateTime.parse(hash["datetime"]), hash["price"]]}
+    return graph_points
   end
 
   def self.top_deals_by_abs
@@ -54,16 +51,16 @@ class Deal < ApplicationRecord
   end
 
   def calc_discount_abs
-    historical_deals = HistoricalDeal.where(deal_id: self.id).order(created_at: :desc).limit(30)
-    last_30_prices = historical_deals.map { |deal| deal.price }
+    last_30_hash = self.historical.last(30)
+    last_30_prices = last_30_hash.map { |hash| hash["price"] }
     average_price = last_30_prices.inject { |sum, el| sum + el }.to_f / last_30_prices.size
     discount = self.price - average_price
     return discount
   end
 
   def calc_discount_perc
-    historical_deals = HistoricalDeal.where(deal_id: self.id).order(created_at: :desc).limit(30)
-    last_30_prices = historical_deals.map { |deal| deal.price }
+    last_30_hash = self.historical.last(30)
+    last_30_prices = last_30_hash.map { |hash| hash["price"] }
     average_price = last_30_prices.inject { |sum, el| sum + el }.to_f / last_30_prices.size
     discount = (self.price.fdiv(average_price) - 1) * 100
     return discount.round

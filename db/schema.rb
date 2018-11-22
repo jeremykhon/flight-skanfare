@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_062206) do
+ActiveRecord::Schema.define(version: 2018_11_22_022315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,14 +27,7 @@ ActiveRecord::Schema.define(version: 2018_11_21_062206) do
     t.integer "discount_abs"
     t.integer "discount_perc"
     t.string "wday_duration"
-  end
-
-  create_table "historical_deals", force: :cascade do |t|
-    t.bigint "deal_id"
-    t.integer "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["deal_id"], name: "index_historical_deals_on_deal_id"
+    t.jsonb "historical", default: "[]"
   end
 
   create_table "quotes", force: :cascade do |t|
@@ -61,5 +54,4 @@ ActiveRecord::Schema.define(version: 2018_11_21_062206) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "historical_deals", "deals"
 end
