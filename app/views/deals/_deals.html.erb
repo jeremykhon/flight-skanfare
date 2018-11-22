@@ -4,6 +4,7 @@
 <div class="card-deal">
   <p id="initial-price"><%="#{deal.price - deal.discount_abs}$"%></p>
   <p id="new-price"><%="#{deal.price}$" %></p>
+  <p id="new-price"><%="#{Deal.city(deal.destination)}" %></p>
   <p id="discount"><%= "#{deal.discount_perc}%" %></p>
   <div class="card-deal-description">
 

@@ -3,6 +3,15 @@
   <h1></h1>
 </div> -->
 
-<h1><%= params[:chart_id] %></h1>
 
-<h1>fucxkkkkkkkkkkk</h1>
+
+  <div>
+
+    <% if params[:chart_id].nil? %>
+      <div class="card" style="background-image: url(<%= asset_path "#{@city}.jpg" %>;"></div>
+
+    <%else%>
+      <%= area_chart @deal_chart.get_historical %>
+   <%end%>
+  </div>
+

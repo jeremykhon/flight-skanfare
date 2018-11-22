@@ -92,7 +92,7 @@ class Deal < ApplicationRecord
 
   def self.top_deals_by_cities
     destinations = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SELA-sky']
-    h= {'HKG-sky'=> 'HONG KONG', 'BKKT-sky'=> 'BANGKOK', 'HNLA-sky'=> 'HONOLULU', 'SELA-sky'=> 'SEOUL' }
+
 
     @best_deals_cities=[]
 
@@ -105,6 +105,11 @@ class Deal < ApplicationRecord
      @best_deals_cities.sort! {|a,b| a[1] <=> b[1]}
 
     return @best_deals_cities
+    end
+
+    def self.city(airport)
+      h= {'HKG-sky'=> 'HONGKONG', 'BKKT-sky'=> 'BANGKOK', 'HNLA-sky'=> 'HONOLULU', 'SELA-sky'=> 'SEOUL', 'TPET-sky' => "TAIPEI" }
+      return h[airport]
     end
 
 
