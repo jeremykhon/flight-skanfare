@@ -108,7 +108,7 @@ class Deal < ApplicationRecord
     end
 
     def self.city(airport)
-      h= {'HKG-sky'=> 'hongkong', 'BKKT-sky'=> 'bangkok', 'HNLA-sky'=> 'honolulu', 'SELA-sky'=> 'seoul', 'TPET-sky' => "taipei" }
+      h= {'HKG-sky'=> 'hongkong_new', 'BKKT-sky'=> 'bangkok_new', 'HNLA-sky'=> 'honolulu_new', 'SELA-sky'=> 'seoul_new', 'TPET-sky' => "taipei_new" }
       return h[airport]
     end
 
