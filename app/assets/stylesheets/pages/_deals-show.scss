@@ -105,9 +105,26 @@
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   list-style-type: none;
   margin-top: 20px;
+  border-radius: 5px;
   margin-bottom: 10px;
   position: relative;
   display: flex;
+  text-align: center;
+}
+
+.carrier {
+  width: 25%;
+}
+
+.destination-time {
+  width: 55%;
+  padding-right: 30px;
+}
+
+.price {
+  width: 30%;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .line {
