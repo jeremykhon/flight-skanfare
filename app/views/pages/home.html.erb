@@ -20,7 +20,7 @@
     <div class="siema">
       <div class="package">
         <div class="photo nopadding">
-          <%= image_tag "honululu.jpg", alt: "honululu", width: "400px", height: "270px" %>
+          <%= image_tag "honolulu_new.jpg", alt: "honolulu", width: "400px", height: "270px" %>
         </div>
         <div class="promotion purple">
           <div class="lefttext">
@@ -42,7 +42,7 @@
       </div>
       <div class="package">
         <div class="photo nopadding">
-          <%= image_tag "hk.jpg", alt: "hongkong", width: "400px", height: "270px" %>
+          <%= image_tag "hongkong_new.jpg", alt: "hongkong", width: "400px", height: "270px" %>
         </div>
         <div class="promotion orange">
           <div class="lefttext">
@@ -64,7 +64,7 @@
       </div>
       <div class="package">
         <div class="photo nopadding">
-          <%=image_tag "bangkok.jpg" , alt: "bangkok" , width: "400px" , height: "270px" %>
+          <%=image_tag "bangkok_new.jpg" , alt: "bangkok" , width: "400px" , height: "270px" %>
         </div>
         <div class="promotion pink">
           <div class="lefttext">
@@ -86,7 +86,7 @@
       </div>
       <div class="package">
         <div class="photo nopadding">
-          <%=image_tag "taipei.jpg" , alt: "taipei" , width: "400px" , height: "270px" %>
+          <%=image_tag "taipei_new.jpg" , alt: "taipei" , width: "400px" , height: "270px" %>
         </div>
         <div class="promotion blue">
           <div class="lefttext">
@@ -110,59 +110,3 @@
     <!-- <button class="prev">prev</button>
     <button class="next">next</button> -->
   </section>
-  <%# @quotes.each_with_index do |quote, index| %>
-  <!--   <ul>
-    <li> -->
-  <%#= quote["MinPrice"] %>
-  <!--    </li>
-    <li> -->
-  <%#= quote["Direct"] %>
-  <!--     </li>
-    <li> -->
-  <%#= quote["OutboundLeg"]["DepartureDate"] %>
-  <!--     </li>
-  </ul> -->
-  <%# end %>
-  <div>
-    <%= area_chart @chart_array %>
-  </div>
-  <div>
-    <h1>Pages#home</h1>
-    <p>number of deals:
-      <%= @deals_count %>
-    </p>
-    <% @best_deals.each_with_index do |deal, index| %>
-    <p>
-      <%= index + 1 %>
-    </p>
-    <li>
-      <%= link_to "see details", deal_path(deal)  %>
-    </li>
-    <li>
-      HKD
-      <%= deal.price %>
-    </li>
-    <li>
-      <%= deal.origin %>
-    </li>
-    <li>
-      <%= deal.destination %>
-    </li>
-    <li>
-      <%= deal.depart_date %>
-    </li>
-    <li>
-      <%= deal.return_date %>
-    </li>
-    <li>
-      HKD
-      <%= deal.discount_abs %>
-    </li>
-    <li>
-      <%= deal.discount_perc %>%
-    </li>
-    <li>
-      <%= deal.id %>
-    </li>
-    <% end %>
-  </div>

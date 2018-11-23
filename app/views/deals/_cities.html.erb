@@ -1,9 +1,3 @@
-<div class="minibanner">
-  <h3>Skanfare</h3>
-</div>
-<!-- NAVBAR -->
-
-
 <div class="menu">
   <div class="dropdown">
     <p class="menu-button" data-toggle="dropdown"> Duration</p>
@@ -24,22 +18,14 @@
     </ul>
   </div>
 </div>
-<!-- END NAVABAR -->
-
 <div>
-<% @best_city_deals_list.each do |deal| %>
-
-<div class="card" style="background-image: url(<%= asset_path "#{Deal.city(deal[0])}.jpg" %>;">
-
-  <div class="card-description">
-    <h2><%= Deal.city(deal[0]) %></h2>
-    <h2><%= deal[1] %></h2>
-
+  <% @best_city_deals_list.each do |deal| %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>;">
+    <div class="card-description">
+      <h2><%= Deal.city(deal[0]) %></h2>
+      <h2><%= deal[1] %></h2>
+    </div>
+    <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
   </div>
-  <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
-
-
+  <% end %>
 </div>
-<% end %>
-</div>
-

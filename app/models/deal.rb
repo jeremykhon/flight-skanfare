@@ -108,8 +108,13 @@ class Deal < ApplicationRecord
     end
 
     def self.city(airport)
-      h= {'HKG-sky'=> 'HONGKONG', 'BKKT-sky'=> 'BANGKOK', 'HNLA-sky'=> 'HONOLULU', 'SELA-sky'=> 'SEOUL', 'TPET-sky' => "TAIPEI" }
+      h= {'HKG-sky'=> 'hongkong_new', 'BKKT-sky'=> 'bangkok_new', 'HNLA-sky'=> 'honolulu_new', 'SELA-sky'=> 'seoul_new', 'TPET-sky' => "taipei_new" }
       return h[airport]
+    end
+
+    def self.humanize_city(destination)
+      h= {'HKG-sky'=> 'Hong Kong', 'BKKT-sky'=> 'Bangkok', 'HNLA-sky'=> 'Honolulu', 'SELA-sky'=> 'Seoul', 'TPET-sky' => "Taipei" }
+      return h[destination]
     end
 
 

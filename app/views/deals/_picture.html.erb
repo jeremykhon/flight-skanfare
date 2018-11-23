@@ -8,10 +8,13 @@
   <div>
 
     <% if params[:chart_id].nil? %>
-      <div class="card" style="background-image: url(<%= asset_path "#{@city}.jpg" %>;"></div>
+      <div class="selected-city-image-container" style="background-image: url(<%= asset_path "#{@city}.jpg" %>;"></div>
 
     <%else%>
+    <div class="graph-card" style="background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.7)), url(<%= asset_path "#{@city}.jpg" %>;">
+      <div class="graph">
       <%= area_chart @deal_chart.get_historical %>
+      </div>
    <%end%>
   </div>
 
