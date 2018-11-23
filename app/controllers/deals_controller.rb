@@ -17,28 +17,13 @@ class DealsController < ApplicationController
       @key = params[:key]
       results = fetch_results_with_session_id(@key)
     else
-      response = Unirest.post "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/v1.0",
-    headers:{
-      "Content-Type" => "application/x-www-form-urlencoded",
-      "X-Mashape-Key" => ENV["RAPID_API_KEY"],
-      "X-Mashape-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
-    },
-    parameters:{
-      "country" => "JP",
-      "currency" => "JPY",
-      "locale" => "en-US",
-      "originPlace" => @deal.origin,
-      "destinationPlace" => @deal.destination,
-      "outboundDate" => @deal.depart_date.strftime("%Y-%m-%d"),
-      "inboundDate" => @deal.return_date.strftime("%Y-%m-%d"),
-      "cabinClass" => "economy",
-      "adults" => 1,
-      "children" => 0,
-      "infants" => 0,
-      "includeCarriers" => "",
-      "excludeCarriers" => "",
-      "groupPricing" => "false"
-    }
+      response = call_api(@deal)
+      if response.nil?
+        while response.nil? do
+          response = call_api(@deal)
+          sleep 1
+        end
+      end
       @key = response.headers[:location].split("/").last
       results = fetch_results_with_session_id(@key)
     end
@@ -47,6 +32,32 @@ class DealsController < ApplicationController
     @carriers = results["Carriers"]
     @agents = results["Agents"]
 
+  end
+
+  def call_api(deal)
+    response = Unirest.post "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/v1.0",
+        headers:{
+          "Content-Type" => "application/x-www-form-urlencoded",
+          "X-Mashape-Key" => ENV["RAPID_API_KEY"],
+          "X-Mashape-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+        },
+        parameters:{
+          "country" => "JP",
+          "currency" => "JPY",
+          "locale" => "en-US",
+          "originPlace" => @deal.origin,
+          "destinationPlace" => @deal.destination,
+          "outboundDate" => @deal.depart_date.strftime("%Y-%m-%d"),
+          "inboundDate" => @deal.return_date.strftime("%Y-%m-%d"),
+          "cabinClass" => "economy",
+          "adults" => 1,
+          "children" => 0,
+          "infants" => 0,
+          "includeCarriers" => "",
+          "excludeCarriers" => "",
+          "groupPricing" => "false"
+        }
+    return response
   end
 
   def fetch_results_with_session_id(session_id)
