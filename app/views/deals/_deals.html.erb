@@ -1,12 +1,30 @@
 <!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
+
+  <% opacity = 1 %>
   <% @topdeals.each do |deal| %>
 
-  <div class="half-card">
+  <div class="half-card" style="opacity: <%= opacity %>;">
+
+  <% opacity -= 0.05 %>
+  <% opacity = opacity < 0.3 ? 0.3 : opacity %>
 
     <div class="card-deal">
+
       <p id="new-price">
-        <%="#{Deal.city(deal.destination)}" %>
+        <%="¥#{deal.price}" %>
       </p>
+
+       <p id="initial-price">
+        <%="¥#{deal.price-deal.discount_abs}" %>
+      </p>
+
+
+        <p id="destination">
+        <%= "#{Deal.city(deal.destination).gsub('_new','').upcase}" %>
+      </p>
+
+
+
       <p id="discount">
         <%= "#{deal.discount_perc}%" %>
       </p>
@@ -23,7 +41,7 @@
     <p>Book</p>
 
       </div>
-      <%= link_to "", deals_path(name: params[:name],Booking_deal:deal), class: 'card-link' %>
+      <%= link_to "", deal_path(id:deal), class: 'card-link' %>
     </div>
 
   </div>
