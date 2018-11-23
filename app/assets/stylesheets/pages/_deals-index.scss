@@ -24,9 +24,19 @@
 
 .menu {
   display: flex;
-  height: 100px;
+  height: 50px;
   justify-content: space-around;
-  align-content: center;
+  align-items: center;
+  background-color: white;
+  position: sticky !important;
+  top: 0;
+  z-index: 5;
+  box-shadow: 2px 2px 5px #c2bec2;
+}
+
+.menu-button {
+  color: #5AA0E7;
+  font-family: "Raleway", "Open Sans", "Helvetica", "sans-serif";
 }
 
 .index-page-container {
