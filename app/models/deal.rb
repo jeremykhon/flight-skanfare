@@ -117,5 +117,8 @@ class Deal < ApplicationRecord
       return h[destination]
     end
 
+    def self.delimit(number)
+    number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+    end
 
 end

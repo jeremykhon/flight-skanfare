@@ -6,10 +6,10 @@
   <% opacity = opacity < 0.7 ? 0.7 : opacity %>
   <div class="card-deal">
     <p id="new-price">
-      <%="¥#{deal.price}" %>
+      <%="¥#{Deal.delimit(deal.price)}" %>
     </p>
     <p id="initial-price">
-      <%="¥#{deal.price-deal.discount_abs}" %>
+      <%="¥#{Deal.delimit(deal.price-deal.discount_abs)}" %>
     </p>
     <p id="destination">
       <%= "#{Deal.city(deal.destination).gsub('_new','').upcase}" %>
