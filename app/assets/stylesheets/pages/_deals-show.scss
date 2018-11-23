@@ -106,7 +106,7 @@
 
 .plane-ticket {
   width: 900px;
-  height: 250px;
+  height: 200px;
   background-color: white;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   list-style-type: none;
@@ -142,8 +142,8 @@
   z-index: 4;
   top: 0;
   bottom: 0;
-  left: 74%;
-  border-left: 1.5px dashed #D3D3D3;
+  left: 70%;
+  border-left: 1.5px dashed #C0C0C0;
 }
 
 .line:before, .line:after {
