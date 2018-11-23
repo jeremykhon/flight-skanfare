@@ -32,6 +32,13 @@
     </div>
   </div>
 </div>
+<!-- banner -->
+<div class="banner" style="background-image: url( <%= asset_path((" #{Deal.city(@deal.destination)}.jpg").strip) %>);">
+  <div class="banner-content">
+    <h1><%= Deal.humanize_city(@deal.destination).upcase %></h1>
+  </div>
+</div>
+<!-- end of banner -->
 <!-- <end of nav bar> -->
 <div class="deal-body">
   <div class="container">
