@@ -19,7 +19,7 @@
 </div>
 <div>
   <% @best_city_deals_list.each do |deal| %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>;">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url(<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>;">
     <div class="card-description">
       <h2><%= Deal.city(deal[0]).gsub('_new','').upcase %></h2>
 
