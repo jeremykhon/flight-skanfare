@@ -2,27 +2,27 @@
   <div class="dropdown">
     <p class="menu-button" data-toggle="dropdown"> Duration</p>
     <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-      <li><a href="#">2 days</a></li>
-      <li><a href="#">3-4 days</a></li>
-      <li><a href="#">1 week</a></li>
-      <li><a href="#">1-2 weeks</a></li>
+     <li><%= link_to "2d", deals_path(duration: '2') %></li>
+     <li><%= link_to "4d", deals_path(duration: '4') %></li>
+     <li><%= link_to "1w", deals_path(duration: '7') %></li>
+     <li><%= link_to "2w", deals_path(duration: '14') %></li>
     </ul>
   </div>
   <div class="dropdown">
     <p class="menu-button" data-toggle="dropdown"> Days</p>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li><a href="#">WE</a></li>
-      <li><a href="#">Mon-Tues</a></li>
-      <li><a href="#">Wed-Thurs</a></li>
-      <li><a href="#">Thurs-Fri</a></li>
-    </ul>
+     <li><%= link_to "Wed", deals_path(weekday: '3') %></li>
+     <li><%= link_to "Fri", deals_path(weekday: '5') %></li>
+     <li><%= link_to "Sat", deals_path(weekday: '6') %></li>
+     <li><%= link_to "Sun", deals_path(weekday: '7') %></li>
   </div>
 </div>
 <div>
   <% @best_city_deals_list.each do |deal| %>
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>;">
     <div class="card-description">
-      <h2><%= Deal.city(deal[0]) %></h2>
+      <h2><%= Deal.city(deal[0]).gsub('_new','').upcase %></h2>
+
       <h2><%= deal[1] %></h2>
     </div>
     <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
