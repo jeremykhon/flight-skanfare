@@ -88,11 +88,13 @@
 .deal-body {
   padding-top: 80px;
   width: 100vw;
+  background: #F0F0F0;
 }
 
 .left-half {
   float: left;
   width: 50%;
+  margin-left: -20%;
 }
 
 .right-half {
@@ -116,6 +118,7 @@
   display: flex;
   text-align: center;
   align-items: baseline !important;
+  overflow: hidden;
 }
 
 .carrier {
@@ -139,8 +142,24 @@
   z-index: 4;
   top: 0;
   bottom: 0;
-  left: 75%;
+  left: 74%;
   border-left: 1.5px dashed #D3D3D3;
+}
+
+.line:before, .line:after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #F0F0F0;
+  border-radius: 20px;
+  position: absolute;
+  top: -5px;
+  z-index: 5;
+  left: -7.6px;
+}
+
+.line:after {
+  top: 96%;
 }
 
 .detail-button {
