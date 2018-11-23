@@ -2,19 +2,35 @@
   <div class="dropdown">
     <p class="menu-button" data-toggle="dropdown"> Duration</p>
     <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-     <li><%= link_to "2d", deals_path(duration: '2') %></li>
-     <li><%= link_to "4d", deals_path(duration: '4') %></li>
-     <li><%= link_to "1w", deals_path(duration: '7') %></li>
-     <li><%= link_to "2w", deals_path(duration: '14') %></li>
+      <li>
+        <%= link_to "2d", deals_path(duration: '2') %>
+      </li>
+      <li>
+        <%= link_to "4d", deals_path(duration: '4') %>
+      </li>
+      <li>
+        <%= link_to "1w", deals_path(duration: '7') %>
+      </li>
+      <li>
+        <%= link_to "2w", deals_path(duration: '14') %>
+      </li>
     </ul>
   </div>
   <div class="dropdown">
     <p class="menu-button" data-toggle="dropdown"> Days</p>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-     <li><%= link_to "Wed", deals_path(weekday: '3') %></li>
-     <li><%= link_to "Fri", deals_path(weekday: '5') %></li>
-     <li><%= link_to "Sat", deals_path(weekday: '6') %></li>
-     <li><%= link_to "Sun", deals_path(weekday: '7') %></li>
+      <li>
+        <%= link_to "Wed", deals_path(weekday: '3') %>
+      </li>
+      <li>
+        <%= link_to "Fri", deals_path(weekday: '5') %>
+      </li>
+      <li>
+        <%= link_to "Sat", deals_path(weekday: '6') %>
+      </li>
+      <li>
+        <%= link_to "Sun", deals_path(weekday: '7') %>
+      </li>
   </div>
 </div>
 <div>
@@ -27,28 +43,24 @@
     <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
   </div>
   <% end %>
-   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path "hanoi_new.jpg" %>;">
-      <div class="card-description">
-        <h2>Hanoi</h2>
-      </div>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path " hanoi_new.jpg" %>;">
+    <div class="card-description">
+      <h2>Hanoi</h2>
     </div>
-
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path "siem_rep_new.jpg" %>;">
-        <div class="card-description">
-          <h2>Siem Reap</h2>
-        </div>
-      </div>
-
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path "singapore_new.jpg" %>;">
-      <div class="card-description">
-        <h2>Singapore</h2>
-      </div>
+  </div>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path " siem_rep_new.jpg" %>;">
+    <div class="card-description">
+      <h2>Siem Reap</h2>
     </div>
-
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path "sanfrancisco_new.jpeg" %>;">
-      <div class="card-description">
-        <h2>San Francisco</h2>
-      </div>
+  </div>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path " singapore_new.jpg" %>;">
+    <div class="card-description">
+      <h2>Singapore</h2>
     </div>
-
+  </div>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path " sanfrancisco_new.jpg" %>;">
+    <div class="card-description">
+      <h2>San Francisco</h2>
+    </div>
+  </div>
 </div>
