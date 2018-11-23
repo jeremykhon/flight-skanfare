@@ -48,10 +48,12 @@
             <div class="plane-ticket">
               <div class="carrier">
                 Outbound carrier:
+                <br />
                 <% out_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Carriers"][0]%>
                 <%= @carriers.find { |carrier| carrier["Id"] == out_carrier_id }["Name"]%>
                 <br />
                 Inbound carrier:
+                <br />
                 <% in_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Carriers"][0]%>
                 <%= @carriers.find { |carrier| carrier["Id"] == in_carrier_id }["Name"]%>
               </div>
