@@ -1,9 +1,6 @@
 <div class="fullscreen">
   <div class="right">
     <%= image_tag "logo.png", alt: "skanfare", width: "180px", height: "45px" %>
-    <%= link_to deals_path, method: :get do %>
-    <button class="button">See All Deals</button>
-    <% end %>
   </div>
   <!--  <div class="container">
 
@@ -16,6 +13,9 @@
     <div class="title" style="position:absolute">
       <h1>Skanfare</h1>
       <h5>surprise you with unexpected trip deals</h5>
+      <%= link_to deals_path, method: :get do %>
+      <button class="button">See All Deals</button>
+      <% end %>
     </div>
     <div class="siema">
       <div class="package">
