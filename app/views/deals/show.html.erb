@@ -47,34 +47,36 @@
           <!-- <div style="border: 1px solid rgba(0,0,0,0.5); padding: 30px, border-radius: 10px;"> -->
             <div class="plane-ticket">
               <div class="carrier">
-                Outbound carrier:
+                Depart:
                 <br />
-                <% out_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Carriers"][0]%>
-                <%= @carriers.find { |carrier| carrier["Id"] == out_carrier_id }["Name"]%>
+                <h4><% out_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Carriers"][0]%>
+                <%= @carriers.find { |carrier| carrier["Id"] == out_carrier_id }["Name"]%></h4>
                 <br />
-                Inbound carrier:
+                Return:
                 <br />
-                <% in_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Carriers"][0]%>
-                <%= @carriers.find { |carrier| carrier["Id"] == in_carrier_id }["Name"]%>
+                <h4><% in_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Carriers"][0]%>
+                <%= @carriers.find { |carrier| carrier["Id"] == in_carrier_id }["Name"]%></h4>
               </div>
 
               <div class="destination-time">
                 <!-- Outbound departure: -->
-                <b><%= @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Departure"]%> --
+                <h4><b><%= @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Departure"]%> -- 20:50:00
                 <!--  Inbound departure: -->
-                    <%= @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Departure"] %></b>
+                <br/>
+                <br/>
+                    <%= @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Departure"] %> -- 20:50:00</b></h4>
  <!--                <%= @deal.depart_date %> - <%= @deal.return_date %> -->
               </div>
 
               <div class="line"></div>
 
               <div class="price">
-                <% itinerary["PricingOptions"].first(3).each do |price| %>
-                    <h4><%= price["Price"] %></h4>
+                <% itinerary["PricingOptions"].first(1).each do |price| %>
+                    <h4><b>JPY <%= price["Price"] %></b></h4>
                     <br />
                     <%= @agents.find { |agent| agent["Id"] == price["Agents"][0] }["Name"] %>
                     <br />
-                    <a class="button" href="<%= price["DeeplinkUrl"] %>" target="_blank">Buy Now</a>
+                    <a class="detail-button" href="<%= price["DeeplinkUrl"] %>" target="_blank">Buy Now</a>
                 <% end %>
               </div>
           </div>
