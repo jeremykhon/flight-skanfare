@@ -1,51 +1,33 @@
 <!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
-
-  <% opacity = 1 %>
-  <% @topdeals.each do |deal| %>
-
-  <div class="half-card" style="opacity: <%= opacity %>;">
-
-  <% opacity -= 0.05 %>
-  <% opacity = opacity < 0.3 ? 0.3 : opacity %>
-
-    <div class="card-deal">
-
-      <p id="new-price">
-        <%="¥#{deal.price}" %>
-      </p>
-
-       <p id="initial-price">
-        <%="¥#{deal.price-deal.discount_abs}" %>
-      </p>
-
-
-        <p id="destination">
-        <%= "#{Deal.city(deal.destination).gsub('_new','').upcase}" %>
-      </p>
-
-
-
-      <p id="discount">
-        <%= "#{deal.discount_perc}%" %>
-      </p>
-      <div class="card-deal-description">
-        <h3><%= "#{deal.depart_date} - #{deal.return_date}"%></h3>
-      </div>
-      <%= link_to "", deals_path(name: params[:name],chart_id:deal), class: 'card-link' %>
+<% opacity = 1 %>
+<% @topdeals.each do |deal| %>
+<div class="half-card" style="opacity: <%= opacity %>;">
+  <% opacity -= 0.03 %>
+  <% opacity = opacity < 0.7 ? 0.7 : opacity %>
+  <div class="card-deal">
+    <p id="new-price">
+      <%="¥#{deal.price}" %>
+    </p>
+    <p id="initial-price">
+      <%="¥#{deal.price-deal.discount_abs}" %>
+    </p>
+    <p id="destination">
+      <%= "#{Deal.city(deal.destination).gsub('_new','').upcase}" %>
+    </p>
+    <p id="discount">
+      <%= "#{deal.discount_perc}%" %>
+    </p>
+    <div class="card-deal-description">
+      <h3><%= "#{deal.depart_date} - #{deal.return_date}"%></h3>
     </div>
-
-  <div class="card-deal-left">
-
-   <div class="card-deal-description-left">
-
-    <p>Book</p>
-
-      </div>
-      <%= link_to "", deal_path(id:deal), class: 'card-link' %>
-    </div>
-
+    <%= link_to "", deals_path(name: params[:name],chart_id:deal), class: 'card-link' %>
   </div>
-
-
-  <% end %>
-  <!-- => #<Deal id: 6965, depart_date: "2019-01-07", return_date: "2019-01-20", origin: "TYOA-sky", destination: "SELA-sky", price: 1543, created_at: "2018-11-21 10:59:39", updated_at: "2018-11-22 01:37:41", unique_deal: "2019-01-07-2019-01-20-TYOA-sky-SELA-sky", discount_abs: -896, discount_perc: -37, wday_duration: "1-13" -->
+  <div class="card-deal-left">
+    <div class="card-deal-description-left">
+      <p>Book</p>
+    </div>
+    <%= link_to "", deal_path(id:deal), class: 'card-link', target: :_blank %>
+  </div>
+</div>
+<% end %>
+<!-- => #<Deal id: 6965, depart_date: "2019-01-07", return_date: "2019-01-20", origin: "TYOA-sky", destination: "SELA-sky", price: 1543, created_at: "2018-11-21 10:59:39", updated_at: "2018-11-22 01:37:41", unique_deal: "2019-01-07-2019-01-20-TYOA-sky-SELA-sky", discount_abs: -896, discount_perc: -37, wday_duration: "1-13" -->
