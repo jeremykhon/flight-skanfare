@@ -18,8 +18,12 @@
       <%= "#{deal.discount_perc}%" %>
     </p>
     <div class="card-deal-description">
-      <h3><%= "#{deal.depart_date} - #{deal.return_date}"%></h3>
+      <h3><%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%></h3>
     </div>
+    <div class="week_day">
+      <h3><%= "#{(deal.return_date-deal.depart_date).to_i} days, #{deal.depart_date.strftime('%a')} - #{deal.return_date.strftime('%a')}"%></h3>
+    </div>
+
     <%= link_to "", deals_path(name: params[:name],chart_id:deal), class: 'card-link' %>
   </div>
   <div class="card-deal-left">
