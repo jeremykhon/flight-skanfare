@@ -43,8 +43,9 @@
 
 #new-price {
   position: absolute;
-  top: 10px;
-  left: 150px;
+  top: 25%;
+  left: 45%;
+
   font-size: 25px;
 }
 
@@ -62,13 +63,12 @@
   font-size: 30px;
 }
 
-
 #destination {
   color: #023587;
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   right: 10px;
-
+  font-size: 12px;
 }
 .card-deal-description {
   position: absolute;
@@ -149,7 +149,6 @@
   .card-deal-description-left p {
 
     margin-top: 40px;
-
 
   }
 }
