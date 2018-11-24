@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_022315) do
+ActiveRecord::Schema.define(version: 2018_11_24_084129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 2018_11_22_022315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unique_deal", default: ""
-    t.integer "discount_abs", default: 0
-    t.integer "discount_perc", default: 0
-    t.string "wday_duration"
+    t.integer "discount_abs"
+    t.integer "discount_perc"
     t.jsonb "historical", default: "[]"
+    t.integer "duration"
+    t.integer "weekday"
   end
 
   create_table "quotes", force: :cascade do |t|

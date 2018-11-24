@@ -4,11 +4,9 @@ class DealsController < ApplicationController
     @best_city_deals_list = Deal.top_deals_by_cities
     destination = @best_city_deals_list[0][0]
     destination = params[:name].nil? ? destination : params[:name]
-    @topdeals = Deal.top_deals_by_perc_by_cities(destination)
+    @topdeals = Deal.top_deals_by_price_by_cities(destination)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
     @city = Deal.city(destination)
-
-
   end
 
   def show
