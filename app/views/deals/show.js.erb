@@ -1,0 +1,6 @@
+function refreshPage(innerHTML) {
+  const newTicketPage = document.getElementById('ticket-container');
+  newTicketPage.innerHTML = innerHTML;
+}
+
+refreshPage('<%= j render "deals/ticket-container", itineraries: @itineraries, legs: @legs, carriers: @carriers, agents: @agents %>');
