@@ -80,7 +80,7 @@
             <%= image_tag("arrow.png", {:style => "width:90px; height:40px"}) %>
           </div>
           <div class="duration">
-            <%= "#{leg["Duration"] / 60}:#{leg["Duration"] % 60}" %>
+            <%=  "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 == 0 ? "00" : leg["Duration"] % 60 }" %>
           </div>
         </div>
         <!-- Inbound arrival: -->

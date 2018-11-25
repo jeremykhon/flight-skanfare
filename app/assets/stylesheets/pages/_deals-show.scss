@@ -263,6 +263,35 @@
   }
 }
 
+// itinerary and graph
+
+.itinerary {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  .duration {
+    align-self: center;
+    margin: 0 30px;
+  }
+
+  .origin-destination {
+    margin: 25px;
+    display: flex;
+    flex-direction: column;
+
+    .city-name {
+      align-self: center;
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+}
+
+.graph-container {
+  padding: 20px;
+}
 
 
 //

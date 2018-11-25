@@ -42,11 +42,35 @@
   </div>
 </div>
 <!-- end of banner -->
-<!-- <end of nav bar> -->
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-      x
+      <div class="itinerary">
+        <div class="origin-destination">
+          <div class="city-name">
+            <%= Deal.humanize_city(@deal.origin) %>
+          </div>
+          <div>
+            <%= @deal.depart_date.strftime("%a %e %b %Y") %>
+          </div>
+        </div>
+        <p class="duration">
+          <%= "#{@deal.duration} days"%>
+        </p>
+        <div class="origin-destination">
+          <div class="city-name">
+            <%= Deal.humanize_city(@deal.destination) %>
+          </div>
+          <div>
+            <%= @deal.return_date.strftime("%a %e %b %Y") %>
+          </div>
+        </div>
+      </div>
+      <div class="graph-container">
+        <div class="graph">
+          <%= area_chart @deal.get_historical %>
+        </div>
+      </div>
       <%= link_to "Refresh", deal_path(@deal, key: @key), remote: true %>
       <div id="ticket-container">
         <%= render "deals/ticket-container" %>
