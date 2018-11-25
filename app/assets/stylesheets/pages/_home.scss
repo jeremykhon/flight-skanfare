@@ -1,4 +1,5 @@
 
+// Carousel
 .package {
   margin-top: 50vh;
   z-index:10;
@@ -11,7 +12,6 @@
   padding: 20px;
   box-shadow: 1px 1px 20px -1px #323232;
   display: flex;
-  // justify-content: space-between;
 }
 
 .promotion h3 {
@@ -23,6 +23,110 @@
 }
 .promotion p {
   font-weight: 100;
+}
+
+.lefttext {
+  // flex-grow: 1;
+  width: 25%;
+  h3, h4, h5, p {
+    margin-top: none;
+    margin-bottom: none;
+  }
+  @media screen and (max-width: 768px) {
+    h3, h4, h5, p {
+      font-size: 14px;
+    }
+  }
+}
+
+.middletext {
+  width: 50%;
+  padding-right: 30px;
+   h3, h4, h5, p {
+    margin-top: none;
+    margin-bottom: none;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+.righttext {
+  width: 25%;
+  text-align: right;
+   h3, h4, h5, p {
+    margin-top: none;
+    margin-bottom: none;
+  }
+  padding-right: 10px;
+    @media screen and (max-width: 768px) {
+    h3, h4, h5, p {
+      font-size: 14px;
+    }
+    button:none;
+  }
+}
+
+.purple {
+  background-color: #3034AC;
+  color: white;
+}
+
+.orange {
+  background-color: #F99216;
+  color: white;
+}
+
+.pink {
+  background-color: #9F7E77;
+  color: white;
+}
+
+.blue {
+  background-color: #77B0BE;
+  color: white;
+}
+
+
+
+.fullscreen {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  transition: background 1.6s linear;
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+// buttons style
+.button {
+  padding: 8px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+  color: white;
+  border: 2px solid white;
+  background-color: transparent;
+  transition-duration: 0.4s;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  background-color: #3034AC;
+  color: white;
+  border: 2px solid #3034AC;
+  box-shadow:  4px 5px 0 rgba(0,0,0,0.24), 0 10px 30px 0 rgba(0,0,0,0.19);
 }
 
 .detail {
@@ -46,71 +150,8 @@
   border: 1px solid white;
 }
 
-.purple {
-  background-color: #3034AC;
-  color: white;
-}
 
-.orange {
-  background-color: #F99216;
-  color: white;
-}
-
-.pink {
-  background-color: #9F7E77;
-  color: white;
-}
-
-.blue {
-  background-color: #77B0BE;
-  color: white;
-}
-
-.siema {
-  margin: 1rem 0;
-  padding-left: 15vw;
-}
-
-.fullscreen {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  transition: background 1.6s linear;
-}
-
-.right {
-  display: flex;
-  justify-content: space-between;
-}
-
-.button {
-  padding: 8px 40px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 10px 5px;
-  cursor: pointer;
-  color: white;
-  border: 2px solid white;
-  background-color: transparent;
-  transition-duration: 0.4s;
-}
-
-
-.button:focus {
-  outline: none;
-}
-
-.button:hover {
-  background-color: #3034AC;
-  color: white;
-  border: 2px solid #3034AC;
-  box-shadow:  4px 5px 0 rgba(0,0,0,0.24), 0 10px 30px 0 rgba(0,0,0,0.19);
-}
-
+// text style
 .title {
   margin-top: 12vh;
   z-index: 5;
@@ -118,9 +159,11 @@
 }
 
 .title h1 {
-  font-size: 110px;
   color: black;
   font-weight: 300;
+  @media screen and (min-width: 768px) {
+    font-size: 110px;
+  }
 }
 
 .title h5 {
@@ -134,26 +177,37 @@
   padding: 0 !important;
 }
 
-.lefttext {
-  // flex-grow: 1;
-  width: 25%;
+
+// slider click style
+.prev,
+.next {
+  height: 60px;
+  width: 60px;
+  outline: black;
+  background-size: 100%, 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
 }
 
-.middletext {
-  width: 50%;
-  padding-right: 30px;
-}
-.righttext {
-  width: 25%;
-  text-align: right;
-  padding-right: 10px;
+.next:after
+{
+  content: '>';
+  font-size: 40px;
+  color: white;
 }
 
-// .slick-element {
-//   background-color: #fff;
-//   width:600px;
-//   margin-top:200px auto;
-//   text-align: center;
-//   padding:20px;
-//   color:white;
-// }
+.prev:after {
+  content: '<';
+  font-size: 40px;
+  color: white;
+}
+
+.slider-prev-next-control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.siema {
+  margin: 1rem 0;
+  padding-left: 15vw;
+}
