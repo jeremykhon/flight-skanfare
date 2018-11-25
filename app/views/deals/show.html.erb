@@ -35,99 +35,45 @@
 <!-- banner -->
 <div class="banner" style="background-image: url( <%= asset_path((" #{Deal.city(@deal.destination)}.jpg").strip) %>);">
   <div class="banner-content">
-    <p>Tokyo to</p>
+    <h3>
+      <%= Deal.humanize_city(@deal.origin).upcase %> TO
+    </h3>
     <h1><%= Deal.humanize_city(@deal.destination).upcase %></h1>
   </div>
 </div>
 <!-- end of banner -->
-<!-- <end of nav bar> -->
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1">
-      <div class="ticket-container">
-        <%= link_to "Refresh", deal_path(@deal, key: @key) %>
-        <% @itineraries.each do |itinerary| %>
-        <!-- <div style="border: 1px solid rgba(0,0,0,0.5); padding: 30px, border-radius: 10px;"> -->
-        <div class="plane-ticket">
-          <div class="carrier">
-            <div class="depart-carrier">
-              <h5><% out_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Carriers"][0]%>
-                <%= @carriers.find { |carrier| carrier["Id"] == out_carrier_id }["Name"]%></h5>
-            </div>
-            <div class="return-carrer">
-              <h5><% in_carrier_id = @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Carriers"][0]%>
-                <%= @carriers.find { |carrier| carrier["Id"] == in_carrier_id }["Name"]%></h5>
-            </div>
+      <div class="itinerary">
+        <div class="origin-destination">
+          <div class="city-name">
+            <%= Deal.humanize_city(@deal.origin) %>
           </div>
-          <div class="destination-time">
-            <!-- Outbound departure: -->
-            <div class="in-outbound">
-              <div>
-                <% outbound_depart = DateTime.parse((@legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Departure"]))%>
-                <div class="date-time-pair">
-                  <div class=time>
-                    <%= outbound_depart.strftime("%l:%M %p") %>
-                  </div>
-                  <div class="date">
-                    <%= outbound_depart.strftime("%e %b %Y") %>
-                  </div>
-                </div>
-              </div>
-              <%= image_tag("arrow.png", {:style => "width:70px; height:40px"}) %>
-              <!-- Outbound arrival: -->
-              <div>
-                <% outbound_arrive = DateTime.parse((@legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }["Arrival"]))%>
-                <div class="date-time-pair">
-                  <div class="time">
-                    <%= outbound_arrive.strftime("%l:%M %p") %>
-                  </div>
-                  <div class="date">
-                    <%= outbound_arrive.strftime("%e %b %Y") %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--  Inbound departure: -->
-            <div class="in-outbound">
-              <div>
-                <% inbound_depart = DateTime.parse((@legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Departure"]))%>
-                <div class="date-time-pair">
-                  <div class="time">
-                    <%= inbound_depart.strftime("%l:%M %p") %>
-                  </div>
-                  <div class="date">
-                    <%= inbound_depart.strftime("%e %b %Y") %>
-                  </div>
-                </div>
-              </div>
-              <%= image_tag("arrow.png", {:style => "width:70px; height:40px"}) %>
-              <!-- Inbound arrival: -->
-              <div>
-                <% inbound_arrive = DateTime.parse((@legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] }["Arrival"]))%>
-                <div class="date-time-pair">
-                  <div class="time">
-                    <%= inbound_arrive.strftime("%l:%M %p") %>
-                  </div>
-                  <div class="date">
-                    <%= inbound_arrive.strftime("%e %b %Y") %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--                <%= @deal.depart_date %> - <%= @deal.return_date %> -->
-          </div>
-          <div class="line"></div>
-          <div class="price">
-            <% itinerary["PricingOptions"].first(1).each do |price| %>
-            <h4><b>JPY <%= price["Price"] %></b></h4>
-            <div class="agent-name">
-              <%= @agents.find { |agent| agent["Id"] == price["Agents"][0] }["Name"] %>
-            </div>
-            <a class="detail-button" href="<%= price["DeeplinkUrl"] %>" target="_blank">Buy Now</a>
-            <% end %>
+          <div>
+            <%= @deal.depart_date.strftime("%a %e %b %Y") %>
           </div>
         </div>
-        <% end %>
+        <p class="duration">
+          <%= "#{@deal.duration} days"%>
+        </p>
+        <div class="origin-destination">
+          <div class="city-name">
+            <%= Deal.humanize_city(@deal.destination) %>
+          </div>
+          <div>
+            <%= @deal.return_date.strftime("%a %e %b %Y") %>
+          </div>
+        </div>
+      </div>
+      <div class="graph-container">
+        <div class="graph">
+          <%= area_chart @deal.get_historical %>
+        </div>
+      </div>
+      <%= link_to "Refresh", deal_path(@deal, key: @key), remote: true %>
+      <div id="ticket-container">
+        <%= render "deals/ticket-container" %>
       </div>
     </div>
   </div>

@@ -1,0 +1,116 @@
+<% @itineraries.each do |itinerary| %>
+<!-- <div style="border: 1px solid rgba(0,0,0,0.5); padding: 30px, border-radius: 10px;"> -->
+<div class="plane-ticket">
+  <div class="destination-time">
+    <!-- Outbound departure: -->
+    <div class="flight-container">
+      <div class="depart-return-carrier">
+        <h3>
+        <% leg = @legs.find { |leg| leg["Id"] == itinerary["OutboundLegId"] }%>
+        <% out_carrier_id = leg["Carriers"][0]%>
+        <%= @carriers.find { |carrier| carrier["Id"] == out_carrier_id }["Name"]%>
+        </h3>
+      </div>
+      <div class="in-outbound">
+        <div>
+          <% outbound_depart = DateTime.parse(leg["Departure"])%>
+          <div class="date-time-pair">
+            <div class=time>
+              <%= outbound_depart.strftime("%l:%M %p") %>
+            </div>
+            <div class="date">
+              <%= outbound_depart.strftime("%e %b %Y") %>
+            </div>
+            <div class="airport">
+              <%= @places.find { |place| place["Id"] == leg["OriginStation"] }["Code"] %>
+            </div>
+          </div>
+        </div>
+        <div class="arrow-duration">
+          <div class="arrow">
+            <%= image_tag("arrow.png", {:style => "width:90px; height:40px"}) %>
+          </div>
+          <div class="duration">
+            <%= "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 == 0 ? "00" : leg["Duration"] % 60 }" %>
+          </div>
+        </div>
+        <!-- Outbound arrival: -->
+        <div>
+          <% outbound_arrive = DateTime.parse(leg["Arrival"])%>
+          <div class="date-time-pair">
+            <div class="time">
+              <%= outbound_arrive.strftime("%l:%M %p") %>
+            </div>
+            <div class="date">
+              <%= outbound_arrive.strftime("%e %b %Y") %>
+            </div>
+            <div class="airport">
+              <%= @places.find { |place| place["Id"] == leg["DestinationStation"] }["Code"] %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  Inbound departure: -->
+    <div class="flight-container">
+      <div class="depart-return-carrier">
+        <h3>
+        <% leg = @legs.find { |leg| leg["Id"] == itinerary["InboundLegId"] } %>
+        <% in_carrier_id = leg["Carriers"][0]%>
+        <%= @carriers.find { |carrier| carrier["Id"] == in_carrier_id }["Name"]%>
+        </h3>
+      </div>
+      <div class="in-outbound">
+        <div>
+          <% inbound_depart = DateTime.parse(leg["Departure"])%>
+          <div class="date-time-pair">
+            <div class="time">
+              <%= inbound_depart.strftime("%l:%M %p") %>
+            </div>
+            <div class="date">
+              <%= inbound_depart.strftime("%e %b %Y") %>
+            </div>
+            <div class="airport">
+              <%= @places.find { |place| place["Id"] == leg["OriginStation"] }["Code"] %>
+            </div>
+          </div>
+        </div>
+        <div class="arrow-duration">
+          <div class="arrow">
+            <%= image_tag("arrow.png", {:style => "width:90px; height:40px"}) %>
+          </div>
+          <div class="duration">
+            <%=  "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 == 0 ? "00" : leg["Duration"] % 60 }" %>
+          </div>
+        </div>
+        <!-- Inbound arrival: -->
+        <div>
+          <% inbound_arrive = DateTime.parse(leg["Arrival"])%>
+          <div class="date-time-pair">
+            <div class="time">
+              <%= inbound_arrive.strftime("%l:%M %p") %>
+            </div>
+            <div class="date">
+              <%= inbound_arrive.strftime("%e %b %Y") %>
+            </div>
+            <div class="airport">
+              <%= @places.find { |place| place["Id"] == leg["DestinationStation"] }["Code"] %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--                <%= @deal.depart_date %> - <%= @deal.return_date %> -->
+  </div>
+  <div class="line"></div>
+  <div class="price">
+    <% itinerary["PricingOptions"].first(1).each do |price| %>
+    <h4><b>JPY <%= number_with_delimiter(price["Price"].to_i, delimiter: ",") %></b></h4>
+    <div class="agent-name">
+      <%= @agents.find { |agent| agent["Id"] == price["Agents"][0] }["Name"] %>
+    </div>
+    <a class="detail-button" href="<%= price["DeeplinkUrl"] %>" target="_blank">Buy Now</a>
+    <% end %>
+  </div>
+</div>
+<% end %>
