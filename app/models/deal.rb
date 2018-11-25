@@ -117,12 +117,8 @@ class Deal < ApplicationRecord
   end
 
   def self.humanize_city(destination)
-    h= {'HKG-sky'=> 'Hong Kong', 'BKKT-sky'=> 'Bangkok', 'HNLA-sky'=> 'Honolulu', 'SELA-sky'=> 'Seoul', 'TPET-sky' => "Taipei" }
+    h= {'HKG-sky'=> 'Hong Kong', 'BKKT-sky'=> 'Bangkok', 'HNLA-sky'=> 'Honolulu', 'SELA-sky'=> 'Seoul', 'TPET-sky' => "Taipei", 'TYOA-sky' => "Tokyo" }
     return h[destination]
-  end
-
-  def self.delimit(number)
-  number.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
   end
 
 end

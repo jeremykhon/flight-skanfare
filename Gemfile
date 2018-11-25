@@ -24,6 +24,7 @@ gem "chartkick"
 gem 'groupdate'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 
 group :development do

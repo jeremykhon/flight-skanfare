@@ -29,6 +29,7 @@ class DealsController < ApplicationController
     @legs = results["Legs"]
     @carriers = results["Carriers"]
     @agents = results["Agents"]
+    @places = results["Places"]
 
   end
 
