@@ -1,4 +1,5 @@
 class Deal < ApplicationRecord
+  belongs_to :city
 
   def self.build_deal(origin, destination)
     today = Date.today
@@ -21,6 +22,7 @@ class Deal < ApplicationRecord
               d.historical = [{"datetime" => Time.now, "price" => d.price}]
               d.weekday = d.depart_date.wday
               d.duration = n
+              d.city = City.find_by(code: destination)
               d.save
             else
               found_deal.price = d.price
@@ -29,6 +31,7 @@ class Deal < ApplicationRecord
               found_deal.discount_perc = found_deal.calc_discount_perc
               found_deal.weekday = found_deal.depart_date.wday
               found_deal.duration = n
+              found_deal.city = City.find_by(code: destination)
               found_deal.historical.push({"datetime" => Time.now, "price" => found_deal.price})
               found_deal.save
               # -----
@@ -108,6 +111,7 @@ class Deal < ApplicationRecord
 
   def self.top_deals_by_cities
     destinations = ['HKG-sky', 'BKKT-sky', 'HNLA-sky', 'TPET-sky', 'SELA-sky']
+
 
     @best_deals_cities=[]
 

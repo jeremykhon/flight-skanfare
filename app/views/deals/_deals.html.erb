@@ -1,5 +1,4 @@
 <!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
-
 <% opacity = 1 %>
 <% @topdeals.each do |deal| %>
 <div class="half-card" style="opacity: <%= opacity %>;">
@@ -13,7 +12,7 @@
       <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
     </p>
     <p id="destination">
-      <%= "#{Deal.city(deal.destination).gsub('_new','').upcase}" %>
+      <%= "#{deal.city.name}" %>
     </p>
     <p id="discount">
       <%= "#{deal.discount_perc}%" %>
