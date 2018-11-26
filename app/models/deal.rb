@@ -129,18 +129,13 @@ class Deal < ApplicationRecord
     return h[airport]
   end
 
-  def self.humanize_city(destination)
-    h= {'HKG-sky'=> 'Hong Kong', 'BKKT-sky'=> 'Bangkok', 'HNLA-sky'=> 'Honolulu', 'SELA-sky'=> 'Seoul', 'TPET-sky' => "Taipei", 'TYOA-sky' => "Tokyo" }
-    return h[destination]
-  end
-
   def self.int_dow(dow)
     h= {'Mon'=> 1, 'Tue' => 2, 'Wed'=> 3, 'Thu'=> 4, 'Fri'=> 5, 'Sat'=> 6, 'Sun'=> 7}
     return h[dow]
   end
 
   def self.dow_int(dow)
-   h= ['Any', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    h= ['Any', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     return h[dow]
   end
 
