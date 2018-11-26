@@ -3,8 +3,13 @@ class DealsController < ApplicationController
   def index
     @best_city_deals_list = Deal.top_deals_by_cities
     destination = @best_city_deals_list[0][0]
+
     destination = params[:name].nil? ? destination : params[:name]
-    @topdeals = Deal.top_deals_by_price_by_cities(destination)
+    duration = params[:duration].nil? ? 0 : params[:duration].to_i
+    depart_dow_i = params[:depart_dow].blank? ? 0 :  Deal.int_dow((params[:depart_dow].capitalize.first(3)))
+
+
+    @topdeals = Deal.top_deals_by_price_by_cities(destination, duration, depart_dow_i)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
     @city = Deal.city(destination)
   end

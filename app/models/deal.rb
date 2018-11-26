@@ -57,11 +57,20 @@ class Deal < ApplicationRecord
   end
 
   def self.top_deals_by_perc_by_cities(destination)
-    return Deal.where(destination: destination).order(discount_perc: :asc).limit(30)
+
+  return Deal.where(destination: destination).order(discount_perc: :asc).limit(30)
   end
 
-  def self.top_deals_by_price_by_cities(destination)
-    return Deal.where(destination: destination).order(price: :asc).limit(30)
+  def self.top_deals_by_price_by_cities(destination, duration, depart_dow)
+
+    if duration > 0 and depart_dow > 0
+     return Deal.where(destination: destination).where(weekday: depart_dow).where(duration: duration).order(price: :asc).limit(30)
+    elsif duration >1 and depart_dow == 0
+      return Deal.where(destination: destination).where(duration: duration).order(price: :asc).limit(30)
+    else
+      return Deal.where(destination: destination).where(weekday: depart_dow).order(price: :asc).limit(30)
+   end
+      return Deal.where(destination: destination).order(price: :asc).limit(30)
   end
 
   def calc_discount_abs
@@ -119,6 +128,11 @@ class Deal < ApplicationRecord
   def self.humanize_city(destination)
     h= {'HKG-sky'=> 'Hong Kong', 'BKKT-sky'=> 'Bangkok', 'HNLA-sky'=> 'Honolulu', 'SELA-sky'=> 'Seoul', 'TPET-sky' => "Taipei", 'TYOA-sky' => "Tokyo" }
     return h[destination]
+  end
+
+  def self.int_dow(dow)
+    h= {'Mon'=> 1, 'Tue' => 2, 'Wed'=> 3, 'Thu'=> 4, 'Fri'=> 5, 'Sat'=> 6, 'Sun'=> 7}
+    return h[dow]
   end
 
 end
