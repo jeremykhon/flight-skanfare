@@ -30,10 +30,10 @@
 </div>
 <div>
 <%= form_tag(deals_path, method: :get) do %>
-  <%= number_field_tag :min_duration, nil, placeholder: "min duration "%>
-  <%= number_field_tag :max_duration, nil, placeholder: "max duration "%>
-  <%= text_field_tag :depart_dow, nil, placeholder: "depart dow "%>
-  <%= text_field_tag :return_dow, nil, placeholder: "return_dow"%>
+  <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
+
+  <%= text_field_tag :depart_dow, params[:depart_dow], placeholder: "Departure Day "%>
+
   <%= submit_tag "Submit" %>
   <% end %>
 
