@@ -72,7 +72,15 @@
 
 <!-- deal cards and graph -->
   <div class="container" style="width: 100vw;">
-    <div style="height: 70px">
+
+      <div class="preference-filter">
+      <%= form_tag(deals_path, method: :get) do %>
+
+      <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
+      <%= text_field_tag :depart_dow, params[:depart_dow], placeholder: "Departure Day "%>
+      <%= submit_tag "Submit" %>
+      <% end %>
+
     </div>
     <div class="row">
       <div class="col-sm-4 nopadding">

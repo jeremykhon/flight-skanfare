@@ -24,7 +24,7 @@
     <div class="week_day">
       <h3><%= "#{(deal.return_date-deal.depart_date).to_i} days, #{deal.depart_date.strftime('%a')} - #{deal.return_date.strftime('%a')}"%></h3>
     </div>
-    <%= link_to "", deals_path(name: params[:name],chart_id:deal), class: 'card-link' %>
+    <%= link_to "", deals_path(name: params[:name],chart_id:deal,duration: params[:duration], depart_dow: params[:depart_dow]), class: 'card-link' %>
   </div>
   <div class="card-deal-left">
     <div class="card-deal-description-left">

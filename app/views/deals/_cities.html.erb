@@ -1,14 +1,6 @@
 <!-- seclection of your preference -->
 
-<div class="preference-filter" style="margin-top: 20vh; position: fixed;">
-<%= form_tag(deals_path, method: :get) do %>
-  <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
 
-  <%= text_field_tag :depart_dow, params[:depart_dow], placeholder: "Departure Day "%>
-
-  <%= submit_tag "Submit" %>
-  <% end %>
-</div>
 <!-- end of selection -->
 
 
@@ -25,7 +17,9 @@
         <div class="tile__media">
           <img class="tile__img" src="<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>" /><
         </div>
-        <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
+
+        <%= link_to "", deals_path(name: deal[0], duration: params[:duration], depart_dow: params[:depart_dow] ) , class: 'card-link' %>
+
         <div class="tile__details">
           <div class="tile__title">
             <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
