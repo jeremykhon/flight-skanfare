@@ -10,6 +10,36 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
+      <!-- duration and days filter start-->
+      <div class="menu">
+        <div class="dropdown">
+          <p class="menu-button" data-toggle="dropdown"> Duration</p>
+          <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+            <%13.times do |i|%>
+            <li>
+              <%= link_to "#{i+2} days", deals_path(duration: "#{i+2}") %>
+            </li>
+            <%end%>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <p class="menu-button" data-toggle="dropdown"> Days</p>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <%= link_to "Wed", deals_path(weekday: '3') %>
+            </li>
+            <li>
+              <%= link_to "Fri", deals_path(weekday: '5') %>
+            </li>
+            <li>
+              <%= link_to "Sat", deals_path(weekday: '6') %>
+            </li>
+            <li>
+              <%= link_to "Sun", deals_path(weekday: '7') %>
+            </li>
+        </div>
+      </div>
+      <!-- duration and days filter end-->
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
@@ -17,8 +47,10 @@
           <li><a href="#">Log Out</a></li>
         </ul>
       </div>
+
     </div>
   </div>
+
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
@@ -32,27 +64,29 @@
   </div>
 </div>
 <!-- <end of nav bar> -->
-<div class="container" style="width: 100vw;">
-  <!-- <h3>Skanfare</h3> -->
-  <div style="height: 70px">
-  </div>
-  <div class="row">
-    <div class="col-sm-3 nopadding">
-      <div class=" scrolling-third" ids="cities-table">
-        <%= render "deals/cities" %>
+
+
+<!-- carousel -->
+<%= render "deals/cities" %>
+
+
+<!-- deal cards and graph -->
+  <div class="container" style="width: 100vw;">
+    <div style="height: 70px">
+    </div>
+    <div class="row">
+      <div class="col-sm-4 nopadding">
+        <div class="scrolling-third" ids="flight-table">
+          <%= render "deals/deals" %>
+        </div>
+      </div>
+      <div class="col-sm-4 nopadding">
+        <div class="picture-table">
+          <%= render "deals/picture" %>
+        </div>
       </div>
     </div>
-    <div class="col-sm-4 nopadding">
-      <div class="scrolling-third" ids="flight-table">
-        <%= render "deals/deals" %>
-      </div>
-    </div>
-    <div class="col-sm-5 nopadding">
-      <div class="picture-table">
-        <%= render "deals/picture" %>
-      </div>
+    <div class="emptyfooter">
     </div>
   </div>
-  <div class="emptyfooter">
-  </div>
-</div>
+

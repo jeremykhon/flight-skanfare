@@ -1,34 +1,6 @@
-<div class="menu">
+<!-- seclection of your preference -->
 
-  <div class="dropdown">
-
-    <p class="menu-button" data-toggle="dropdown"> Duration</p>
-    <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-      <%13.times do |i|%>
-      <li>
-        <%= link_to "#{i+2} days", deals_path(duration: "#{i+2}") %>
-      </li>
-      <%end%>
-    </ul>
-  </div>
-  <div class="dropdown">
-    <p class="menu-button" data-toggle="dropdown"> Days</p>
-    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li>
-        <%= link_to "Wed", deals_path(weekday: '3') %>
-      </li>
-      <li>
-        <%= link_to "Fri", deals_path(weekday: '5') %>
-      </li>
-      <li>
-        <%= link_to "Sat", deals_path(weekday: '6') %>
-      </li>
-      <li>
-        <%= link_to "Sun", deals_path(weekday: '7') %>
-      </li>
-  </div>
-</div>
-<div>
+<div class="preference-filter" style="margin-top: 20vh; position: fixed;">
 <%= form_tag(deals_path, method: :get) do %>
   <%= number_field_tag :min_duration, nil, placeholder: "min duration "%>
   <%= number_field_tag :max_duration, nil, placeholder: "max duration "%>
@@ -36,34 +8,77 @@
   <%= text_field_tag :return_dow, nil, placeholder: "return_dow"%>
   <%= submit_tag "Submit" %>
   <% end %>
+</div>
+<!-- end of selection -->
 
-  <% @best_city_deals_list.each do |deal| %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url(<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>;">
-    <div class="card-description">
-      <h2><%= Deal.city(deal[0]).gsub('_new','').capitalize %></h2>
-      <!-- <h2><%= deal[1] %></h2> -->
+
+
+<!-- Horizontal Carousel for Cities-->
+<div class="contain">
+
+  <div class="carousel-row">
+    <div class="row__inner">
+
+    <% @best_city_deals_list.each do |deal| %>
+      <!-- New -->
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>" /><
+        </div>
+        <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
+        <div class="tile__details">
+          <div class="tile__title">
+            <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="<%= asset_path((" hanoi_new.jpg").strip) %>" />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Hanoi
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="<%= asset_path((" siem_rep_new.jpg").strip) %>" />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Siem Reap
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="<%= asset_path((" singapore_new.jpg").strip) %>" />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            Singapore
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile__media">
+          <img class="tile__img" src="<%= asset_path((" sanfrancisco_new.jpg").strip) %>" />
+        </div>
+        <div class="tile__details">
+          <div class="tile__title">
+            San Francisco
+          </div>
+        </div>
+      </div>
+
     </div>
-    <%= link_to "", deals_path(name: deal[0]) , class: 'card-link' %>
   </div>
-  <% end %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" hanoi_new.jpg").strip) %>;">
-    <div class="card-description">
-      <h2>Hanoi</h2>
-    </div>
-  </div>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" siem_rep_new.jpg").strip) %>;">
-    <div class="card-description">
-      <h2>Siem Reap</h2>
-    </div>
-  </div>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" singapore_new.jpg").strip) %>;">
-    <div class="card-description">
-      <h2>Singapore</h2>
-    </div>
-  </div>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= asset_path((" sanfrancisco_new.jpg").strip) %>;">
-    <div class="card-description">
-      <h2>San Francisco</h2>
-    </div>
-  </div>
+
 </div>
