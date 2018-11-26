@@ -11,6 +11,7 @@ class DealsController < ApplicationController
 
     @topdeals = Deal.top_deals_by_price_by_cities(destination, duration, depart_dow_i)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
+    params[:chart_id] = @deal_chart
     @city = Deal.city(destination)
   end
 

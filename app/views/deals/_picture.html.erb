@@ -10,7 +10,9 @@
     <%else%>
     <div class="graph-card" style="background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.7)), url(<%= asset_path "#{@city}.jpg" %>;">
       <div class="graph">
-      <%= area_chart @deal_chart.get_historical %>
+
+
+      <%= area_chart @deal_chart.get_historical, min:  @deal_chart.get_historical.map(&:last).min, max:  @deal_chart.get_historical.map(&:last).max %>
       </div>
    <%end%>
 
