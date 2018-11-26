@@ -7,37 +7,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Profile picture with dropdown list -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-      <!-- duration and days filter start-->
-      <div class="menu">
-        <div class="dropdown">
-          <p class="menu-button" data-toggle="dropdown"> Duration</p>
-          <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
-            <%13.times do |i|%>
-            <li>
-              <%= link_to "#{i+2} days", deals_path(duration: "#{i+2}") %>
-            </li>
-            <%end%>
-          </ul>
-        </div>
-        <div class="dropdown">
-          <p class="menu-button" data-toggle="dropdown"> Days</p>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "Wed", deals_path(weekday: '3') %>
-            </li>
-            <li>
-              <%= link_to "Fri", deals_path(weekday: '5') %>
-            </li>
-            <li>
-              <%= link_to "Sat", deals_path(weekday: '6') %>
-            </li>
-            <li>
-              <%= link_to "Sun", deals_path(weekday: '7') %>
-            </li>
-        </div>
-      </div>
+
       <!-- duration and days filter end-->
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
@@ -75,7 +45,8 @@
       <%= form_tag(deals_path, method: :get) do %>
 
       <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
-      <%= text_field_tag :depart_dow, params[:depart_dow], placeholder: "Departure Day "%>
+     <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+      <%= select_tag :depart_dow, options_for_select([['Any',0],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",7]],ar) %>
       <%= submit_tag "Submit" %>
       <% end %>
 

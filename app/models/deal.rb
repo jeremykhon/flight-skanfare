@@ -135,4 +135,9 @@ class Deal < ApplicationRecord
     return h[dow]
   end
 
+  def self.dow_int(dow)
+   h= ['Any', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    return h[dow]
+  end
+
 end
