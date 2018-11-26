@@ -13,6 +13,7 @@
   width: 100%;
 }
 
+
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
@@ -266,14 +267,13 @@
 // itinerary and graph
 
 .itinerary {
-  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-content: center;
 
   .duration {
     align-self: center;
-    margin: 0 30px;
+    margin: 0 10px;
   }
 
   .origin-destination {
@@ -283,7 +283,7 @@
 
     .city-name {
       align-self: center;
-      font-size: 30px;
+      font-size: 25px;
       font-weight: bold;
     }
   }
@@ -293,5 +293,12 @@
   padding: 20px;
 }
 
+.wide-container {
+  padding: 50px 60px 0px 100px;
+}
+
+.flight-block {
+  width: 150px;
+}
 
 //

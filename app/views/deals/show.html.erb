@@ -34,22 +34,29 @@
 <div class="banner" style="background-image: url( <%= asset_path((" #{Deal.city(@deal.destination)}.jpg").strip) %>);">
   <div class="banner-content">
     <h3>
-      <%= City.find_by(code: @deal.origin).name %> TO
+      <%= City.find_by(code: @deal.origin).name %> to
     </h3>
     <h1><%= @deal.city.name.upcase %></h1>
   </div>
 </div>
 <!-- end of banner -->
-<div class="container">
+<div class="wide-container">
   <div class="row">
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-8">
+      <div id="ticket-container">
+        <% if @itineraries != 0 %>
+        <%= render "deals/ticket-container" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-4">
       <div class="itinerary">
         <div class="origin-destination">
           <div class="city-name">
             <%= City.find_by(code: @deal.origin).name %>
           </div>
           <div>
-            <%= @deal.depart_date.strftime("%a %e %b %Y") %>
+            <%= @deal.depart_date.strftime("%a %e %b %y") %>
           </div>
         </div>
         <p class="duration">
@@ -60,20 +67,13 @@
             <%= @deal.city.name %>
           </div>
           <div>
-            <%= @deal.return_date.strftime("%a %e %b %Y") %>
+            <%= @deal.return_date.strftime("%a %e %b %y") %>
           </div>
         </div>
       </div>
-      <div>
-        <div class="graph-container">
-          <div class="graph">
-            <%= area_chart @deal.get_historical %>
-          </div>
-        </div>
-        <div id="ticket-container">
-          <% if @itineraries != 0 %>
-          <%= render "deals/ticket-container" %>
-          <% end %>
+      <div class="graph-container">
+        <div class="graph">
+          <%= area_chart @deal.get_historical %>
         </div>
       </div>
     </div>

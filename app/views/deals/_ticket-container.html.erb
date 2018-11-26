@@ -12,14 +12,14 @@
         </h3>
       </div>
       <div class="in-outbound">
-        <div>
+        <div class="flight-block">
           <% outbound_depart = DateTime.parse(leg["Departure"])%>
           <div class="date-time-pair">
             <div class=time>
               <%= outbound_depart.strftime("%l:%M %p") %>
             </div>
             <div class="date">
-              <%= outbound_depart.strftime("%e %b %Y") %>
+              <%= outbound_depart.strftime("%e %b %y") %>
             </div>
             <div class="airport">
               <%= @places.find { |place| place["Id"] == leg["OriginStation"] }["Code"] %>
@@ -31,18 +31,18 @@
             <%= image_tag("arrow.png", {:style => "width:90px; height:40px"}) %>
           </div>
           <div class="duration">
-            <%= "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 == 0 ? "00" : leg["Duration"] % 60 }" %>
+            <%= "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 < 10 ? "0" : ""}#{leg["Duration"] % 60 == 0 ? "0" : leg["Duration"] % 60 }" %>
           </div>
         </div>
         <!-- Outbound arrival: -->
-        <div>
+        <div class="flight-block">
           <% outbound_arrive = DateTime.parse(leg["Arrival"])%>
           <div class="date-time-pair">
             <div class="time">
               <%= outbound_arrive.strftime("%l:%M %p") %>
             </div>
             <div class="date">
-              <%= outbound_arrive.strftime("%e %b %Y") %>
+              <%= outbound_arrive.strftime("%e %b %y") %>
             </div>
             <div class="airport">
               <%= @places.find { |place| place["Id"] == leg["DestinationStation"] }["Code"] %>
@@ -61,14 +61,14 @@
         </h3>
       </div>
       <div class="in-outbound">
-        <div>
+        <div class="flight-block">
           <% inbound_depart = DateTime.parse(leg["Departure"])%>
           <div class="date-time-pair">
             <div class="time">
               <%= inbound_depart.strftime("%l:%M %p") %>
             </div>
             <div class="date">
-              <%= inbound_depart.strftime("%e %b %Y") %>
+              <%= inbound_depart.strftime("%e %b %y") %>
             </div>
             <div class="airport">
               <%= @places.find { |place| place["Id"] == leg["OriginStation"] }["Code"] %>
@@ -80,18 +80,18 @@
             <%= image_tag("arrow.png", {:style => "width:90px; height:40px"}) %>
           </div>
           <div class="duration">
-            <%=  "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 == 0 ? "00" : leg["Duration"] % 60 }" %>
+            <%=  "#{leg["Duration"] / 60 }:#{leg["Duration"] % 60 < 10 ? "0" : ""}#{leg["Duration"] % 60 == 0 ? "0" : leg["Duration"] % 60 }" %>
           </div>
         </div>
         <!-- Inbound arrival: -->
-        <div>
+        <div class="flight-block">
           <% inbound_arrive = DateTime.parse(leg["Arrival"])%>
           <div class="date-time-pair">
             <div class="time">
               <%= inbound_arrive.strftime("%l:%M %p") %>
             </div>
             <div class="date">
-              <%= inbound_arrive.strftime("%e %b %Y") %>
+              <%= inbound_arrive.strftime("%e %b %y") %>
             </div>
             <div class="airport">
               <%= @places.find { |place| place["Id"] == leg["DestinationStation"] }["Code"] %>
