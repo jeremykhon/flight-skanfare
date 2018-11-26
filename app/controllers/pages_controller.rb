@@ -3,6 +3,8 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @preferences = Preference.where(user: current_user)
+    @preference = Preference.new
 
   end
 

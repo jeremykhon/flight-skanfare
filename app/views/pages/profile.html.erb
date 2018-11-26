@@ -39,6 +39,12 @@
         <p>
           <%= @user.email  %>
         </p>
+        <% @user.preferences.each do |preference| %>
+        <li>
+          <%= preference.weekday %>
+          <%= preference.duration %>
+        </li>
+        <% end %>
       </div>
     </div>
   </div>

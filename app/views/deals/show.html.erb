@@ -34,9 +34,9 @@
 <div class="banner" style="background-image: url( <%= asset_path((" #{Deal.city(@deal.destination)}.jpg").strip) %>);">
   <div class="banner-content">
     <h3>
-      <%= Deal.humanize_city(@deal.origin).upcase %> TO
+      <%= City.find_by(code: @deal.origin).name %> TO
     </h3>
-    <h1><%= Deal.humanize_city(@deal.destination).upcase %></h1>
+    <h1><%= @deal.city.name.upcase %></h1>
   </div>
 </div>
 <!-- end of banner -->
