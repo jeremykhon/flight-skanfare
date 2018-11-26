@@ -1,19 +1,14 @@
 <div class="menu">
+
   <div class="dropdown">
+
     <p class="menu-button" data-toggle="dropdown"> Duration</p>
     <ul class="dropdown-menu dropdown-menu-left navbar-wagon-dropdown-menu">
+      <%13.times do |i|%>
       <li>
-        <%= link_to "2d", deals_path(duration: '2') %>
+        <%= link_to "#{i+2} days", deals_path(duration: "#{i+2}") %>
       </li>
-      <li>
-        <%= link_to "4d", deals_path(duration: '4') %>
-      </li>
-      <li>
-        <%= link_to "1w", deals_path(duration: '7') %>
-      </li>
-      <li>
-        <%= link_to "2w", deals_path(duration: '14') %>
-      </li>
+      <%end%>
     </ul>
   </div>
   <div class="dropdown">
@@ -34,6 +29,14 @@
   </div>
 </div>
 <div>
+<%= form_tag(deals_path, method: :get) do %>
+  <%= number_field_tag :min_duration, nil, placeholder: "min duration "%>
+  <%= number_field_tag :max_duration, nil, placeholder: "max duration "%>
+  <%= text_field_tag :depart_dow, nil, placeholder: "depart dow "%>
+  <%= text_field_tag :return_dow, nil, placeholder: "return_dow"%>
+  <%= submit_tag "Submit" %>
+  <% end %>
+
   <% @best_city_deals_list.each do |deal| %>
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url(<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>;">
     <div class="card-description">
