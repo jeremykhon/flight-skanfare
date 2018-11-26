@@ -6,7 +6,7 @@ class DealsController < ApplicationController
 
     destination = params[:name].nil? ? destination : params[:name]
     duration = params[:duration].nil? ? 0 : params[:duration].to_i
-    depart_dow_i = params[:depart_dow].blank? ? 0 :  Deal.int_dow((params[:depart_dow].capitalize.first(3)))
+    depart_dow_i = params[:depart_dow].blank? ? 0 :  params[:depart_dow].to_i
 
 
     @topdeals = Deal.top_deals_by_price_by_cities(destination, duration, depart_dow_i)
