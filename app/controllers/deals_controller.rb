@@ -14,6 +14,11 @@ class DealsController < ApplicationController
     if params[:key]
       @key = params[:key]
       results = fetch_results_with_session_id(@key)
+      @itineraries = results["Itineraries"]
+      @legs = results["Legs"]
+      @carriers = results["Carriers"]
+      @agents = results["Agents"]
+      @places = results["Places"]
     else
       response = call_api(@deal)
       if response.nil?
@@ -23,14 +28,8 @@ class DealsController < ApplicationController
         end
       end
       @key = response.headers[:location].split("/").last
-      results = fetch_results_with_session_id(@key)
-    end
-    @itineraries = results["Itineraries"]
-    @legs = results["Legs"]
-    @carriers = results["Carriers"]
-    @agents = results["Agents"]
-    @places = results["Places"]
-
+      @itineraries = 0
+      end
   end
 
   def call_api(deal)

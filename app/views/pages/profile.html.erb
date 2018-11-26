@@ -30,27 +30,16 @@
   </div>
 </div>
 <!-- <end of nav bar> -->
-<div class="container" style="width: 100vw;">
-  <!-- <h3>Skanfare</h3> -->
-  <div style="height: 70px">
-  </div>
+<div style="height: 70px">
+</div>
+<div class="container">
   <div class="row">
-    <div class="col-sm-3 nopadding">
-      <div class=" scrolling-third" ids="cities-table">
-        <%= render "deals/cities" %>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="profile-container">
+        <p>
+          <%= @user.email  %>
+        </p>
       </div>
     </div>
-    <div class="col-sm-4 nopadding">
-      <div class="scrolling-third" ids="flight-table">
-        <%= render "deals/deals" %>
-      </div>
-    </div>
-    <div class="col-sm-5 nopadding">
-      <div class="picture-table">
-        <%= render "deals/picture" %>
-      </div>
-    </div>
-  </div>
-  <div class="emptyfooter">
   </div>
 </div>
