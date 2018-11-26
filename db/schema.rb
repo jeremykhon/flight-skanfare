@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2018_11_24_084129) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unique_deal", default: ""
-    t.integer "discount_abs"
-    t.integer "discount_perc"
+    t.integer "discount_abs", default: 0
+    t.integer "discount_perc", default: 0
     t.jsonb "historical", default: "[]"
     t.integer "duration"
     t.integer "weekday"
