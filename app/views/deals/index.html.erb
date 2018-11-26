@@ -7,50 +7,41 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Profile picture with dropdown list -->
-
-      <!-- duration and days filter end-->
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li>
-            <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-          </li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Dropdown appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Log Out</a></li>
-      </ul>
-    </div>
+    <!-- duration and days filter end-->
+    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li>
+        <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+      </li>
+    </ul>
   </div>
 </div>
+</div>
+<!-- Dropdown appearing on mobile only -->
+<div class="navbar-wagon-item hidden-md hidden-lg">
+  <div class="dropdown">
+    <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+      <li><a href="#">Profile</a></li>
+      <li><a href="#">Log Out</a></li>
+    </ul>
+  </div>
+</div>
+</div>
 <!-- <end of nav bar> -->
-
-
 <!-- carousel -->
 <%= render "deals/cities" %>
-
-
 <!-- deal cards and graph -->
-  <div class="container" style="width: 100vw;">
-
-      <div class="preference-filter">
-      <%= form_tag(deals_path, method: :get) do %>
-
-      <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
-     <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
-      <%= select_tag :depart_dow, options_for_select([['Any',0],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",7]],ar) %>
-      <%= submit_tag "Submit" %>
-      <% end %>
-
-    </div>
+<div class="container" style="width: 100vw;">
+  <div class="preference-filter">
+    <%= form_tag(deals_path, method: :get) do %>
+    <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
+    <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+    <%= select_tag :depart_dow, options_for_select([['Any',0],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",7]],ar) %>
+    <%= submit_tag "Submit" %>
+    <% end %>
+  </div>
+  <div class="deals-bottom-container">
     <div class="row">
       <div class="col-sm-7 nopadding">
         <div class="scrolling-third" ids="flight-table">
@@ -63,7 +54,7 @@
         </div>
       </div>
     </div>
-    <div class="emptyfooter">
-    </div>
   </div>
-
+  <div class="emptyfooter">
+  </div>
+</div>

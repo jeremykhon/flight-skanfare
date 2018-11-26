@@ -1,78 +1,61 @@
 <!-- seclection of your preference -->
-
-
 <!-- end of selection -->
-
-
-
 <!-- Horizontal Carousel for Cities-->
 <div class="contain">
-
   <div class="carousel-row">
     <div class="row__inner">
-
-    <% @best_city_deals_list.each do |deal| %>
+      <% @best_city_deals_list.each do |deal| %>
       <!-- New -->
       <div class="tile">
         <div class="tile__media">
-          <img class="tile__img" src="<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>" /><
+          <img class="tile__img" src="<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>" />< </div> <%=link_to "" , deals_path(name: deal[0], duration: params[:duration], depart_dow: params[:depart_dow] ) , class: 'card-link' %>
+            <div class="tile__details">
+              <div class="tile__title">
+                <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
+              </div>
+            </div>
         </div>
-
-        <%= link_to "", deals_path(name: deal[0], duration: params[:duration], depart_dow: params[:depart_dow] ) , class: 'card-link' %>
-
-        <div class="tile__details">
-          <div class="tile__title">
-            <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
+        <% end %>
+        <div class="tile">
+          <div class="tile__media">
+            <img class="tile__img" src="<%= asset_path((" hanoi_new.jpg").strip) %>" />
+        </div>
+            <div class="tile__details">
+              <div class="tile__title">
+                Hanoi
+              </div>
+            </div>
           </div>
+          <div class="tile">
+            <div class="tile__media">
+              <img class="tile__img" src="<%= asset_path((" siem_rep_new.jpg").strip) %>" />
         </div>
-      </div>
-    <% end %>
-
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="<%= asset_path((" hanoi_new.jpg").strip) %>" />
+              <div class="tile__details">
+                <div class="tile__title">
+                  Siem Reap
+                </div>
+              </div>
+            </div>
+            <div class="tile">
+              <div class="tile__media">
+                <img class="tile__img" src="<%= asset_path((" singapore_new.jpg").strip) %>" />
         </div>
-        <div class="tile__details">
-          <div class="tile__title">
-            Hanoi
+                <div class="tile__details">
+                  <div class="tile__title">
+                    Singapore
+                  </div>
+                </div>
+              </div>
+              <div class="tile">
+                <div class="tile__media">
+                  <img class="tile__img" src="<%= asset_path((" sanfrancisco_new.jpg").strip) %>" />
+        </div>
+                  <div class="tile__details">
+                    <div class="tile__title">
+                      San Francisco
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="<%= asset_path((" siem_rep_new.jpg").strip) %>" />
-        </div>
-        <div class="tile__details">
-          <div class="tile__title">
-            Siem Reap
-          </div>
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="<%= asset_path((" singapore_new.jpg").strip) %>" />
-        </div>
-        <div class="tile__details">
-          <div class="tile__title">
-            Singapore
-          </div>
-        </div>
-      </div>
-
-      <div class="tile">
-        <div class="tile__media">
-          <img class="tile__img" src="<%= asset_path((" sanfrancisco_new.jpg").strip) %>" />
-        </div>
-        <div class="tile__details">
-          <div class="tile__title">
-            San Francisco
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-</div>
