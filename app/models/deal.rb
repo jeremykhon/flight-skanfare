@@ -23,7 +23,7 @@ class Deal < ApplicationRecord
               d.weekday = d.depart_date.wday
               d.duration = n
               d.city = City.find_by(code: destination)
-              d.save
+              d.save!
             else
               found_deal.price = d.price
               # checking and inserting discount
@@ -33,7 +33,7 @@ class Deal < ApplicationRecord
               found_deal.duration = n
               found_deal.city = City.find_by(code: destination)
               found_deal.historical.push({"datetime" => Time.now, "price" => found_deal.price})
-              found_deal.save
+              found_deal.save!
               # -----
             end
           end
@@ -65,15 +65,16 @@ class Deal < ApplicationRecord
   end
 
   def self.top_deals_by_price_by_cities(destination, duration, depart_dow)
+    result = Deal.where(destination: destination)
 
     if duration > 0 and depart_dow > 0
-     return Deal.where(destination: destination).where(weekday: depart_dow).where(duration: duration).order(price: :asc).limit(30)
+     return result.where(weekday: depart_dow).where(duration: duration).order(price: :asc).limit(30)
     elsif duration >1 and depart_dow == 0
-      return Deal.where(destination: destination).where(duration: duration).order(price: :asc).limit(30)
+      return result.where(duration: duration).order(price: :asc).limit(30)
     else
-      return Deal.where(destination: destination).where(weekday: depart_dow).order(price: :asc).limit(30)
+      return result.where(weekday: depart_dow).order(price: :asc).limit(30)
    end
-      return Deal.where(destination: destination).order(price: :asc).limit(30)
+      return result.order(price: :asc).limit(30)
   end
 
   def calc_discount_abs
