@@ -39,6 +39,7 @@
         <p>
           <%= @user.email  %>
         </p>
+        <% if @user.preferences%>
         <% @user.preferences.each do |preference| %>
         <div class="preference">
           <ul>
@@ -53,6 +54,7 @@
             <hr>
           </ul>
         </div>
+        <% end %>
         <% end %>
         <div class="form-container">
           <%= simple_form_for @preference do |f| %>

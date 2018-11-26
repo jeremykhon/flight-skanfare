@@ -5,7 +5,9 @@ class PagesController < ApplicationController
     @user = current_user
     @preferences = Preference.where(user: current_user)
     @preference = Preference.new
+  end
 
+  def home
   end
 
 end
