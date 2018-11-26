@@ -5,8 +5,8 @@ const mySiema = new Siema({
   loop: true,
   perPage: 2,
 });
-// document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
-// document.querySelector('.next').addEventListener('click', () => mySiema.next());
+document.querySelector('.prev').addEventListener('click', () => mySiema.prev());
+document.querySelector('.next').addEventListener('click', () => mySiema.next());
 
 // listen for keydown event
-setInterval(() => mySiema.next(), 5500)
+// setInterval(() => mySiema.next(), 5500)
