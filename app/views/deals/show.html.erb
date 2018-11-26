@@ -1,4 +1,3 @@
-<!-- <nav bar> -->
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/deals" class="navbar-wagon-brand">
@@ -6,16 +5,15 @@
   </a>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Deals</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Setting</a>
+    <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Past Booking</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li>
+            <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+          </li>
         </ul>
       </div>
     </div>
@@ -25,13 +23,13 @@
     <div class="dropdown">
       <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Log Out</a></li>
       </ul>
     </div>
   </div>
 </div>
+<!-- <end of nav bar> -->
 <!-- banner -->
 <div class="banner" style="background-image: url( <%= asset_path((" #{Deal.city(@deal.destination)}.jpg").strip) %>);">
   <div class="banner-content">
@@ -66,15 +64,37 @@
           </div>
         </div>
       </div>
-      <div class="graph-container">
-        <div class="graph">
-          <%= area_chart @deal.get_historical %>
+      <div>
+        <div class="graph-container">
+          <div class="graph">
+            <%= area_chart @deal.get_historical %>
+          </div>
         </div>
-      </div>
-      <%= link_to "Refresh", deal_path(@deal, key: @key), remote: true %>
-      <div id="ticket-container">
-        <%= render "deals/ticket-container" %>
+        <div id="ticket-container">
+          <% if @itineraries != 0 %>
+          <%= render "deals/ticket-container" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<%= link_to "Refresh", deal_path(@deal, key: @key), remote: true, id: "refresh-button", style: "display: none" %>
+<script>
+function refreshPage(innerHTML) {
+  const newTicketPage = document.getElementById('ticket-container');
+  newTicketPage.innerHTML = innerHTML;
+}
+
+const button = document.getElementById('refresh-button');
+let counter = 0
+
+window.setInterval(function() {
+  if (counter < 30) {
+    button.click();
+  }
+  counter += 1
+  console.log(counter)
+}, 2000);
+
+</script>
