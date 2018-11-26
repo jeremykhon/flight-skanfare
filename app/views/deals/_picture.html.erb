@@ -11,7 +11,6 @@
     <!--
      area_chart @deal_chart.get_historical, min:  @deal_chart.get_historical.map(&:last).min, max:  @deal_chart.get_historical.map(&:last).max,  points: false -->
     <%= line_chart  [
-  {name: "Price", data: @deal_chart.get_historical},
-  {name: "Average", data: @average_series} ] %>
+  {name: "Price", data: @deal_chart.get_historical}] %>
   </div>
   <%end%>
