@@ -46,7 +46,7 @@
       <div class="itinerary">
         <div class="origin-destination">
           <div class="city-name">
-            <%= Deal.humanize_city(@deal.origin) %>
+            <%= City.find_by(code: @deal.origin).name %>
           </div>
           <div>
             <%= @deal.depart_date.strftime("%a %e %b %Y") %>
@@ -57,7 +57,7 @@
         </p>
         <div class="origin-destination">
           <div class="city-name">
-            <%= Deal.humanize_city(@deal.destination) %>
+            <%= @deal.city.name %>
           </div>
           <div>
             <%= @deal.return_date.strftime("%a %e %b %Y") %>
