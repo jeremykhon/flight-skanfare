@@ -4,7 +4,7 @@ class DealsController < ApplicationController
     @best_city_deals_list = Deal.top_deals_by_cities
     @destination = params[:name].nil? ? @best_city_deals_list[0][0] : params[:name]
     duration = params[:duration].nil? ? 0 : params[:duration].to_i
-    depart_dow_i = params[:depart_dow].blank? ? 0 :  params[:depart_dow].to_i
+    depart_dow_i = params[:depart_dow].blank? ? 9 :  params[:depart_dow].to_i
 
 
     @topdeals = Deal.top_deals_by_price_by_cities(@destination, duration, depart_dow_i)
