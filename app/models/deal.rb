@@ -1,5 +1,6 @@
 class Deal < ApplicationRecord
   belongs_to :city
+  validates :city, presence: true
 
   def self.build_deal(origin, destination)
     today = Date.today
