@@ -1,0 +1,13 @@
+function refreshPage(outerHTML) {
+  const newTicketPage = document.getElementById('ticket-container');
+  newTicketPage.outerHTML = outerHTML;
+}
+
+refreshPage('<%= j render "deals/ticket-container", itineraries: @itineraries, legs: @legs, carriers: @carriers, agents: @agents, key: @key %>');
+
+console.log('calling api again');
+
+setTimeout(() => {
+  let button = document.getElementById('refresh-button');
+  button.click();
+}, 2000);
