@@ -3,13 +3,13 @@
 <% @topdeals.each do |deal| %>
 <div class="half-card" style="margin-bottom: 5px;">
   <div class="card-deal">
+    <p id="initial-price">
+      <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
+    </p>
     <p id="new-price">
       <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
     </p>
     <!-- commented out -->
-    <p id="initial-price">
-      <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
-    </p>
     <p id="discount_2">
       <%= "#{deal.discount_perc}%" %> from usual
     </p>
