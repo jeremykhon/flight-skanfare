@@ -58,7 +58,7 @@
         <% end %>
         <div class="form-container">
           <%= simple_form_for @preference do |f| %>
-          <%= f.input :weekday, collection: [["Monday", 1],["Tuesday", 2],["Wednesday", 3],["Thursday", 4],["Friday", 5],["Saturday", 6],["Sunday", 7]], required: false %>
+          <%= f.input :weekday, collection: [["Monday", 1],["Tuesday", 2],["Wednesday", 3],["Thursday", 4],["Friday", 5],["Saturday", 6],["Sunday", 0]], required: false %>
           <%= f.input :duration, collection: (1..20), required: false %>
           <%= f.association :city, required: false %>
           <%= f.button :submit %>
