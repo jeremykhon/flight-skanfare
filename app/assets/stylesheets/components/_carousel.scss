@@ -1,6 +1,6 @@
 $duration: 450ms;
-$tileWidth: 250px;
-$tileHeight: ($tileWidth / (16/9));
+$tileWidth: 350px;
+$tileHeight: ($tileWidth / (16/10));
 $iconSize: 50px;
 $growFactor: 1.1; // 1.5 times the original size
 
@@ -48,9 +48,9 @@ $moveRight: $tileWidth * ($growFactor - 1);
 .tile_cheapest_price {
   position: absolute;
   bottom: 0;
-  left: 148px;
+  right: 10px;
   top: 0;
-  font-size: 23px;
+  font-size: 25px;
   font-family: arial;
   color: white;
   font-weight: bold;
