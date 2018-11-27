@@ -1,4 +1,4 @@
 import "bootstrap";
 import './image_animate.js';
-import './siema.js'
-
+import './loading.js';
+import './siema.js';

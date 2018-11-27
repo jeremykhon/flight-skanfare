@@ -44,6 +44,9 @@
   <div class="row">
     <div class="col-sm-8">
       <%= render "deals/ticket-container" %>
+      <div id="loading-box">
+        <%= render "deals/loading" %>
+      </div>
     </div>
     <div class="col-sm-4">
       <div class="itinerary">
@@ -76,14 +79,11 @@
   </div>
 </div>
 <script>
-// let counter = 0
+console.log('calling api again');
 
-// window.setInterval(function() {
-//   let button = document.getElementById('refresh-button');
-//   if (counter < 30) {
-//     button.click();
-//   }
-//   counter += 1
-// }, 2000);
+document.addEventListener('DOMContentLoaded', () => {
+  let button = document.getElementById('refresh-button');
+  button.click();
+});
 
 </script>
