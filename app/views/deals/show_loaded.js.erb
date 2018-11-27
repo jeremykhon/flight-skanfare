@@ -7,6 +7,13 @@ refreshPage('<%= j render "deals/ticket-container", itineraries: @itineraries, l
 
 console.log('calling api again');
 
+if (<%= @itineraries.length %> > 0) {
+  let loading = document.getElementById('loading-box');
+  if (loading !== null) {
+    loading.innerHTML = '';
+  }
+}
+
 setTimeout(() => {
   let button = document.getElementById('refresh-button');
   button.click();

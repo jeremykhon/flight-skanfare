@@ -117,12 +117,3 @@
   <% end %>
   <%= link_to "Refresh", show_loaded_path(@deal, key: @key), remote: true, id: "refresh-button", style: "display: none" %>
 </div>
-<script>
-console.log('calling api again');
-
-document.addEventListener('DOMContentLoaded', () => {
-  let button = document.getElementById('refresh-button');
-  button.click();
-});
-
-</script>

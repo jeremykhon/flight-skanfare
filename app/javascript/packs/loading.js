@@ -27,10 +27,10 @@ function createSVG(tag, properties, opt_children) {
 
 function createPhraseSvg(phrase, yOffset) {
   var text = createSVG("text", {
-    fill: "white",
+    fill: "black",
     x: 50,
     y: yOffset,
-    "font-size": 18,
+    "font-size": 20,
     "font-family": "Arial"
   });
   text.appendChild(document.createTextNode(phrase + "..."));
@@ -74,7 +74,7 @@ function easeInOut(t) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  var phrases = shuffleArray(["Feeding unicorns", "Grabbing tasks", "Collating conversations", "Reticulating splines", "Pondering emptiness", "Considering alternatives", "Shuffling bits", "Celebrating moments", "Generating phrases", "Simulating workflow", "Empowering humanity", "Being aspirational", "Doing the hokey pokey", "Bueller", "Cracking jokes", "Slacking off"]);
+  var phrases = shuffleArray(["Gathering flights", "Scanning prices", "Getting good deals", "Running algorithm", "Caring for humanity", "Pondering emptiness", "Solving for x", "Curing cancer", "Calling TA for help", "Saving you money", "Developing patience", "Generating synergy", "Glocalizing"]);
   addPhrasesToDocument(phrases);
   var start_time = new Date().getTime();
   var upward_moving_group = document.getElementById("phrases");
