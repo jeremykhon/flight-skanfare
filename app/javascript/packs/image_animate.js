@@ -10,8 +10,8 @@
 $(function() {
   var body = $('.fullscreen');
   var backgrounds = new Array(
-  'url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=540")',
-  // 'url("https://images.pexels.com/photos/351774/pexels-photo-351774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=540")'
+  // 'url("https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=540")',
+   'url("https://images.pexels.com/photos/351774/pexels-photo-351774.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=540")'
   // 'url("https://images.pexels.com/photos/113727/pexels-photo-113727.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=540")'
   );
   var current = 0;
