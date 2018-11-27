@@ -51,12 +51,12 @@
 }
 
 .scrolling-third {
-  overflow: scroll;
+  // overflow: scroll;
   height: calc(100vh - 70px);
 }
 
 .picture-table {
-  height: calc(100vh - 70px);
+  flex-grow: 1;
 }
 
 .selected-city-image-container {
@@ -76,6 +76,9 @@
   height: calc(100vh - 70px);
   background-size: cover !important;
   background-position: center;
+  position: sticky;
+
+  top: 10vh;
 }
 
 .graph {
