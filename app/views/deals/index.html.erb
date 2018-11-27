@@ -38,27 +38,31 @@
 
       <% day_array =[] %>
       <% 21.times do |i|%>
-      <% day_array << [pluralize(i, 'day'),i] %>
-      <% day_array[0] =  ['Any',nil] %>
+        <% day_array << [pluralize(i, 'day'),i] %>
+        <% day_array[0] =  ['Any',nil] %>
       <% end %>
 
-      <%= form_tag(deals_path, method: :get) do %>
-      <%= hidden_field_tag :name, @destination %>
-      <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
-      <% if params[:depart_dow].nil? %>
-      <% ar = ['Any',9] %>
-      <% else %>
-      <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
-      <% end %>
+      <%= form_tag(deals_path, method: :get, class: 'deals-filter') do %>
+        <%= hidden_field_tag :name, @destination %>
+        <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
+        <% if params[:depart_dow].nil? %>
+          <% ar = ['Any',9] %>
+        <% else %>
+          <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+        <% end %>
 
 
-      <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
+        <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
+        <div style="padding-left: 20px;">
+          <h4 style="margin-bottom: 2.5px; margin-top: 7px;"><%= "#{@topdeals.first.city.name}" %></h4>
+          <p id="destination" style="align-right; border: 2px solid #1A6FA8;  ">
 
+        </div>
       <% end %>
     </div>
     <div>
-      <p id="destination" style="align-right; border: 2px solid #1A6FA8;  ">
-        <h5>Tokyo to <%= "#{@topdeals.first.city.name}" %> </h5>
+      <p id="destination" style="align-right;">
+        <h5>Flights from Tokyo </h5>
       </p>
     </div>
 
