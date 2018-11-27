@@ -1,10 +1,10 @@
 .card-deal {
   height: 110px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover !important;
   background-position: center;
-  background-color: rgb(24, 111, 170);
-  color: white;
+  background-color: white;
+  box-shadow: -4px 5px 10px #bdbdbd;
+  color:  #282828;
   position: relative;
   margin-bottom: 1px;
   // margin-top: 1px;
@@ -63,8 +63,7 @@
 }
 
 #destination {
-  color: #023587;
-  position: absolute;
+  color: #282828;
   bottom: 0px;
   right: 10px;
   font-size: 12px;
@@ -73,7 +72,6 @@
   position: absolute;
   bottom: 0px;
   left: 10px;
-
 }
 
 .card-deal-description h3 {
@@ -131,18 +129,17 @@
 .card-deal-left {
   height: 110px;
   ;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  // text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-size: cover !important;
   background-position: center;
-  background-color: rgb(24, 111, 170);
-  color: white;
-  // border-bottom-left-radius:10px;
+  background-color: white;
+  color: #282828;
   border-top-left-radius: 10px;
   position: relative;
-
+  box-shadow: -4px 5px 10px #bdbdbd;
   display: flex;
   justify-content: center;
-  // align-items: center;
+  margin-right: 10px;
   flex-grow: 3;
 
   .card-deal-description-left p {
