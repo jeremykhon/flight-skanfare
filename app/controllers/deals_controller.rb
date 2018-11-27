@@ -2,21 +2,25 @@ class DealsController < ApplicationController
 
   def index
     @best_city_deals_list = Deal.top_deals_by_cities
-    destination = @best_city_deals_list[0][0]
-
-    destination = params[:name].nil? ? destination : params[:name]
+    @destination = params[:name].nil? ? @best_city_deals_list[0][0] : params[:name]
     duration = params[:duration].nil? ? 0 : params[:duration].to_i
     depart_dow_i = params[:depart_dow].blank? ? 0 :  params[:depart_dow].to_i
 
 
-    @topdeals = Deal.top_deals_by_price_by_cities(destination, duration, depart_dow_i)
+    @topdeals = Deal.top_deals_by_price_by_cities(@destination, duration, depart_dow_i)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
     params[:chart_id] = @deal_chart
-    @city = City.find_by(code: destination).photo
+    @city = City.find_by(code: @destination).photo
   end
 
   def show
     @deal = Deal.find(params[:id])
+    @itineraries = []
+  end
+
+  def show_loaded
+    @deal = Deal.find(params[:id])
+
     if params[:key]
       @key = params[:key]
       results = fetch_results_with_session_id(@key)
@@ -25,6 +29,7 @@ class DealsController < ApplicationController
       @carriers = results["Carriers"]
       @agents = results["Agents"]
       @places = results["Places"]
+      puts 'part 1'
     else
       response = call_api(@deal)
       if response.nil?
@@ -33,9 +38,14 @@ class DealsController < ApplicationController
           sleep 1
         end
       end
+      @itineraries = []
       @key = response.headers[:location].split("/").last
-      @itineraries = 0
-      end
+    end
+
+      # respond_to do |format|
+      #   format.html { redirect_to deal_path(@deal) }
+      #   format.js
+      # end
   end
 
   def call_api(deal)

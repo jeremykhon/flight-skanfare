@@ -9,6 +9,14 @@
       <div class="tile">
         <div class="tile__media">
           <img class="tile__img" src="<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>" />< </div> <%=link_to "" , deals_path(name: deal[0], duration: params[:duration], depart_dow: params[:depart_dow] ) , class: 'card-link' %>
+            <!-- this is the cheapest price placeholder displayed on card! -->
+            <div class="tile_cheapest_price">
+              <p>
+                ¥
+                <%= number_with_delimiter(deal[1], delimiter: ",") %>
+              </p>
+            </div>
+            <!-- end -->
             <div class="tile__details">
               <div class="tile__title">
                 <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
@@ -18,8 +26,11 @@
         <% end %>
         <div class="tile">
           <div class="tile__media">
+            <div class="tile_cheapest_price">
+              ¥22,430
+            </div>
             <img class="tile__img" src="<%= asset_path((" hanoi_new.jpg").strip) %>" />
-        </div>
+          </div>
             <div class="tile__details">
               <div class="tile__title">
                 Hanoi
@@ -28,8 +39,11 @@
           </div>
           <div class="tile">
             <div class="tile__media">
+              <div class="tile_cheapest_price">
+                ¥25,100
+              </div>
               <img class="tile__img" src="<%= asset_path((" siem_rep_new.jpg").strip) %>" />
-        </div>
+          </div>
               <div class="tile__details">
                 <div class="tile__title">
                   Siem Reap
@@ -38,8 +52,11 @@
             </div>
             <div class="tile">
               <div class="tile__media">
+                <div class="tile_cheapest_price">
+                  ¥30,720
+                </div>
                 <img class="tile__img" src="<%= asset_path((" singapore_new.jpg").strip) %>" />
-        </div>
+          </div>
                 <div class="tile__details">
                   <div class="tile__title">
                     Singapore
@@ -48,8 +65,11 @@
               </div>
               <div class="tile">
                 <div class="tile__media">
+                  <div class="tile_cheapest_price">
+                    ¥98,350
+                  </div>
                   <img class="tile__img" src="<%= asset_path((" sanfrancisco_new.jpg").strip) %>" />
-        </div>
+          </div>
                   <div class="tile__details">
                     <div class="tile__title">
                       San Francisco

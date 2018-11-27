@@ -1,0 +1,85 @@
+$gold: #FFB900;
+$coral: #FC636B;
+$darkBlue: #1A6FA8;
+
+#page {
+  $opacity: 90%;
+  margin-top: 100px;
+  align-items: bottom;
+  background: linear-gradient(to top right,
+    mix($coral, white, $opacity) 10%,
+    mix($darkBlue, white, $opacity) 65%,
+    mix($gold, white, $opacity) 125%);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 1s;
+}
+
+#phrase_box {
+  display: flex;
+  flex-flow: column;
+  height: 150px;
+  overflow: hidden;
+  width: 300px;
+}
+
+#phrases {
+  animation: slide-phrases-upward 20s;
+}
+
+@keyframes slide-phrases-upward {
+  @for $i from 0 through 20 {
+    #{$i * 5%} {
+      transform: translateY($i * -50px);
+    }
+  }
+}
+
+@for $i from 0 through 20 {
+  #loadingCheckCircleSVG-#{$i} {
+    animation: fill-to-white 5000ms;
+    animation-delay: ($i - 1.5) * 1s;
+    fill: white;
+    opacity: 0;
+  }
+}
+
+@keyframes fill-to-white {
+  0% {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@for $i from 0 through 20 {
+  #loadingCheckSVG-#{$i} {
+    animation: fill-to-blue 5000ms;
+    animation-delay: ($i - 1.5) * 1s;
+  }
+}
+
+@keyframes fill-to-blue {
+  0% {
+    fill: $darkBlue;
+  }
+
+  10% {
+    fill: $darkBlue;
+  }
+
+  100% {
+    fill: $darkBlue;
+  }
+}
