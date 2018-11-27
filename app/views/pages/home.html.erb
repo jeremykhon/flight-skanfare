@@ -1,14 +1,20 @@
 <div class="fullscreen">
-  <div class="right">
-    <%= image_tag "logo.png", alt: "skanfare", width: "180px", height: "45px" %>
+  <div class="header">
+    <div class="right">
+      <%= image_tag "logo.png", alt: "skanfare", width: "180px", height: "45px" %>
+    </div>
+    <div class="left">
+      <p>Current Location: Tokyo</p>
+    </div>
   </div>
 
   <section style="position:relative">
     <div class="title" style="position:absolute">
       <h1>Skanfare</h1>
-      <h5>Good deals come and go, Skanfare will let you know</h5>
+      <h5> Best Destinations, Best Dates To Go</h5>
+      <!-- <h5>Good deals come and go, Skanfare will let you know</h5> -->
       <%= link_to deals_path, method: :get do %>
-      <button class="button">See All Deals</button>
+      <button class="button">Start</button>
       <% end %>
     </div>
 
@@ -94,10 +100,10 @@
         </div>
       </div>
     </div>
-  <!-- .slider-prev-next-control -->
+  <!--.slider-prev-next-control -->
     <!-- <div class="slider-prev-next-control">
       <button class="prev"></button>
       <button class="next"></button>
-    </div> --> -->
+    </div> -->
 
   </section>
