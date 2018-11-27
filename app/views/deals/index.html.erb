@@ -32,8 +32,8 @@
 <!-- carousel -->
 <%= render "deals/cities" %>
 <!-- deal cards and graph -->
-<div class="container" style="width: 80vw; margin-top: 20px;">
-  <div class="preference-filter" style= "margin-bottom: 20px; display: flex; justify-content: space-between;">
+<div class="container" style="width: 80vw; margin-top: 10px;">
+  <div class="preference-filter" style= "margin-bottom: 10px; display: flex; justify-content: space-between;">
     <div>
       <%= form_tag(deals_path, method: :get) do %>
       <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
@@ -43,20 +43,20 @@
       <% end %>
     </div>
     <div>
-      <p id="destination" style="align-right">
-        <h4>Tokyo to <%= "#{@topdeals.first.city.name}" %> </h4>
+      <p id="destination" style="align-right; border: 2px solid #1A6FA8;  ">
+        <h5>Tokyo to <%= "#{@topdeals.first.city.name}" %> </h5>
       </p>
     </div>
 
   </div>
   <div class="deals-bottom-container">
-    <div class="row">
+    <div class="row" style="display: flex;">
       <div class="col-sm-7 nopadding">
-        <div class="scrolling-third" ids="flight-table">
+        <div class="" ids="flight-table">
           <%= render "deals/deals" %>
         </div>
       </div>
-      <div class="col-sm-5 nopadding">
+      <div class="col-sm-5 nopadding" style="display: flex; flex-direction: column">
         <div class="picture-table">
           <%= render "deals/picture" %>
         </div>
