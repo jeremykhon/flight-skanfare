@@ -9,53 +9,70 @@
       <div class="tile">
         <div class="tile__media">
           <img class="tile__img" src="<%= asset_path((" #{Deal.city(deal[0])}.jpg").strip) %>" />< </div> <%=link_to "" , deals_path(name: deal[0], duration: params[:duration], depart_dow: params[:depart_dow] ) , class: 'card-link' %>
-            <div class="tile__details">
-              <div class="tile__title">
-                <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
-              </div>
+          <!-- this is the cheapest price placeholder displayed on card! -->
+          <div class="tile_cheapest_price">
+            ¥30566
+          </div>
+          <!-- end -->
+          <div class="tile__details">
+            <div class="tile__title">
+              <%= Deal.city(deal[0]).gsub('_new','').capitalize %>
             </div>
+          </div>
         </div>
         <% end %>
         <div class="tile">
           <div class="tile__media">
+            <div class="tile_cheapest_price">
+              ¥10430
+            </div>
             <img class="tile__img" src="<%= asset_path((" hanoi_new.jpg").strip) %>" />
-        </div>
-            <div class="tile__details">
-              <div class="tile__title">
-                Hanoi
-              </div>
+          </div>
+          <div class="tile__details">
+            <div class="tile__title">
+              Hanoi
             </div>
           </div>
-          <div class="tile">
-            <div class="tile__media">
-              <img class="tile__img" src="<%= asset_path((" siem_rep_new.jpg").strip) %>" />
         </div>
-              <div class="tile__details">
-                <div class="tile__title">
-                  Siem Reap
-                </div>
-              </div>
+        <div class="tile">
+          <div class="tile__media">
+            <div class="tile_cheapest_price">
+              ¥13100
             </div>
-            <div class="tile">
-              <div class="tile__media">
-                <img class="tile__img" src="<%= asset_path((" singapore_new.jpg").strip) %>" />
-        </div>
-                <div class="tile__details">
-                  <div class="tile__title">
-                    Singapore
-                  </div>
-                </div>
-              </div>
-              <div class="tile">
-                <div class="tile__media">
-                  <img class="tile__img" src="<%= asset_path((" sanfrancisco_new.jpg").strip) %>" />
-        </div>
-                  <div class="tile__details">
-                    <div class="tile__title">
-                      San Francisco
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <img class="tile__img" src="<%= asset_path((" siem_rep_new.jpg").strip) %>" />
+          </div>
+          <div class="tile__details">
+            <div class="tile__title">
+              Siem Reap
             </div>
           </div>
+        </div>
+        <div class="tile">
+          <div class="tile__media">
+            <div class="tile_cheapest_price">
+              ¥21720
+            </div>
+            <img class="tile__img" src="<%= asset_path((" singapore_new.jpg").strip) %>" />
+          </div>
+          <div class="tile__details">
+            <div class="tile__title">
+              Singapore
+            </div>
+          </div>
+        </div>
+        <div class="tile">
+          <div class="tile__media">
+            <div class="tile_cheapest_price">
+              ¥58350
+            </div>
+            <img class="tile__img" src="<%= asset_path((" sanfrancisco_new.jpg").strip) %>" />
+          </div>
+          <div class="tile__details">
+            <div class="tile__title">
+              San Francisco
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
