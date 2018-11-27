@@ -1,9 +1,7 @@
 <!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
 <% opacity = 1 %>
 <% @topdeals.each do |deal| %>
-<div class="half-card" style="opacity: <%= opacity %>;">
-  <% opacity -= 0.03 %>
-  <% opacity = opacity < 0.8 ? 0.8 : opacity %>
+<div class="half-card" style="margin-bottom: 5px;">
   <div class="card-deal">
     <p id="new-price">
       <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
@@ -13,11 +11,9 @@
       <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
     </p>
     <p id="discount_2">
-      <%= "#{deal.discount_perc}%" %>
+      <%= "#{deal.discount_perc}%" %> from usual
     </p>
-    <p id="destination">
-      <%= "#{deal.city.name}" %>
-    </p>
+
     <div class="card-deal-description">
       <h3><%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%></h3>
     </div>

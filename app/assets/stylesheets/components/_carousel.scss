@@ -45,6 +45,16 @@ $moveRight: $tileWidth * ($growFactor - 1);
   object-fit: cover;
 }
 
+.tile_cheapest_price {
+  position: absolute;
+  bottom: 0;
+  left: 170px;
+  top: 0;
+  padding-right: 1px;
+  font-size: 18px;
+  color: white;
+}
+
 .tile__details {
   position: absolute;
   bottom: 0;
@@ -53,8 +63,8 @@ $moveRight: $tileWidth * ($growFactor - 1);
   top: 0;
   padding-left: 33px;
   font-size: 20px;
-  opacity: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  opacity: 1;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
   transition: $duration opacity;
 
   &:after,

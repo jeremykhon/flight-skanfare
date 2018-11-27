@@ -32,18 +32,22 @@
 <!-- carousel -->
 <%= render "deals/cities" %>
 <!-- deal cards and graph -->
-<div class="container" style="width: 100vw;">
-  <div class="preference-filter">
+<div class="container" style="width: 80vw; margin-top: 20px;">
+  <div class="preference-filter" style= "margin-bottom: 20px; display: flex; justify-content: space-between;">
+    <div>
+      <%= form_tag(deals_path, method: :get) do %>
+      <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
+      <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+      <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar) %>
+      <%= submit_tag "Submit" %>
+      <% end %>
+    </div>
+    <div>
+      <p id="destination" style="align-right">
+        <h4>Tokyo to <%= "#{@topdeals.first.city.name}" %> </h4>
+      </p>
+    </div>
 
-    <%= form_tag(deals_path, method: :get) do %>
-
-    <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
-    <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
-    <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar) %>
-    <%= hidden_field_tag :name, @destination %>
-    <%= submit_tag "Submit" %>
-
-    <% end %>
   </div>
   <div class="deals-bottom-container">
     <div class="row">
