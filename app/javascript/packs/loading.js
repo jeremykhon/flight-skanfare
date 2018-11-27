@@ -74,7 +74,7 @@ function easeInOut(t) {
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  var phrases = shuffleArray(["Gathering flights", "Scanning prices", "Getting good deals", "Running algorithm", "Caring for humanity", "Pondering emptiness", "Solving for x", "Curing cancer", "Calling TA for help", "Saving you money", "Developing patience", "Generating synergy", "Glocalizing", "Delivering discounts", "Working in a team", "Mining crypto", "Finding good flights", "Gathering flights", "Scanning prices", "Getting good deals", "Saving you money", "Developing patience", "Generating synergy", "Optimizing cores"]);
+  var phrases = shuffleArray(["Gathering flights", "Scanning prices", "Getting good deals", "Running algorithm", "Caring for humanity", "Pondering emptiness", "Solving for x", "Calling TA for help", "Saving you money", "Generating synergy", "Glocalizing", "Delivering discounts", "Working as a team", "Mining crypto", "Finding good flights", "Solving for x", "Gathering flights", "Scanning prices", "Getting good deals", "Saving you money", "Developing patience", "Generating synergy", "Optimizing cores", "Delivering excellence", "Joining lewagon", "Getting listed", "Understanding irony", "Running out of jokes", "Going to the gym"]);
   addPhrasesToDocument(phrases);
   var start_time = new Date().getTime();
   var upward_moving_group = document.getElementById("phrases");
