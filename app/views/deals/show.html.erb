@@ -43,11 +43,7 @@
 <div class="wide-container">
   <div class="row">
     <div class="col-sm-8">
-      <div id="ticket-container">
-        <% if @itineraries != 0 %>
-        <%= render "deals/ticket-container" %>
-        <% end %>
-      </div>
+      <%= render "deals/ticket-container" %>
     </div>
     <div class="col-sm-4">
       <div class="itinerary">
@@ -79,22 +75,15 @@
     </div>
   </div>
 </div>
-<%= link_to "Refresh", deal_path(@deal, key: @key), remote: true, id: "refresh-button", style: "display: none" %>
 <script>
-function refreshPage(innerHTML) {
-  const newTicketPage = document.getElementById('ticket-container');
-  newTicketPage.innerHTML = innerHTML;
-}
+// let counter = 0
 
-const button = document.getElementById('refresh-button');
-let counter = 0
-
-window.setInterval(function() {
-  if (counter < 30) {
-    button.click();
-  }
-  counter += 1
-  console.log(counter)
-}, 2000);
+// window.setInterval(function() {
+//   let button = document.getElementById('refresh-button');
+//   if (counter < 30) {
+//     button.click();
+//   }
+//   counter += 1
+// }, 2000);
 
 </script>
