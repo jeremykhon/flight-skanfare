@@ -35,11 +35,21 @@
 <div class="container" style="width: 80vw; margin-top: 20px;">
   <div class="preference-filter" style= "margin-bottom: 20px; display: flex; justify-content: space-between;">
     <div>
+
+      <% day_array =[] %>
+      <% 21.times do |i|%>
+      <% day_array << [pluralize(i, 'day'),i] %>
+      <% day_array[0] =  ['Any',nil] %>
+      <% end %>
+
       <%= form_tag(deals_path, method: :get) do %>
-      <%= number_field_tag :duration, params[:duration], placeholder: "Duration",  within: 1..20 %>
+
+      <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
+
       <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
-      <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar) %>
-      <%= submit_tag "Submit" %>
+
+
+      <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
       <% end %>
     </div>
     <div>
