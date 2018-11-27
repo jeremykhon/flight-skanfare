@@ -67,16 +67,20 @@ class Deal < ApplicationRecord
   def self.top_deals_by_price_by_cities(destination, duration, depart_dow)
     result = Deal.where(destination: destination)
 
-    if duration > 0 and depart_dow > 0
-     return result.where(weekday: depart_dow).where(duration: duration).order(price: :asc).limit(30)
-    elsif duration >1 and depart_dow == 0
-      return result.where(duration: duration).order(price: :asc).limit(30)
-    else
-      return result.where(weekday: depart_dow).order(price: :asc).limit(30)
-   end
-      return result.order(price: :asc).limit(30)
-  end
-
+    if  depart_dow == 9
+      if duration > 1
+        return result.where(duration: duration).order(price: :asc).limit(30)
+      else
+        return result.order(price: :asc).limit(30)
+      end
+     else
+      if duration > 1
+        return result.where(duration: duration).where(weekday: depart_dow).order(price: :asc).limit(30)
+      else
+        return result.where(weekday: depart_dow).order(price: :asc).limit(30)
+      end
+     end
+end
   def calc_discount_abs
     last_30_hash = self.historical.last(30)
     last_30_prices = last_30_hash.map { |hash| hash["price"] }
@@ -131,13 +135,13 @@ class Deal < ApplicationRecord
   end
 
   def self.int_dow(dow)
-    h= {'Mon'=> 1, 'Tue' => 2, 'Wed'=> 3, 'Thu'=> 4, 'Fri'=> 5, 'Sat'=> 6, 'Sun'=> 7}
+    h= {'Mon'=> 1, 'Tue' => 2, 'Wed'=> 3, 'Thu'=> 4, 'Fri'=> 5, 'Sat'=> 6, 'Sun'=> 0}
     return h[dow]
   end
 
   def self.dow_int(dow)
-    h= ['Any', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    return h[dow]
+    h= [ 9=>'Any', 1=>'Mon', 2=>'Tue',3=>'Wed',4=>'Thu',5=>'Fri',6=>'Sat',0=>'Sun']
+    return h[dow.to_i]
   end
 
 end
