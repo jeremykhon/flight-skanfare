@@ -17,6 +17,12 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
+    @itineraries = []
+  end
+
+  def show_loaded
+    @deal = Deal.find(params[:id])
+
     if params[:key]
       @key = params[:key]
       results = fetch_results_with_session_id(@key)
@@ -25,6 +31,7 @@ class DealsController < ApplicationController
       @carriers = results["Carriers"]
       @agents = results["Agents"]
       @places = results["Places"]
+      puts 'part 1'
     else
       response = call_api(@deal)
       if response.nil?
@@ -33,9 +40,14 @@ class DealsController < ApplicationController
           sleep 1
         end
       end
+      @itineraries = []
       @key = response.headers[:location].split("/").last
-      @itineraries = 0
-      end
+    end
+
+      # respond_to do |format|
+      #   format.html { redirect_to deal_path(@deal) }
+      #   format.js
+      # end
   end
 
   def call_api(deal)
