@@ -73,12 +73,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 70px);
-  background-size: cover !important;
-  background-position: center;
   position: sticky;
+  background-color: white;
+  top: 30vh;
+  box-shadow: 2px 2px 10px #bdbdbd;
 
-  top: 10vh;
 }
 
 .graph {
