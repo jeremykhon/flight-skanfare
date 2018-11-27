@@ -45,9 +45,15 @@
       <%= form_tag(deals_path, method: :get) do %>
       <%= hidden_field_tag :name, @destination %>
       <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
+      <% if params[:depart_dow].nil? %>
+      <% ar = ['Any',9] %>
+      <% else %>
       <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+      <% end %>
+
 
       <%= select_tag :depart_dow, options_for_select([['Any',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
+
       <% end %>
     </div>
     <div>
