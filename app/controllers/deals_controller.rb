@@ -32,8 +32,8 @@ class DealsController < ApplicationController
       puts 'part 1'
     else
       response = call_api(@deal)
-      if response.nil?
-        while response.nil? do
+      if response.headers[:location].nil?
+        while response.headers[:location].nil? do
           response = call_api(@deal)
           sleep 1
         end
