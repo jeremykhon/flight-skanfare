@@ -6,12 +6,18 @@
       <div class="form-container">
         <h3>Get Price Alerts</h3>
         <p>Save your preference and we'll let you know when great deals that matches occur</p>
-        <p>You can see all your preferences in your profile page</p>
         <% the_city = City.find_by(name: "Any city") %>
         <%= simple_form_for @preference do |f| %>
-        <%= f.input :weekday, collection: [["Any day", 9],["Monday", 1],["Tuesday", 2],["Wednesday", 3],["Thursday", 4],["Friday", 5],["Saturday", 6],["Sunday", 0]], required: false, selected: @depart_dow_i %>
-        <%= f.input :duration, collection: [["Any duration", 0],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20]], required: false, selected: @duration %>
-        <%= f.association :city, collection: City.order(:name), required: false, selected: City.find_by(code: @destination)[:id]%>
+        <div class="row">
+          <div class="col-xs-6">
+            <%= f.input :weekday, label: "Departing on", collection: [["Any day", 9],["Monday", 1],["Tuesday", 2],["Wednesday", 3],["Thursday", 4],["Friday", 5],["Saturday", 6],["Sunday", 0]], required: false, selected: @depart_dow_i %>
+          </div>
+          <div class="col-xs-6">
+            <%= f.input :duration, label: "Trip length", collection: [["Any duration", 0],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12],[13,13],[14,14],[15,15],[16,16],[17,17],[18,18],[19,19],[20,20]], required: false, selected: @duration %>
+          </div>
+        </div>
+        <%= f.association :city, label: 'Destination', collection: City.order(:name), required: false, selected: City.find_by(code: @destination)[:id]%>
+        <%= f.input :discount, label: "Discount", hint: "Discount from the average historical price", collection: [["Any", 0], ["5%", 5],["10%", 10],["15%", 15],["20%", 20],["25%", 25],["30%", 30],["40%", 40],["50%", 50], ["60%", 60], ["70%", 70]], required: false, selected: 5 %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 

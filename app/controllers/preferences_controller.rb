@@ -13,6 +13,6 @@ class PreferencesController < ApplicationController
   end
 
   def preference_params
-    params.require(:preference).permit(:weekday, :duration, :city_id)
+    params.require(:preference).permit(:weekday, :duration, :city_id, :discount)
   end
 end
