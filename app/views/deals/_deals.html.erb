@@ -1,8 +1,9 @@
 <!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
-<% opacity = 1 %>
+<% n = 0 %>
 <% @topdeals.each do |deal| %>
-<div class="half-card" style="margin-bottom: 5px;">
-  <div class="card-deal">
+<div class="half-card <%= 'selected_deal' if n == 0 %>" style="margin-bottom: 5px;" id="<%=deal.id %>">
+  <% n+=1 %>
+  <div class="card-deal" >
     <p id="initial-price">
       <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
     </p>

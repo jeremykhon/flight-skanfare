@@ -1,2 +1,2 @@
 import "bootstrap";
-import './image_animate.js';
+// import './image_animate.js';
