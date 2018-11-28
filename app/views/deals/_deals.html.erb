@@ -1,4 +1,4 @@
-<!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
+
 
 <% n = 0 %>
 <% @topdeals.each do |deal| %>
@@ -29,8 +29,6 @@
           <%= "#{deal.discount_perc}%" %> from usual
         </div>
       </div>
-
-
 
 
     <%= link_to "", chart_path(deal), class: 'card-link', remote: true  %>
