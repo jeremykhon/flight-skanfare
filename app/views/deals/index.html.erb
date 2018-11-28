@@ -87,3 +87,9 @@
   <%= render "deals/preferences_modal" %>
 </div>
 
+<script>
+  var chart = Chartkick.charts["chart-1"];
+  console.log(chart)
+  chart.updateData(<%= raw @data %>);
+
+</script>

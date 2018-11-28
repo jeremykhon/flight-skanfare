@@ -2,7 +2,7 @@
 
 <% n = 0 %>
 <% @topdeals.each do |deal| %>
-<div class="half-card <%= 'selected_deal' if n == 0 %>" style="margin-bottom: 5px;" id="<%=deal.id %>">
+<div class="half-card <%= 'selected_deal' if n == 0 %>"  style="margin-bottom: 5px;" id="<%= deal.id %>">
   <% n+=1 %>
   <div class="card-deal" >
     <p id="initial-price">
@@ -21,7 +21,9 @@
     <div class="week_day">
       <h3><%= "#{(deal.return_date-deal.depart_date).to_i} days, #{deal.depart_date.strftime('%a')} - #{deal.return_date.strftime('%a')}"%></h3>
     </div>
+
     <%= link_to "", chart_path(deal), class: 'card-link', remote: true  %>
+
   </div>
   <div class="card-deal-right">
     <div class="card-deal-description-right">
@@ -32,4 +34,7 @@
   </div>
 </div>
 <% end %>
+
+
+
 <!-- => #<Deal id: 6965, depart_date: "2019-01-07", return_date: "2019-01-20", origin: "TYOA-sky", destination: "SELA-sky", price: 1543, created_at: "2018-11-21 10:59:39", updated_at: "2018-11-22 01:37:41", unique_deal: "2019-01-07-2019-01-20-TYOA-sky-SELA-sky", discount_abs: -896, discount_perc: -37, wday_duration: "1-13" -->

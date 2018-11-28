@@ -11,6 +11,8 @@ class DealsController < ApplicationController
     @preference = Preference.new
     @user = current_user
 
+    @data = @deal_chart.get_historical.to_json
+
   end
 
   def chart
