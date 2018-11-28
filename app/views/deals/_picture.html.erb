@@ -1,17 +1,12 @@
-<!-- <div class="selected-city-image-container">
-  <h1></h1>
-</div> -->
 
-<%# if params[:chart_id].nil? %>
-<!-- <div class="selected-city-image-container" style="background-image: url(<%#= asset_path((" #{@city}.jpg").strip) %>;"></div> -->
-<%#else%>
 <div class="graph-card" style="background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.9)), url(<%= asset_path((" #{@city}.jpg").strip) %>;">
-    <%# average = @deal_chart.get_historical.map(&:last).sum/@deal_chart.get_historical.map(&:last).size %>
-    <%# @average_series = @deal_chart.get_historical.map{|a| [a[0],average] } %>
+
 
   <div id="graph">
-  <%= area_chart [ {name: "Price", data: @deal_chart.get_historical}] %>
+  <%= area_chart [data: @deal_chart.get_historical],legend: false  %>
+
 
   </div>
 
-  <%#end%>
+
+
