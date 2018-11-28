@@ -1,0 +1,12 @@
+
+var chart = Chartkick.charts["chart-1"];
+chart.updateData(<%= raw @data %>);
+
+
+var oldSelected = document.querySelector(".selected_deal");
+if (oldSelected) {
+   oldSelected.classList.remove('selected_deal');
+}
+
+var selected = document.getElementById("<%= @deal.id %>");
+selected.classList.add('selected_deal');

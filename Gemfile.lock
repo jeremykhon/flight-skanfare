@@ -190,6 +190,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    rubysl-securerandom (2.0.0)
     sass (3.7.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -276,6 +277,7 @@ DEPENDENCIES
   rails (= 5.2.1)
   rapidapi (~> 0.1.3)
   redis
+  rubysl-securerandom
   sassc-rails
   sidekiq
   sidekiq-failures (~> 1.0)

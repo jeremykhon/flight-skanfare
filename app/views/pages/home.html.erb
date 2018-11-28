@@ -1,20 +1,28 @@
-<div class="fullscreen">
+<div class="black"></div>
+
+<div class="fullscreen" data-photos='["<%= image_url 'background1.jpg' %>", "<%= image_url 'background2.png' %>", "<%= image_url 'background3.jpg' %>"]'> </div>
+
+<div class="fullscreen-content">
+
   <div class="header">
     <div class="right">
-      <%= image_tag "logo.png", alt: "skanfare", width: "180px", height: "45px" %>
-    </div>
-    <div class="left">
-      <p><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Current Location: Tokyo</p>
+      <%= image_tag "logo2.png", alt: "skanfare", width: "160px", height: "45px" %>
     </div>
   </div>
 
   <section style="position:relative">
     <div class="title" style="position:absolute">
-      <h1>Skanfare</h1>
+      <%= image_tag "logowhite.png", alt: "skanfare", width: "550px", height: "150px" %>
       <h5> Best Destinations, Best Dates To Go</h5>
-      <!-- <h5>Good deals come and go, Skanfare will let you know</h5> -->
+
+      <h2 class="sentence">
+        <!-- <div class="slidingVertical"> -->
+          <span id="location-question" style="padding-right: 15px"><i class="fas fa-map-marker-alt"></i> Where are you?</span>
+          <span id="location-tokyo" style="padding-right: 15px"> <i class="fas fa-map-marker-alt"></i> Tokyo</span>
+        <!-- </div> -->
+      </h2>
       <%= link_to deals_path, method: :get do %>
-      <button class="button">Start</button>
+      <button class="button">Browse Deals</button>
       <% end %>
     </div>
 
@@ -84,3 +92,6 @@
     </div> -->
 
   </section>
+
+ </div>
+<%= javascript_pack_tag 'image_animate' %>

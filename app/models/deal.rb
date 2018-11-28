@@ -83,7 +83,7 @@ class Deal < ApplicationRecord
      end
 end
   def calc_discount_abs
-    last_30_hash = self.historical.last(30)
+    last_30_hash = self.historical.last(720)
     last_30_prices = last_30_hash.map { |hash| hash["price"] }
     average_price = last_30_prices.inject { |sum, el| sum + el }.to_f / last_30_prices.size
     discount = self.price - average_price
@@ -91,7 +91,7 @@ end
   end
 
   def calc_discount_perc
-    last_30_hash = self.historical.last(30)
+    last_30_hash = self.historical.last(720)
     last_30_prices = last_30_hash.map { |hash| hash["price"] }
     average_price = last_30_prices.inject { |sum, el| sum + el }.to_f / last_30_prices.size
     discount = (self.price.fdiv(average_price) - 1) * 100

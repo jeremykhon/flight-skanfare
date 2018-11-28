@@ -4,7 +4,7 @@ class PreferencesController < ApplicationController
     @preference = Preference.new(preference_params)
     @preference.user = current_user
     if @preference.save
-      redirect_to profile_path
+      redirect_to deals_path
     else
       @user = current_user
       @preferences = Preference.where(user: current_user)
@@ -13,6 +13,6 @@ class PreferencesController < ApplicationController
   end
 
   def preference_params
-    params.require(:preference).permit(:weekday, :duration, :city_id)
+    params.require(:preference).permit(:weekday, :duration, :city_id, :discount)
   end
 end
