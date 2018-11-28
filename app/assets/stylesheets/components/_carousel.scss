@@ -68,6 +68,7 @@ $moveRight: $tileWidth * ($growFactor - 1);
   opacity: 1;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
   transition: $duration opacity;
+  transition: $duration border;
 
   &:after,
   &:before {
@@ -103,8 +104,23 @@ $moveRight: $tileWidth * ($growFactor - 1);
 
   .tile:hover & {
     opacity: 1;
+    border-bottom: 5px solid #44A0ED;
+    // animation-name: highlight;
+    animation-duration: 1s;
+    // transition-timing-function: ease;
   }
 }
+
+// @keyframes highlight {
+//   from {
+//     border-bottom: none;
+//   }
+
+//   to {
+//     border-bottom: 5px solid #44A0ED;
+//   }
+// }
+
 
 .tile__title {
   position: absolute;
@@ -133,6 +149,16 @@ $moveRight: $tileWidth * ($growFactor - 1);
     transform: scale($growFactor);
     opacity: 1;
   }
+}
+
+.tile-card-price {
+    line-height: 5px;
+    margin-top: 20px;
+}
+
+
+.active_tile {
+  border-bottom: 5px solid #44A0ED;
 }
 
 // And finally move all tiles right of the current tile to the right,

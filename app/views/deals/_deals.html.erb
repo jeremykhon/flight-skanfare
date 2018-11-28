@@ -9,10 +9,10 @@
     <p id="new-price">
       <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
     </p>
-    <!-- commented out -->
     <p id="discount_2">
       <%= "#{deal.discount_perc}%" %> from usual
     </p>
+    <!-- commented out -->
     <div class="card-deal-description">
       <h3><%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%></h3>
     </div>
@@ -24,8 +24,7 @@
   <div class="card-deal-right">
     <div class="card-deal-description-right">
       <%= link_to deal_path(id:deal), class: "book-button", target: :_blank do %>
-      <div>Select
-      </div>
+      <div>Select</div>
       <% end %>
     </div>
   </div>
