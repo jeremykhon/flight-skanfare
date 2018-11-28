@@ -1,8 +1,7 @@
 
 var chart = Chartkick.charts["chart-1"];
 chart.updateData(<%= raw @data %>);
-var city = ('<%= Deal.city(@deal.destination).gsub("_new","").capitalize %>')
-// chart.setOptions({title: city,  colors: ["#186FAA"]});
+
 
 var oldSelected = document.querySelector(".selected_deal");
 if (oldSelected) {

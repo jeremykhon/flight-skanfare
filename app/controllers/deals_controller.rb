@@ -11,6 +11,8 @@ class DealsController < ApplicationController
     #params[:chart_id] = @deal_chart
     @city = City.find_by(code: @destination).photo
 
+    @data = @deal_chart.get_historical.to_json
+
   end
 
   def chart
