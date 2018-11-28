@@ -4,11 +4,11 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "bootstrap": "3",
-    "jquery": "^3.3.1",
-    "siema": "^1.5.1",
     "chart.js": "^2.7.3",
     "chartkick": "^3.0.1",
-    "jquery": "^3.3.1"
+    "jquery": "^3.3.1",
+    "siema": "^1.5.1",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
