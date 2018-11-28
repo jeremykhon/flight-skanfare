@@ -1,23 +1,31 @@
 #depart_dow {
+  background-color: white;
+  border: none;
   height: 40px;
   color: #0062AC;
+  font-weight: bold;
   justify-content: center;
   margin: 0 10px;
-  font-size: 15px;
+  font-size: 16px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+
 
   &:hover {
-    border-color: #0062AC;
   }
 }
 
 #duration {
+  background-color: white;
+  border: none;
   height: 40px;
   color: #0062AC;
+  font-weight: bold;
   justify-content: center;
-  font-size: 15px;
+  font-size: 16px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+
 
   &:hover {
-    border-color: #0062AC;
   }
 }
 
@@ -33,8 +41,9 @@
   color: #0062AC;
   border-radius: 5px;
   font-weight: bold;
-  background-color: rgb(244,244,244); /* Green */
-  border: 1px solid #0062AC;
+  border: none;
+  background-color: white;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
   text-align: center;
   text-decoration: none;
   display: inline-block;

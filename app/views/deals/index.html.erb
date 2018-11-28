@@ -8,7 +8,7 @@
     <div>
       <h4 id="destination" style="border: 1px solid #1A6FA8;"><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Flights from Tokyo </h4>
     </div>
-    <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Manage Alerts", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Profile picture with dropdown list -->
     <!-- duration and days filter end-->
     <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
@@ -25,7 +25,7 @@
   <div class="dropdown">
     <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li><a href="#">Profile</a></li>
+      <li><a href="#">Manage Alerts</a></li>
       <li><a href="#">Log Out</a></li>
     </ul>
   </div>
@@ -41,7 +41,7 @@
       <div class="col-sm-7 nopadding">
         <div class="preference-filter" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline;">
           <div style="padding-left: 10px;">
-            <h4 style="margin-bottom: 0px; margin-top: 7px; font-size: 30px"><%= "#{@topdeals.first.city.name}" %>
+            <h4 style="margin-bottom: 0px; margin-top: 7px; font-size: 28px"><%= "Cheapest Trips to #{@topdeals.first.city.name}" %>
             </h4>
           </div>
           <div class="preference-right">
@@ -59,7 +59,7 @@
               <% else %>
                 <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
               <% end %>
-              <%= select_tag :depart_dow, options_for_select([['Day of Week',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
+              <%= select_tag :depart_dow, options_for_select([['Departing on',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
             <% end %>
             <!-- Button trigger modal -->
             <button type="button" class="get-alert" data-toggle="modal" data-target="#myModal">
@@ -89,7 +89,6 @@
 
 <script>
   var chart = Chartkick.charts["chart-1"];
-  console.log(chart)
   chart.updateData(<%= raw @data %>);
 
 </script>

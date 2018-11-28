@@ -121,10 +121,6 @@
   opacity: 0;
 }
 
-.card-deal-link:hover {
-  opacity: 0.1;
-}
-
 .btn-link-to-booking {
   flex-grow: 1;
 
@@ -151,6 +147,8 @@
   flex-grow: 3;
 
 }
+
+
 
 .card-deal-description-right {
   display: flex;
@@ -183,5 +181,6 @@
 }
 
 .selected_deal {
-    border-bottom: 5px solid #44A0ED;
+    border-right: 5px solid #44A0ED;
+
 }
