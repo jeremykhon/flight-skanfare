@@ -1,10 +1,13 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/deals" class="navbar-wagon-brand">
-    <%= image_tag "logo2.png", alt: "skanfare", width: "210px", height: "45px" %>
+    <%= image_tag "logo2.png", alt: "skanfare", width: "170px", height: "45px" %>
   </a>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <div>
+      <h4 id="destination" style="border: 1px solid #1A6FA8;"><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Flights from Tokyo </h4>
+    </div>
     <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Profile picture with dropdown list -->
     <!-- duration and days filter end-->
@@ -33,37 +36,32 @@
 <%= render "deals/cities" %>
 <!-- deal cards and graph -->
 <div class="container" style="width: 80vw; margin-top: 10px;">
-  <div class="preference-filter" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline;">
-    <div style="padding-left: 10px;">
-      <h4 style="margin-bottom: 0px; margin-top: 7px; font-size: 30px"><%= "#{@topdeals.first.city.name}" %>
-      </h4>
-    </div>
-    <div>
-      <% day_array =[] %>
-      <% 21.times do |i|%>
-      <% day_array << [pluralize(i, 'day'),i] %>
-      <% day_array[0] =  ['Duration',nil] %>
-      <% end %>
-      <%= form_tag(deals_path, method: :get, class: 'deals-filter') do %>
-      <%= hidden_field_tag :name, @destination %>
-      <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
-      <% if params[:depart_dow].nil? %>
-      <% ar = ['Day of Week',9] %>
-      <% else %>
-      <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
-      <% end %>
-      <%= select_tag :depart_dow, options_for_select([['Day of Week',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
-      <% end %>
-    </div>
-    <div>
-      <p id="destination" style="align-right;">
-        <h4 id="destination" style="align-right; border: 2px solid #1A6FA8;"><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Flights from Tokyo </h4>
-      </p>
-    </div>
-  </div>
   <div class="deals-bottom-container">
     <div class="row" style="display: flex;">
       <div class="col-sm-7 nopadding">
+        <div class="preference-filter" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline;">
+          <div style="padding-left: 10px;">
+            <h4 style="margin-bottom: 0px; margin-top: 7px; font-size: 30px"><%= "#{@topdeals.first.city.name}" %>
+            </h4>
+          </div>
+          <div>
+            <% day_array =[] %>
+            <% 21.times do |i|%>
+            <% day_array << [pluralize(i, 'day'),i] %>
+            <% day_array[0] =  ['Duration',nil] %>
+            <% end %>
+            <%= form_tag(deals_path, method: :get, class: 'deals-filter') do %>
+            <%= hidden_field_tag :name, @destination %>
+            <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
+            <% if params[:depart_dow].nil? %>
+            <% ar = ['Day of Week',9] %>
+            <% else %>
+            <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+            <% end %>
+            <%= select_tag :depart_dow, options_for_select([['Day of Week',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
+            <% end %>
+          </div>
+        </div>
         <div class="" ids="flight-table">
           <%= render "deals/deals" %>
         </div>
