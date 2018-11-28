@@ -1,6 +1,9 @@
-<div style="background-color: black; height: 100vh; width: 100vw; z-index: 0; position: fixed; top: 0; left: 0;"></div>
+<div class="black"></div>
 
-<div class="fullscreen" data-photos='["<%= image_url 'background1.jpg' %>", "<%= image_url 'background2.png' %>", "<%= image_url 'background3.jpg' %>"]'>
+<div class="fullscreen" data-photos='["<%= image_url 'background1.jpg' %>", "<%= image_url 'background2.png' %>", "<%= image_url 'background3.jpg' %>"]'> </div>
+
+<div class="fullscreen-content">
+
   <div class="header">
     <div class="right">
       <%= image_tag "logo.png", alt: "skanfare", width: "180px", height: "45px" %>
@@ -16,7 +19,7 @@
       <h5> Best Destinations, Best Dates To Go</h5>
       <!-- <h5>Good deals come and go, Skanfare will let you know</h5> -->
       <%= link_to deals_path, method: :get do %>
-      <button class="button">Start</button>
+      <button class="button">Browse Deals</button>
       <% end %>
     </div>
 
@@ -109,3 +112,5 @@
     </div> -->
 
   </section>
+
+ </div>
