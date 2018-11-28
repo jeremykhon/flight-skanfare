@@ -9,7 +9,7 @@
     <%# @average_series = @deal_chart.get_historical.map{|a| [a[0],average] } %>
 
   <div id="graph">
-   <%= render 'deals/graph', deal_chart: @deal_chart %>
+  <%= area_chart [ {name: "Price", data: @deal_chart.get_historical}] %>
 
   </div>
 

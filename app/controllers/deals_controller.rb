@@ -7,18 +7,21 @@ class DealsController < ApplicationController
     depart_dow_i = params[:depart_dow].blank? ? 9 :  params[:depart_dow].to_i
     @topdeals = Deal.top_deals_by_price_by_cities(@destination, duration, depart_dow_i)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
-    params[:chart_id] = @deal_chart
+    #params[:chart_id] = @deal_chart
     @city = City.find_by(code: @destination).photo
-
-    # if params[:chart_id]
-    #   respond_to do |format|
-    #     format.html { redirect_to deals_path }
-    #     format.js  # <-- will render `app/views/deals/index.js.erb`
-    #   end
-    # end
   end
 
+  def chart
+    @deal = Deal.find(params[:id])
+    @data = @deal.get_historical.to_json
+    puts @data
+    respond_to do |format|
 
+        format.html { redirect_to deals_path }
+        format.js  # <-- will render `app/views/deals/index.js.erb`
+      end
+
+  end
 
 
   def show
