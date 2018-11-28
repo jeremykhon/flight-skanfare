@@ -4,23 +4,34 @@
 <% @topdeals.each do |deal| %>
 <div class="half-card <%= 'selected_deal' if n == 0 %>"  style="margin-bottom: 5px;" id="<%= deal.id %>">
   <% n+=1 %>
-  <div class="card-deal" >
-    <p id="initial-price">
-      <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
-    </p>
-    <p id="new-price">
-      <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
-    </p>
-    <p id="discount_2">
-      <%= "#{deal.discount_perc}%" %> from usual
-    </p>
-    <!-- commented out -->
-    <div class="card-deal-description">
-      <h3><%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%></h3>
-    </div>
-    <div class="week_day">
-      <h3><%= "#{(deal.return_date-deal.depart_date).to_i} days, #{deal.depart_date.strftime('%a')} - #{deal.return_date.strftime('%a')}"%></h3>
-    </div>
+  <div class="card-deal">
+
+      <div class="deal-dates">
+        <div class="duration">
+          <%= "#{(deal.return_date-deal.depart_date).to_i} days"%>
+        </div>
+        <div class="week_day">
+          <%= "#{deal.depart_date.strftime('%a')} - #{deal.return_date.strftime('%a')}"%>
+        </div>
+        <div class="long-date">
+          <%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%>
+        </div>
+      </div>
+
+      <div class="deal-price">
+        <div class="original-price">
+          <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
+        </div>
+        <div class="price-now">
+          <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
+        </div>
+        <div class="discount-perc">
+          <%= "#{deal.discount_perc}%" %> from usual
+        </div>
+      </div>
+
+
+
 
     <%= link_to "", chart_path(deal), class: 'card-link', remote: true  %>
 

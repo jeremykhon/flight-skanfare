@@ -74,7 +74,7 @@
       </div>
       <div class="graph-container">
         <div class="graph">
-          <%= area_chart @deal.get_historical %>
+          <%= area_chart [data: @deal.get_historical], legend: false, thousands: "," %>
         </div>
       </div>
     </div>
