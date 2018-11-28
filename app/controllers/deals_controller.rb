@@ -10,11 +10,14 @@ class DealsController < ApplicationController
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
     #params[:chart_id] = @deal_chart
     @city = City.find_by(code: @destination).photo
+
   end
 
   def chart
+
     @deal = Deal.find(params[:id])
     @data = @deal.get_historical.to_json
+
     puts @data
     respond_to do |format|
 

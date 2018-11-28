@@ -137,7 +137,7 @@
 
 .half-card {
   display: flex;
-
+  animation: 500 border;
 }
 
 .card-deal-right {
@@ -152,7 +152,7 @@
   box-shadow: 2px 2px 10px #bdbdbd;
   display: flex;
   justify-content: center;
-  margin-right: 10px;
+
   flex-grow: 3;
 
 }
@@ -185,4 +185,8 @@
 
 .choice-filter {
   width: 120%;
+}
+
+.selected_deal {
+    border-bottom: 5px solid #44A0ED;
 }
