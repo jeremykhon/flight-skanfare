@@ -39,34 +39,43 @@
   <div class="deals-bottom-container">
     <div class="row" style="display: flex;">
       <div class="col-sm-7 nopadding">
-        <div class="preference-filter" style="margin-bottom: 10px; display: flex; justify-content: space-between; align-items: baseline;">
-          <div style="padding-left: 10px;">
-            <h4 style="margin-bottom: 0px; margin-top: 7px; font-size: 28px"><%= "Cheapest Trips to #{@topdeals.first.city.name}" %>
-            </h4>
+        <div class="on-top-of-deals-list">
+        <div class="cheapest-trip">
+            Cheapest Trips to <span style="color: #0062AC"><%= @topdeals.first.city.name %></span>
           </div>
-          <div class="preference-right">
+        <div class="preference-filter">
             <% day_array =[] %>
             <% 21.times do |i|%>
             <% day_array << [pluralize(i, 'day'),i] %>
-            <% day_array[0] =  ['Duration',nil] %>
+            <% day_array[0] =  ['All',nil] %>
             <% end %>
 
             <%= form_tag(deals_path, method: :get, class: 'deals-filter') do %>
-              <%= hidden_field_tag :name, @destination %>
-              <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
-              <% if params[:depart_dow].nil? %>
-                <% ar = ['Day of Week',9] %>
-              <% else %>
-                <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
-              <% end %>
-              <%= select_tag :depart_dow, options_for_select([['Departing on',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
-            <% end %>
-            <!-- Button trigger modal -->
-            <button type="button" class="get-alert" data-toggle="modal" data-target="#myModal">
-            <i class="fas fa-bell"></i> Get Price Alerts</button>
-            <!-- Modal -->
+            <%= hidden_field_tag :name, @destination %>
 
-          </div>
+            <div class="filter-label">
+              <div style="align-self: center">Trip length</div>
+            </div>
+            <div>
+              <%= select_tag :duration, options_for_select(day_array,[params[:duration],'']), :onchange => "this.form.submit()" %>
+            </div>
+            <% if params[:depart_dow].nil? %>
+              <% ar = ['Any day',9] %>
+            <% else %>
+              <% ar = [Deal.dow_int(params[:depart_dow].to_i),params[:depart_dow].to_i] %>
+            <% end %>
+            <div class="filter-label">
+              <div style="align-self: center">Departing day</div>
+            </div>
+            <div>
+              <%= select_tag :depart_dow, options_for_select([['All',9],['Mon',1],['Tue',2],["Wed",3],["Thu",4],["Fri",5],["Sat",6],["Sun",0]],ar), :onchange => "this.form.submit()" %>
+            </div>
+          <% end %>
+          <!-- Button trigger modal -->
+          <button type="button" class="get-alert" data-toggle="modal" data-target="#myModal">
+          <i class="fas fa-bell"></i> Get Price Alerts</button>
+          <!-- Modal -->
+        </div>
         </div>
         <div class="" ids="flight-table">
           <%= render "deals/deals" %>

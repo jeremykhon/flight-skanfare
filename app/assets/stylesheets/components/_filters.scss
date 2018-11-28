@@ -1,3 +1,8 @@
+.on-top-of-deals-list {
+  padding-left: 5px;
+
+}
+
 #depart_dow {
   background-color: white;
   border: none;
@@ -5,6 +10,7 @@
   color: #0062AC;
   margin: 0 10px;
   font-size: 16px;
+
   box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 
 
@@ -14,6 +20,8 @@
 
 #duration {
   background-color: white;
+  margin: 0 10px;
+
   border: none;
   height: 40px;
   color: #0062AC;
@@ -29,13 +37,21 @@
   display: flex;
 }
 
-.preference-right {
+.cheapest-trip {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.preference-filter {
   display: flex;
+  justify-content: space-between;
+  margin: 10px 2px;
 }
 
 .get-alert {
   color: #0062AC;
   border-radius: 5px;
+  padding: 6px 12px;
   font-weight: bold;
   border: none;
   background-color: white;
@@ -51,3 +67,7 @@
   }
 }
 
+.filter-label {
+  display: flex;
+  font-size: 16px;
+}
