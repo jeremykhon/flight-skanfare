@@ -5,6 +5,7 @@ class DealsController < ApplicationController
     @destination = params[:name].nil? ? @best_city_deals_list[0][0] : params[:name]
     duration = params[:duration].nil? ? 0 : params[:duration].to_i
     depart_dow_i = params[:depart_dow].blank? ? 9 :  params[:depart_dow].to_i
+
     @topdeals = Deal.top_deals_by_price_by_cities(@destination, duration, depart_dow_i)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
     #params[:chart_id] = @deal_chart
@@ -43,8 +44,8 @@ class DealsController < ApplicationController
       puts 'part 1'
     else
       response = call_api(@deal)
-      if response.nil?
-        while response.nil? do
+      if response.headers[:location].nil?
+        while response.headers[:location].nil? do
           response = call_api(@deal)
           sleep 1
         end

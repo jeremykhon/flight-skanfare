@@ -69,13 +69,13 @@ class Deal < ApplicationRecord
     result = Deal.where(destination: destination)
 
     if  depart_dow == 9
-      if duration > 1
+      if duration >= 1
         return result.where(duration: duration).order(price: :asc).limit(30)
       else
         return result.order(price: :asc).limit(30)
       end
      else
-      if duration > 1
+      if duration >= 1
         return result.where(duration: duration).where(weekday: depart_dow).order(price: :asc).limit(30)
       else
         return result.where(weekday: depart_dow).order(price: :asc).limit(30)

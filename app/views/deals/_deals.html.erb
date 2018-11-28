@@ -3,17 +3,16 @@
 <% @topdeals.each do |deal| %>
 <div class="half-card" style="margin-bottom: 5px;">
   <div class="card-deal">
-    <p id="new-price">
-      <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
-    </p>
-    <!-- commented out -->
     <p id="initial-price">
       <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
+    </p>
+    <p id="new-price">
+      <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
     </p>
     <p id="discount_2">
       <%= "#{deal.discount_perc}%" %> from usual
     </p>
-
+    <!-- commented out -->
     <div class="card-deal-description">
       <h3><%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%></h3>
     </div>
@@ -22,11 +21,12 @@
     </div>
     <%= link_to "", chart_path(deal), class: 'card-link', remote: true  %>
   </div>
-  <div class="card-deal-left">
-    <div class="card-deal-description-left">
-      <p>Book</p>
+  <div class="card-deal-right">
+    <div class="card-deal-description-right">
+      <%= link_to deal_path(id:deal), class: "book-button", target: :_blank do %>
+      <div>Select</div>
+      <% end %>
     </div>
-    <%= link_to "", deal_path(id:deal), class: 'card-link', target: :_blank %>
   </div>
 </div>
 <% end %>
