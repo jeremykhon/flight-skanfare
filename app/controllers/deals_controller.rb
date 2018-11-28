@@ -3,14 +3,14 @@ class DealsController < ApplicationController
   def index
     @best_city_deals_list = Deal.top_deals_by_cities
     @destination = params[:name].nil? ? @best_city_deals_list[0][0] : params[:name]
-    duration = params[:duration].nil? ? 0 : params[:duration].to_i
-    depart_dow_i = params[:depart_dow].blank? ? 9 :  params[:depart_dow].to_i
-
-
-    @topdeals = Deal.top_deals_by_price_by_cities(@destination, duration, depart_dow_i)
+    @duration = params[:duration].nil? ? 0 : params[:duration].to_i
+    @depart_dow_i = params[:depart_dow].blank? ? 9 :  params[:depart_dow].to_i
+    @topdeals = Deal.top_deals_by_price_by_cities(@destination, @duration, @depart_dow_i)
     @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
     params[:chart_id] = @deal_chart
     @city = City.find_by(code: @destination).photo
+    @preference = Preference.new
+    @user = current_user
   end
 
   def show

@@ -4,7 +4,7 @@ class PreferencesController < ApplicationController
     @preference = Preference.new(preference_params)
     @preference.user = current_user
     if @preference.save
-      redirect_to profile_path
+      redirect_to deals_path
     else
       @user = current_user
       @preferences = Preference.where(user: current_user)
