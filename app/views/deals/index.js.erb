@@ -1,0 +1,3 @@
+console.log('<%= @deal_chart %>')
+let graph = document.getElementById('graph')
+graph.innerHTML = '<%= j render "deals/graph", deal_chart: @deal_chart %>'
