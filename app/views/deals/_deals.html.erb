@@ -1,5 +1,4 @@
 <!-- <div class="card-deal" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');"> -->
-
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
 Get Price Alerts</button>
@@ -9,32 +8,33 @@ Get Price Alerts</button>
   <%= render "deals/preferences_modal" %>
 </div>
 
+<% n = 0 %>
 <% @topdeals.each do |deal| %>
-<div class="half-card" style="margin-bottom: 5px;">
-  <div class="card-deal">
+<div class="half-card <%= 'selected_deal' if n == 0 %>" style="margin-bottom: 5px;" id="<%=deal.id %>">
+  <% n+=1 %>
+  <div class="card-deal" >
     <p id="initial-price">
       <%="¥#{number_with_delimiter(deal.price - deal.discount_abs, delimiter: ",")}" %>
     </p>
     <p id="new-price">
       <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
     </p>
-    <!-- commented out -->
     <p id="discount_2">
       <%= "#{deal.discount_perc}%" %> from usual
     </p>
+    <!-- commented out -->
     <div class="card-deal-description">
       <h3><%= "#{deal.depart_date.strftime('%d %b %Y')} - #{deal.return_date.strftime('%d %b %Y')}"%></h3>
     </div>
     <div class="week_day">
       <h3><%= "#{(deal.return_date-deal.depart_date).to_i} days, #{deal.depart_date.strftime('%a')} - #{deal.return_date.strftime('%a')}"%></h3>
     </div>
-    <%= link_to "", deals_path(name: params[:name],chart_id:deal,duration: params[:duration], depart_dow: params[:depart_dow]), class: 'card-link' %>
+    <%= link_to "", chart_path(deal), class: 'card-link', remote: true  %>
   </div>
   <div class="card-deal-right">
     <div class="card-deal-description-right">
       <%= link_to deal_path(id:deal), class: "book-button", target: :_blank do %>
-      <div>Select
-      </div>
+      <div>Select</div>
       <% end %>
     </div>
   </div>

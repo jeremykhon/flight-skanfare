@@ -26,7 +26,6 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
