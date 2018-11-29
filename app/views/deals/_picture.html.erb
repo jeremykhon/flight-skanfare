@@ -8,6 +8,6 @@
   <div id="graph">
 
 
-  <%= area_chart [data: @deal_chart.get_historical],legend: false, thousands: ",", points: false, min: (@hmin.min.to_f/1000.0).floor*1000, max: (@hmax.max.to_f/1000.0).ceil*1000   %>
+  <%= area_chart [data: @deal_chart.get_historical],legend: false, thousands: ",", points: false, min: (@hmin.min.to_f/5000.0).floor*5000, max: (@hmax.max.to_f/5000.0).ceil*5000   %>
   </div>
 </div>
