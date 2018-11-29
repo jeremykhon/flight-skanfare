@@ -1,26 +1,19 @@
 <!-- <div class="black"></div> -->
 
-<div class="fullscreen" style="background-image: url(<%=asset_path 'background5.jpg'%>)"></div>
+<div class="fullscreen" style="background-image: url(<%=asset_path 'background6.jpg'%>)"></div>
 
 <div class="fullscreen-content">
 
-  <div class="header">
-    <div class="right">
-      <%= image_tag "logo2.png", alt: "skanfare", width: "160px", height: "45px" %>
-    </div>
-  </div>
+  
 
   <section style="position:relative">
     <div class="title" style="position:absolute">
       <%= image_tag "logowhite.png", alt: "skanfare", width: "550px", height: "150px" %>
-      <h5> Best Destinations, Best Dates To Go</h5>
+      <h5> Buy Flights At The Right Time</h5>
 
-      <h2 class="sentence">
         <!-- <div class="slidingVertical"> -->
-          <span id="location-question" style="padding-right: 15px"><i class="fas fa-map-marker-alt"></i> Where are you?</span>
-          <span id="location-tokyo" style="padding-right: 15px"> <i class="fas fa-map-marker-alt"></i> Tokyo</span>
+         <h4 id="destination-home"><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Flights from Tokyo </h4>
         <!-- </div> -->
-      </h2>
       <%= link_to deals_path, method: :get do %>
       <button class="button">Browse Deals</button>
       <% end %>
