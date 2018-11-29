@@ -1,15 +1,11 @@
-$gold: #FFB900;
-$coral: #FC636B;
+$gold: white;
+$coral: white;
 $darkBlue: #1A6FA8;
 
 #page {
   $opacity: 90%;
-  margin-top: 100px;
+  margin-top: 90px;
   align-items: bottom;
-  background: linear-gradient(to top right,
-    mix($coral, white, $opacity) 10%,
-    mix($darkBlue, white, $opacity) 65%,
-    mix($gold, white, $opacity) 125%);
   bottom: 0;
   display: flex;
   justify-content: center;
