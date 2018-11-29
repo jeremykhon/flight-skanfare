@@ -1,36 +1,4 @@
-<div class="navbar-wagon">
-  <!-- Logo -->
-  <a href="/deals" class="navbar-wagon-brand">
-    <%= image_tag "logo2.png", alt: "skanfare", width: "170px", height: "45px" %>
-  </a>
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <div>
-      <h4 id="destination" style="border: 1px solid #1A6FA8;"><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Flights from Tokyo </h4>
-    </div>
-    <%= link_to "Manage Alerts", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <!-- Profile picture with dropdown list -->
-    <!-- duration and days filter end-->
-    <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li>
-        <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-      </li>
-    </ul>
-  </div>
-</div>
-</div>
-<!-- Dropdown appearing on mobile only -->
-<div class="navbar-wagon-item hidden-md hidden-lg">
-  <div class="dropdown">
-    <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
-    <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-      <li><a href="#">Profile</a></li>
-      <li><a href="#">Log Out</a></li>
-    </ul>
-  </div>
-</div>
-</div>
+<%= render "shared/navbar" %>
 <!-- <end of nav bar> -->
 <!-- banner -->
 <div class="banner" style="background-image: url( <%= asset_path((" #{Deal.city(@deal.destination)}.jpg").strip) %>);">

@@ -6,9 +6,7 @@ class PreferencesController < ApplicationController
     if @preference.save
       redirect_to deals_path
     else
-      @user = current_user
-      @preferences = Preference.where(user: current_user)
-      render 'pages/profile'
+      redirect_to profile_path
     end
   end
 
