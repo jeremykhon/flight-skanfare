@@ -23,7 +23,7 @@
         </div>
         <%= f.association :city, label: 'Destination', collection: City.order(:name), required: false, selected: City.find_by(code: @destination)[:id]%>
         <%= f.input :discount, label: "Discount", hint: "Discount from the average historical price", collection: [["Any", 0], ["5%", 5],["10%", 10],["15%", 15],["20%", 20],["25%", 25],["30%", 30],["40%", 40],["50%", 50], ["60%", 60], ["70%", 70]], required: false, selected: 5 %>
-        <%= f.submit "Create Alert", class: "create-alert-button" %>
+        <%= f.submit "Create Alert", class: "create-alert-button", "data-user": (user_signed_in?) %>
         <button type="button" class="cancel-alert-button" data-dismiss="modal">Close</button>
 
         <% end %>
