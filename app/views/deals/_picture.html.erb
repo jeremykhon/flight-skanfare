@@ -8,7 +8,7 @@
 
   <div class="graph-title" id="chart-title">
     <p>
-      <%= "#{@deal_chart.depart_date.strftime('%a %d %b %Y')} - #{@deal_chart.return_date.strftime('%a %d %b %Y')}" %>
+      <%= "#{@deal_chart.depart_date.strftime('%d %b %y')} - #{@deal_chart.return_date.strftime('%d %b %y')} | #{City.find_by(code: @deal_chart.origin).name} to #{@deal_chart.city.name}" %>
     </p>
     <p>
       <%= "Latest Price ¥#{number_with_delimiter(@deal_chart.price, delimiter: ",")}" %>
