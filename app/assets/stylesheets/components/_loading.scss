@@ -4,7 +4,7 @@ $darkBlue: #1A6FA8;
 
 #page {
   $opacity: 90%;
-  margin-top: 90px;
+  margin-top: 200px;
   align-items: bottom;
   bottom: 0;
   display: flex;
@@ -19,9 +19,16 @@ $darkBlue: #1A6FA8;
 #phrase_box {
   display: flex;
   flex-flow: column;
-  height: 150px;
+  height: 200px;
   overflow: hidden;
-  width: 300px;
+  width: 350px;
+  background-color: white;
+  border-radius: 10px;
+  z-index: 100000;
+  opacity: 0.95;
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-bottom: 20px;
 }
 
 #phrases {
