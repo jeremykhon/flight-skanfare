@@ -5,31 +5,43 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-      <div class="profile-container">
-        <p>
-          <%= @user.email  %>
+        <p class="user-email">
+          Your Email: <%= @user.email  %>
         </p>
+      <div class="row">
         <% if @user.preferences%>
         <% @user.preferences.each do |preference| %>
-        <div class="preference">
-          <ul>
-            <li>
-              <%= preference.weekday %>
-            </li>
-            <li>
-              <%= preference.duration %> days</li>
-            <li>
-              <%= preference.city.name  %>
-            </li>
-            <li>
-              <%= preference.discount  %>
-            </li>
-            <li><%= link_to "Delete", preference_path(preference), method: "delete" %></li>
-            <hr>
-          </ul>
+        <div class="col-sm-12">
+          <div class="preference-card">
+            <div class="preference-card-title">&nbsp;</div>
+            <div class="preference-card-content">
+              <ul class="preference-list">
+                <li> trip to Tokyo </li>
+                <li>
+                 weekday: <%= preference.weekday %>
+                </li>
+                <li>
+                  trip duration: <%= preference.duration %> days</li>
+                <li>
+                  destination city: <%= preference.city.name  %>
+                </li>
+                <li>
+                  alert me with a discount of: <span class="underline"></span> <%= preference.discount  %>
+                </li>
+                <li><%= link_to "Delete", preference_path(preference), method: "delete" %></li>
+              </ul>
+              <div>
+                <button class="delete-button">delete</button>
+              </div>
+            </div>
+          </div>
+
         </div>
+
         <% end %>
         <% end %>
+      </div>
+
     </div>
   </div>
 </div>
