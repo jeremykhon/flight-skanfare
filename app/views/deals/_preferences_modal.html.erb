@@ -4,8 +4,13 @@
       <div class="modal-preferences">
 
       <div class="form-container">
-        <h3>Get Price Alerts</h3>
-        <p>Save your preference and we'll let you know when great deals that matches occur</p>
+
+
+        <h3 class="text-center">Get Price Alerts</h3>
+        <div class="alert-image-container">
+          <%= image_tag("alert-illustration.png", class: "alert-illustration") %>
+        </div>
+        <p class="alert-description">Save your preferences and we'll let you know when great deals that matches occur</p>
         <% the_city = City.find_by(name: "Any city") %>
         <%= simple_form_for @preference do |f| %>
         <div class="row">
@@ -18,8 +23,8 @@
         </div>
         <%= f.association :city, label: 'Destination', collection: City.order(:name), required: false, selected: City.find_by(code: @destination)[:id]%>
         <%= f.input :discount, label: "Discount", hint: "Discount from the average historical price", collection: [["Any", 0], ["5%", 5],["10%", 10],["15%", 15],["20%", 20],["25%", 25],["30%", 30],["40%", 40],["50%", 50], ["60%", 60], ["70%", 70]], required: false, selected: 5 %>
-        <%= f.button :submit, class: "btn btn-primary" %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Create Alert", class: "create-alert-button" %>
+        <button type="button" class="cancel-alert-button" data-dismiss="modal">Close</button>
 
         <% end %>
       </div>
