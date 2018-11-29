@@ -1,4 +1,3 @@
 import "bootstrap";
-import './image_animate.js';
-import './home_page_location.js'
-
+import {bindSweetAlertButton} from '../components/create_alert';
+bindSweetAlertButton()
