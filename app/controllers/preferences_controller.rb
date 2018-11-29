@@ -11,6 +11,12 @@ class PreferencesController < ApplicationController
     end
   end
 
+  def destroy
+    @preference = Preference.find(params[:id])
+    @preference.destroy
+    redirect_to profile_path
+  end
+
   def preference_params
     params.require(:preference).permit(:weekday, :duration, :city_id, :discount)
   end

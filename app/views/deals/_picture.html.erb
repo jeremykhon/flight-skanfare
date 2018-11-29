@@ -1,12 +1,19 @@
 
 <div class="graph-card">
-  <div class="graph-title" id="chart-title">
-<p><%= "#{@deal_chart.depart_date.strftime('%a %d %b %Y')} - #{@deal_chart.return_date.strftime('%a %d %b %Y')}" %></p>
-<p><%= "¥#{number_with_delimiter(@deal_chart.price, delimiter: ",")}" %></p>
 
+    <div class="text-center" style="margin-top: 10px; font-size: 20px; color: rgba(0,0,0,0.6)">
+    Historical Price for this Trip
   </div>
 
 
+  <div class="graph-title" id="chart-title">
+    <p>
+      <%= "#{@deal_chart.depart_date.strftime('%a %d %b %Y')} - #{@deal_chart.return_date.strftime('%a %d %b %Y')}" %>
+    </p>
+    <p>
+      <%= "Latest Price ¥#{number_with_delimiter(@deal_chart.price, delimiter: ",")}" %>
+    </p>
+  </div>
   <div id="graph">
 
 

@@ -2,7 +2,7 @@
 var chart = Chartkick.charts["chart-1"];
 chart.updateData(<%= raw @data %>);
 var title = document.getElementById("chart-title");
-title.innerHTML = '<%= raw "<p>#{@deal.depart_date.strftime('%a %d %b %Y')} - #{@deal.return_date.strftime('%a %d %b %Y')}</p><p>¥#{number_with_delimiter(@deal.price, delimiter: ',')}</p>" %>'
+title.innerHTML = '<%= raw "<p>#{@deal.depart_date.strftime('%a %d %b %Y')} - #{@deal.return_date.strftime('%a %d %b %Y')}</p><p>Latest Price ¥#{number_with_delimiter(@deal.price, delimiter: ',')}</p>" %>'
 
 
 var oldSelected = document.querySelector(".selected_deal");
