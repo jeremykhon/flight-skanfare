@@ -1,0 +1,20 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+  <a href="/deals" class="navbar-wagon-brand">
+    <%= image_tag "logo2.png", alt: "skanfare", width: "170px", height: "45px" %>
+  </a>
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <div>
+      <h4 id="destination" style="border: 1px solid #1A6FA8; margin-right: 18px;"><span class="fas fa-map-marker-alt" style="padding-right: 15px"></span>Flights from Tokyo </h4>
+    </div>
+    <%= link_to "Manage Alerts", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% if user_signed_in? %>
+      <%= link_to "Log out", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", :method => :delete %>
+    <% else %>
+      <%= link_to "Log in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
+    <!-- Profile picture with dropdown list -->
+    <!-- duration and days filter end-->
+  </div>
+</div>
