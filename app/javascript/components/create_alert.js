@@ -10,7 +10,7 @@ function bindSweetAlertButton() {
            title: "Alert created!",
            text: "You can view all your alerts on the Manage Alerts page",
            icon: "success",
-           timer: 4000,
+           timer: 5000,
            buttons: false,
          })
     }

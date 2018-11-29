@@ -4,7 +4,7 @@ class PreferencesController < ApplicationController
     @preference = Preference.new(preference_params)
     @preference.user = current_user
     if @preference.save
-      sleep 2
+      sleep 1.5
       redirect_to deals_path
     else
       redirect_to new_user_session_path
