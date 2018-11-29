@@ -28,28 +28,20 @@
                 <li>
                   alert me with a discount of: <span class="underline"></span> <%= preference.discount  %>
                 </li>
+                <li><%= link_to "Delete", preference_path(preference), method: "delete" %></li>
               </ul>
               <div>
                 <button class="delete-button">delete</button>
               </div>
             </div>
           </div>
+
         </div>
 
         <% end %>
         <% end %>
       </div>
 
-<!--         start of preference form -->
-        <div class="form-container">
-          <%= simple_form_for @preference do |f| %>
-          <%= f.input :weekday, collection: [["Monday", 1],["Tuesday", 2],["Wednesday", 3],["Thursday", 4],["Friday", 5],["Saturday", 6],["Sunday", 0]], required: false %>
-          <%= f.input :duration, collection: (1..20), required: false %>
-          <%= f.association :city, required: false %>
-          <%= f.button :submit %>
-          <% end %>
-        </div>
-<!--         end of preference form -->
     </div>
   </div>
 </div>
