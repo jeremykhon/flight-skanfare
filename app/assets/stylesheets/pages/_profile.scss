@@ -1,3 +1,69 @@
 .profile-container {
   margin-top: 60px;
+  margin-bottom: 30px;
 }
+
+.user-email {
+  margin: 20px;
+}
+
+.preference-card {
+  width: 100%;
+  height: 180px;
+  background-color: white;
+  margin: 15px;
+  transition-duration: 0.4s;
+  border-top: 5px solid #44A0ED;
+
+}
+
+.preference-card:hover{
+  box-shadow: 2px 2px 14px 3px #D3D3D3;
+}
+
+// .preference-card-title {
+//   position: absolute;
+//   height: 5px;
+//   width: 100%;
+//   background-color: #44A0ED;
+//   top: 0;
+// }
+
+.preference-card-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preference-list {
+  list-style-type: none;
+  padding: 0px 15px;
+  margin: 0;
+}
+
+.form-container {
+  margin: 40px 0px;
+}
+
+
+.delete-button {
+  padding: 8px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px;
+  cursor: pointer;
+  color: #303030;
+  border: 2px solid #303030;
+  background-color: transparent;
+  transition-duration: 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #D3D3D3;
+  color: #303030;
+  border: 2px solid #D3D3D3;
+}
+
+
+
