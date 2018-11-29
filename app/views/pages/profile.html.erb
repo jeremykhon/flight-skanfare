@@ -31,26 +31,26 @@
                   Notify with Discount Greater than
                 </div>
               </div>
-
-              <div class="preference-values">
-                <div>
-                  <%= Deal.dow_int(preference.weekday) %>
+              <div class="preference-right">
+                <div class="preference-values">
+                  <div>
+                    <%= Deal.dow_int(preference.weekday) %>
+                  </div>
+                  <div>
+                    <%= preference.duration == 0 ? "Any length" : "#{preference.duration} days" %>
+                  </div>
+                  <div>
+                    <%= preference.city.name %>
+                  </div>
+                  <div>
+                    <%= preference.discount %>%
+                  </div>
                 </div>
                 <div>
-                  <%= preference.duration == 0 ? "Any length" : "#{preference.duration} days" %>
+                  <%= link_to preference_path(preference), method: "delete" do%>
+                  <button class="delete-button">delete</button>
+                  <% end %>
                 </div>
-                <div>
-                  <%= preference.city.name %>
-                </div>
-                <div>
-                  <%= preference.discount %>%
-                </div>
-              </div>
-
-              <div>
-                <%= link_to preference_path(preference), method: "delete" do%>
-                <button class="delete-button">delete</button>
-                <% end %>
               </div>
             </div>
           </div>
