@@ -32,7 +32,7 @@
           <%="¥#{number_with_delimiter(deal.price, delimiter: ",")}" %>
         </div>
         <div class="discount-perc">
-          <%= "#{deal.discount_perc}%" %> from usual
+          <%= "#{sprintf("%+d",deal.discount_perc)}%" %> from usual
         </div>
       </div>
 
