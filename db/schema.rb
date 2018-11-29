@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2018_11_28_072213) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "destination"
     t.bigint "city_id"
     t.integer "discount"
     t.index ["city_id"], name: "index_preferences_on_city_id"
