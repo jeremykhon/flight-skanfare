@@ -141,7 +141,7 @@ end
   end
 
   def self.dow_int(dow)
-    h= [ 9=>'Any', 1=>'Mon', 2=>'Tue',3=>'Wed',4=>'Thu',5=>'Fri',6=>'Sat',0=>'Sun']
+    h= { 9=>'Any', 1=>'Mon', 2=>'Tue',3=>'Wed',4=>'Thu',5=>'Fri',6=>'Sat',0=>'Sun' }
     return h[dow.to_i]
   end
 
