@@ -1,4 +1,25 @@
 
+
+.home-button {
+  color: white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-weight: bold;
+  border: none;
+  background-color: #0062AC;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: white;
+    color: #0062AC;
+
+  }
+}
 // Carousel
 .package {
   margin-top: 50vh;
