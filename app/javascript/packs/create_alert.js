@@ -19,4 +19,8 @@ function bindSweetAlertButton() {
   }
 }
 
-export {bindSweetAlertButton}
+console.log('Running sweetalert')
+
+bindSweetAlertButton()
+
+// export {bindSweetAlertButton}

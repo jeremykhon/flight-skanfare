@@ -1,3 +1,3 @@
 import "bootstrap";
-import {bindSweetAlertButton} from '../components/create_alert';
-bindSweetAlertButton()
+// import {bindSweetAlertButton} from '../components/create_alert';
+// bindSweetAlertButton()
