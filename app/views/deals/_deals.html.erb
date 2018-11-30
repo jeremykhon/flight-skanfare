@@ -1,12 +1,12 @@
 
 
 <% n = 0 %>
-<% @hmax =[] %>
-<% @hmin =[] %>
+<% @@hmax =[] %>
+<% @@hmin =[] %>
 
 <% @topdeals.each do |deal| %>
-  <% @hmax << deal.get_historical.map(&:last).max %>
-  <% @hmin << deal.get_historical.map(&:last).min %>
+  <% @@hmax << deal.get_historical.map(&:last).max %>
+  <% @@hmin << deal.get_historical.map(&:last).min %>
       <!-- New -->
 <div class="half-card <%= 'selected_deal' if n == 0 %>"  style="margin-bottom: 5px;" id="<%= deal.id %>">
   <% n+=1 %>
