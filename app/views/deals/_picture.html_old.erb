@@ -1,0 +1,23 @@
+<!--
+<div class="graph-card">
+
+    <div class="text-center" style="margin-top: 10px; font-size: 20px; color: rgba(0,0,0,0.6)">
+    Historical Price for this Trip
+  </div>
+
+  <div class="graph-title" id="chart-title">
+    <p>
+      <%=# "#{@deal_chart.depart_date.strftime('%d %b %y')} - #{@deal_chart.return_date.strftime('%d %b %y')} | #{City.find_by(code: @deal_chart.origin).name} to #{@deal_chart.city.name}" %>
+    </p>
+    <p>
+      <%=# "Latest Price ¥#{number_with_delimiter(@deal_chart.price, delimiter: ",")}" %>
+    </p>
+  </div>
+  <div id="graph">
+
+  <%=# area_chart [data: @deal_chart.get_historical],legend: false, thousands: ",", points: false, min: (@@hmin.min.to_f/5000.0).floor*5000, max: (@@hmax.max.to_f/5000.0).ceil*5000   %>
+
+
+  </div>
+</div>
+ -->

@@ -8,7 +8,7 @@
   <% @@hmax << deal.get_historical.map(&:last).max %>
   <% @@hmin << deal.get_historical.map(&:last).min %>
       <!-- New -->
-<div class="half-card <%= 'selected_deal' if n == 0 %>"  style="margin-bottom: 5px;" id="<%= deal.id %>">
+<div class="half-card"  style="margin-bottom: 5px;" id="<%= deal.id %>">
   <% n+=1 %>
   <div class="card-deal">
 
@@ -37,7 +37,7 @@
       </div>
 
 
-    <%= link_to "", chart_path(deal), class: 'card-link', remote: true  %>
+    <%= link_to "", "#collapseExample-#{n}", { :class => 'card-link', 'data-toggle' => 'collapse' } %>
 
   </div>
   <div class="card-deal-right">
@@ -48,6 +48,15 @@
     </div>
   </div>
 </div>
+
+<div class="collapse" id="collapseExample-<%=n%>">
+  <div class="graph">
+    <%= area_chart [data: deal.get_historical],legend: false, thousands: ",", points: false, min: (@@hmin.min.to_f/5000.0).floor*5000, max: (@@hmax.max.to_f/5000.0).ceil*5000   %>
+  </div>
+</div>
+
+
+
 <% end %>
 
 

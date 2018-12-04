@@ -3,10 +3,9 @@
 <!-- carousel -->
 <%= render "deals/cities" %>
 <!-- deal cards and graph -->
-<div class="container" style="width: 80vw; margin-top: 10px;">
-  <div class="deals-bottom-container">
-    <div class="row" style="display: flex;">
-      <div class="col-sm-7 nopadding">
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3 col-xs-12">
         <div class="on-top-of-deals-list">
         <div class="cheapest-trip">
             Cheapest Trips to <span style="color: #0062AC"><%= @topdeals.first.city.name %></span>
@@ -47,11 +46,6 @@
         </div>
         <div class="" ids="flight-table">
           <%= render "deals/deals" %>
-        </div>
-      </div>
-      <div class="col-sm-5 nopadding" style="display: flex; flex-direction: column">
-        <div class="picture-table">
-          <%= render "deals/picture" %>
         </div>
       </div>
     </div>
