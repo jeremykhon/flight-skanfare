@@ -68,7 +68,6 @@
       <div class="graph-container">
         <div class="graph">
          <%= area_chart [data: @deal.get_historical],legend: false, thousands: ",", points: false, min: (@@hmin.min.to_f/5000.0).floor*5000, max: (@@hmax.max.to_f/5000.0).ceil*5000   %>
-
         </div>
       </div>
     </div>
