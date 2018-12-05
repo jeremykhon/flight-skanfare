@@ -10,23 +10,17 @@ class DealsController < ApplicationController
     @city = City.find_by(code: @destination).photo
     @preference = Preference.new
     @user = current_user
-
     @data = @deal_chart.get_historical.to_json
-
   end
 
   def chart
-
     @deal = Deal.find(params[:id])
     @data = @deal.get_historical.to_json
-
     puts @data
     respond_to do |format|
-
-        format.html { redirect_to deals_path }
-        format.js  # <-- will render `app/views/deals/index.js.erb`
-      end
-
+      format.html { redirect_to deals_path }
+      format.js  # <-- will render `app/views/deals/index.js.erb`
+    end
   end
 
 
@@ -58,19 +52,13 @@ class DealsController < ApplicationController
       @itineraries = []
       @key = response.headers[:location].split("/").last
     end
-
-      # respond_to do |format|
-      #   format.html { redirect_to deal_path(@deal) }
-      #   format.js
-      # end
   end
 
   def call_api(deal)
     response = Unirest.post "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/v1.0",
         headers:{
           "Content-Type" => "application/x-www-form-urlencoded",
-          "X-Mashape-Key" => ENV["RAPID_API_KEY"],
-          "X-Mashape-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+          "X-RapidAPI-Key" => ENV["RAPID_API_KEY"],
         },
         parameters:{
           "country" => "JP",
@@ -95,10 +83,8 @@ class DealsController < ApplicationController
     response = Unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/uk2/v1.0/#{session_id}?sortType=price&sortOrder=asc&stops=0&pageIndex=0&pageSize=10",
     headers: {
       "Accept" => "application/json",
-      "X-Mashape-Key" => ENV["RAPID_API_KEY"],
-      "X-Mashape-Host" => "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com"
+      "X-RapidAPI-Key" => ENV["RAPID_API_KEY"],
     })
-    p headers
     return response.body
   end
 
