@@ -1,0 +1,181 @@
+
+// fake
+
+.plane-ticket-fake {
+  width: 100%;
+  background-color: rgba(255,255,255,0.45);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+  list-style-type: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.line-fake {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 70%;
+  border-left: 1.5px dashed rgba(0,0,0,0.1);
+}
+
+// fake
+
+
+.plane-ticket {
+  width: 100%;
+  height: 220px;
+  background-color: white;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+  list-style-type: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding-right: 10px;
+  position: relative;
+  display: flex;
+  text-align: center;
+
+  .price {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .detail-button {
+      padding: 8px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 30px 20px;
+      cursor: pointer;
+      color: #1A6FA8;
+      border: 2px solid #1A6FA8;
+      background-color: transparent;
+      transition-duration: 0.4s;
+    }
+
+    .detail-button:hover {
+      background-color: #1A6FA8;
+      color: white;
+      border: 2px solid #1A6FA8;
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+
+  .destination-time {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 40px;
+
+    .depart-return-carrier {
+      margin: auto;
+      font-size: 25px;
+      font-weight: bold;
+      
+    }
+  }
+
+}
+
+.line {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  bottom: 0;
+  left: 70%;
+  border-left: 1.5px dashed #C0C0C0;
+}
+
+.line:before,
+.line:after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #F0F0F0;
+  border-radius: 20px;
+  position: absolute;
+  top: -5px;
+  z-index: 5;
+  left: -7.6px;
+}
+
+.line:after {
+  top: 96%;
+}
+
+
+
+
+// banner
+
+
+
+// plane ticket
+.flight-container {
+    display: flex;
+    justify-content: space-between;
+  
+    .in-outbound {
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      margin: 10px;
+  
+      .arrow-duration {
+        display: flex;
+        flex-direction: column;
+  
+        .duration {
+          color: rgba(0, 0, 0, 0.3);
+        }
+      }
+  
+      .date-time-pair {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+  
+        .airport {
+          color: rgba(0, 0, 0, 0.3);
+        }
+      }
+  
+    }
+  }
+  
+  // itinerary and graph
+  
+  .itinerary {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 0 25px;
+    margin-top: 35px;
+  
+    .duration {
+      align-self: center;
+    }
+  
+    .origin-destination {
+      margin: 25px;
+      display: flex;
+      flex-direction: column;
+  
+      .city-name {
+        align-self: center;
+        font-size: 25px;
+        font-weight: bold;
+      }
+    }
+  }
+  

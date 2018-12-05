@@ -10,7 +10,7 @@
   </div>
 </div>
 <!-- end of banner -->
-<div class="wide-container">
+<div class="container">
   <div class="row">
     <div class="col-sm-8">
       <div style="display: flex">
@@ -47,28 +47,18 @@
       <div class="itinerary">
         <div class="origin-destination">
           <div class="city-name">
-            <%= City.find_by(code: @deal.origin).name %>
+            <%= "#{City.find_by(code: @deal.origin).name} - #{@deal.city.name}" %>
           </div>
-          <div>
-            <%= @deal.depart_date.strftime("%a %e %b %y") %>
+          <div class="depart-return">
+            <%= "Depart #{@deal.depart_date.strftime("%a %e %b %y")}" %>
           </div>
-        </div>
-        <p class="duration">
-          <%= "#{@deal.duration} days"%>
-        </p>
-        <div class="origin-destination">
-          <div class="city-name">
-            <%= @deal.city.name %>
-          </div>
-          <div>
-            <%= @deal.return_date.strftime("%a %e %b %y") %>
+          <div class="depart-return">
+             <%= "Return #{@deal.return_date.strftime("%a %e %b %y")}" %>
           </div>
         </div>
       </div>
       <div class="graph-container">
-        <div class="graph">
          <%= area_chart [data: @deal.get_historical],legend: false, thousands: ",", points: false, min: (@min_max[0].to_f/5000.0).floor*5000, max: (@min_max[1].to_f/5000.0).ceil*5000   %>
-        </div>
       </div>
     </div>
   </div>
