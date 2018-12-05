@@ -1,13 +1,7 @@
 
 
 <% n = 0 %>
-<% @@hmax =[] %>
-<% @@hmin =[] %>
-
-<% @topdeals.each do |deal| %>
-  <% @@hmax << deal.get_historical.map(&:last).max %>
-  <% @@hmin << deal.get_historical.map(&:last).min %>
-      <!-- New -->
+<% @top_deals.each do |deal| %>
 <div class="half-card"  style="margin-bottom: 5px;" id="<%= deal.id %>">
   <% n+=1 %>
   <div class="card-deal">
@@ -42,7 +36,7 @@
   </div>
   <div class="card-deal-right">
     <div class="card-deal-description-right">
-      <%= link_to deal_path(id:deal), class: "book-button", target: :_blank do %>
+      <%= link_to deal_path(id:deal, min_max:@min_max), class: "book-button", target: :_blank do %>
       <div>View</div>
       <% end %>
     </div>
@@ -54,7 +48,7 @@
     <div class="text-center" style="color: rgba(0,0,0,0.4)">
       Historical Price of this Trip
     </div>
-    <%= area_chart [data: deal.get_historical],legend: false, thousands: ",", points: false, min: (@@hmin.min.to_f/5000.0).floor*5000, max: (@@hmax.max.to_f/5000.0).ceil*5000, xtitle: "Time", ytitle: "Price" %>
+    <%= area_chart [data: deal.get_historical],legend: false, thousands: ",", points: false, min: (@min_max[0].to_f/5000.0).floor*5000, max: (@min_max[1].to_f/5000.0).ceil*5000, ytitle: "Price" %>
   </div>
 </div>
 

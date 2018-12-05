@@ -5,12 +5,24 @@ class DealsController < ApplicationController
     @destination = params[:name].nil? ? @best_city_deals_list[0][0] : params[:name]
     @duration = params[:duration].nil? ? 0 : params[:duration].to_i
     @depart_dow_i = params[:depart_dow].blank? ? 9 :  params[:depart_dow].to_i
-    @topdeals = Deal.top_deals_by_price_by_cities(@destination, @duration, @depart_dow_i)
-    @deal_chart = params[:chart_id].nil? ? @topdeals.first : Deal.find(params[:chart_id])
+    @top_deals = Deal.top_deals_by_price_by_cities(@destination, @duration, @depart_dow_i)
+    @min_max = calc_min_max(@top_deals)
+    @deal_chart = params[:chart_id].nil? ? @top_deals.first : Deal.find(params[:chart_id])
     @city = City.find_by(code: @destination).photo
     @preference = Preference.new
     @user = current_user
     @data = @deal_chart.get_historical.to_json
+  end
+
+  def calc_min_max(top_deals)
+    all_prices = []
+    top_deals.each do |deal| 
+      each_deal_prices = deal.get_historical.map { |point| point[1] }
+      all_prices << each_deal_prices
+    end
+    min_price = all_prices.flatten.min
+    max_price = all_prices.flatten.max
+    return [min_price, max_price]
   end
 
   def chart
@@ -26,6 +38,7 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
+    @min_max = params[:min_max]
     @itineraries = []
   end
 
