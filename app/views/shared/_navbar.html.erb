@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/deals" class="navbar-wagon-brand">
-    <%= image_tag "logo2.png", alt: "skanfare", width: "170px", height: "45px" %>
+    <%= image_tag "logo2.png", alt: "skanfare", class: "logo" %>
   </a>
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -14,7 +14,20 @@
     <% else %>
       <%= link_to "Log in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-    <!-- Profile picture with dropdown list -->
-    <!-- duration and days filter end-->
+  
+  </div>
+
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%= link_to "Manage Alerts", profile_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <% if user_signed_in? %>
+        <li><%= link_to "Log out", destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", :method => :delete %></li>
+        <% else %>
+        <li><%= link_to "Log in", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
